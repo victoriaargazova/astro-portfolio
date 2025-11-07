@@ -1,58 +1,27 @@
 ---
-import NavMenu from "../components/NavMenu.astro";
-const { title = "", description = "" } = Astro.props;
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
+<BaseLayout title="Home">
+  <h1>Victoria Argazova</h1>
+  <h2 style="font-weight:400; margin-bottom:1.5rem;">Digital Design Student Creating Immersive Experiences</h2>
+  <p>
+    I'm a digital design student at Devine (Kortrijk, Belgium) passionate about blending storytelling, animation, and interaction. My mission? To make every project a memorable experience.
+  </p>
+  <section style="margin:2rem 0;">
+    <h3>Favorite Project</h3>
+    <strong>Marie Antoinette Figma Website</strong>
+    <p>Visual storytelling inspires everything I make. My favorite project is an interactive website I designed in Figma about Marie Antoinette, exploring narrative and user engagement through visuals.</p>
+  </section>
+  <section style="margin:2rem 0;">
+    <h3>Selected Work</h3>
+    <ul>
+      <li><strong>Repurposing Bulb Website:</strong> Storytelling website <a href="/projects/repurposing-bulb">View Project</a></li>
+      <li><strong>Thrive Beer Campaign:</strong> Branding and storytelling for a Belgian alcohol-free beer. <a href="/projects/thrive-beer-campaign">View Project</a></li>
+    </ul>
+  </section>
+  <section style="margin:2rem 0; text-align:center;">
+    <h3>Let’s Connect</h3>
+    <p>Want to collaborate or chat about digital storytelling? <a href="mailto:v.argazova@email.com">Contact me</a></p>
+  </section>
+</BaseLayout>
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>
-            {title ? `${title} | Victoria Argazova` : "Victoria Argazova"}
-        </title>
-        {description && <meta name="description" content={description} />}
-        <style>
-            body {
-                font-family: system-ui, Arial, sans-serif;
-                margin: 0;
-                background: #fff;
-                color: #202030;
-                max-width: 480px;
-                margin-left: auto;
-                margin-right: auto;
-                padding: 0 1.2rem;
-                min-height: 100vh;
-            }
-            main {
-                margin-top: 1.5rem;
-            }
-            nav {
-                display: flex;
-                gap: 1.5rem;
-                justify-content: center;
-                background: #f3f4f6;
-                padding: 0.75rem 0;
-                border-bottom: 1px solid #eee;
-            }
-            nav a {
-                text-decoration: none;
-                color: #202040;
-                font-weight: bold;
-                font-size: 1rem;
-            }
-            nav a:active,
-            nav a:focus,
-            nav a:hover {
-                color: #6c63ff;
-            }
-        </style>
-    </head>
-    <body>
-        <header>
-            <NavMenu />
-        </header>
-        <main>
-            <slot />
-        </main>
-    </body>
-</html>
