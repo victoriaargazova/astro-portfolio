@@ -1,58 +1,28 @@
 ---
-import NavMenu from "../components/NavMenu.astro";
-const { title = "", description = "" } = Astro.props;
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
+import "../style/global.css";
+const { pageTitle } = Astro.props;
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>
-			{title ? `${title} | Victoria Argazova` : "Victoria Argazova"}
-		</title>
-		{description && <meta name="description" content={description} />}
-		<style>
-			body {
-				font-family: system-ui, Arial, sans-serif;
-				background: #fff;
-				margin: 0;
-				color: #222;
-				max-width: 480px;
-				margin-left: auto;
-				margin-right: auto;
-				padding: 0 1.1rem;
-				min-height: 100vh;
-			}
-			nav {
-				display: flex;
-				gap: 1.2rem;
-				justify-content: center;
-				background: #f5f5fa;
-				padding: 0.8rem 0;
-				border-bottom: 1px solid #eaeaea;
-			}
-			nav a {
-				text-decoration: none;
-				color: #222;
-				font-weight: 600;
-				font-size: 1rem;
-			}
-			nav a:active,
-			nav a:focus,
-			nav a:hover {
-				color: #6c63ff;
-			}
-			main {
-				margin-top: 2rem;
-			}
-		</style>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+
 	</head>
 	<body>
-		<header>
-			<NavMenu />
-		</header>
-		<main>
+		<Navigation />
+		<section class="container">
+			<h1>{pageTitle}</h1>
 			<slot />
-		</main>
+		</section>
+		<Footer />
+
+		<body>
+			<script src="../js/navmenu.js"></script>
+		</body>
 	</body>
 </html>

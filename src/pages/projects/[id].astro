@@ -1,0 +1,43 @@
+---
+import { getCollection, getEntry } from "astro:content"; 
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import type { CollectionEntry } from "astro:content";
+
+export async function getStaticPaths() {
+    const projects: CollectionEntry<"projects">[] =
+        await getCollection("projects");
+    return projects.map((project) => ({
+  
+        params: { id: project.slug },
+        props: { slug: project.slug }, 
+    }));
+}
+
+
+const { slug } = Astro.props;
+
+
+const entry = await getEntry("projects", slug);
+
+if (!entry) {
+ 
+    return Astro.redirect("/404");
+}
+
+
+const { Content } = await entry.render();
+---
+
+<BaseLayout pageTitle={entry.data.title}>
+
+    {
+
+    }
+    <p>Published: {entry.data.pubDate.toDateString()}</p>
+
+    <hr />
+
+    <article>
+        <Content />
+    </article>
+</BaseLayout>
