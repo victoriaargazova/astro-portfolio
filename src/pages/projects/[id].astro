@@ -1,42 +1,30 @@
 ---
-import { getCollection, getEntry } from "astro:content"; 
+import { getEntry, getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import type { CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
-    const projects: CollectionEntry<"projects">[] =
-        await getCollection("projects");
-    return projects.map((project) => ({
-  
-        params: { id: project.slug },
-        props: { slug: project.slug }, 
+    const blogPosts = await getCollection("projects");
+    return blogPosts.map((post) => ({
+        params: { id: post.id },
     }));
 }
 
-
-const { slug } = Astro.props;
-
-
-const entry = await getEntry("projects", slug);
+const { id } = Astro.params;
+const entry = await getEntry("projects", id);
 
 if (!entry) {
- 
     return Astro.redirect("/404");
 }
 
-
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 ---
 
 <BaseLayout pageTitle={entry.data.title}>
-
-    {
-
-    }
-    <p>Published: {entry.data.pubDate.toDateString()}</p>
-
+    <p><strong>By:</strong> {entry.data.author}</p>
+    <p><strong>Published:</strong> {entry.data.pubDate.toDateString()}</p>
+    <p><em>{entry.data.description}</em></p>
+    <p><strong>Tags:</strong> {entry.data.tags.join(", ")}</p>
     <hr />
-
     <article>
         <Content />
     </article>

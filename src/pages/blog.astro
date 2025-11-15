@@ -1,18 +1,18 @@
 ---
-import { getCollection } from "astro:content";
-import type { CollectionEntry } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-const posts: CollectionEntry<"blog">[] = await getCollection("blog");
 
+const blogPosts: CollectionEntry<"blog">[] = await getCollection("blog");
 ---
 
 <BaseLayout pageTitle="Blog">
+    <h1>Blog Posts</h1>
     <ul>
         {
-           posts.map((post) => (
+            blogPosts.map((post) => (
                 <li>
-                    <a href={`/blog/${post.slug}`}>{post.data.title}</a>
-                    <p>{post.data.description}</p>
+                    <a href={`/blog/${post.id}`}>{post.data.title}</a> —{" "}
+                    {new Date(post.data.pubDate).toDateString()}
                 </li>
             ))
         }

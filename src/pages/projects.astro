@@ -1,20 +1,18 @@
 ---
-import { getCollection } from "astro:content";
-import type { CollectionEntry } from "astro:content"; // Import the type
+import { getCollection, type CollectionEntry } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-const projects: CollectionEntry<"projects">[] = await getCollection("projects"); // Type your array
+
+const projects: CollectionEntry<"projects">[] = await getCollection("projects");
 ---
 
-<BaseLayout pageTitle="Projects">
-
+<BaseLayout pageTitle="Project">
+    <h1>Projects</h1>
     <ul>
         {
             projects.map((project) => (
                 <li>
-                    <a href={`/projects/${project.slug}`}>
-                        {project.data.title}
-                    </a>
-                    <p>{project.data.description}</p>
+                    <a href={`/projects/${project.id}`}>{project.data.title}</a> —{" "}
+                    {new Date(project.data.pubDate).toDateString()}
                 </li>
             ))
         }
