@@ -1,33 +1,30 @@
 /* ----------------------------------------------
-   NAV WRAPPER
+   NAV — DESKTOP
 ---------------------------------------------- */
 .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 3rem;
+    position: relative;
+    z-index: 20;
 }
 
-/* ----------------------------------------------
-   LOGO (VA)
----------------------------------------------- */
 .nav__logo {
     font-family: var(--display-font);
     font-size: 2rem;
     color: var(--main-color);
     text-decoration: none;
-    letter-spacing: 0.02em;
 }
 
 /* ----------------------------------------------
    HAMBURGER BUTTON
 ---------------------------------------------- */
 .nav__button {
-    border: none;
     background: none;
+    border: none;
     cursor: pointer;
     display: none;
-    /* hidden on desktop */
 }
 
 .nav__icon {
@@ -36,7 +33,7 @@
 }
 
 /* ----------------------------------------------
-   NAV LIST (DESKTOP)
+   DESKTOP MENU
 ---------------------------------------------- */
 .nav__list {
     display: flex;
@@ -44,18 +41,18 @@
 }
 
 .nav__list a {
+    text-transform: uppercase;
     color: var(--main-color);
     font-weight: 700;
-    text-transform: uppercase;
-    position: relative;
     text-decoration: none;
+    position: relative;
 }
 
-/* Underline hover */
+/* underline hover */
 .nav__list a::after {
     content: "";
     position: absolute;
-    bottom: -2px;
+    bottom: -3px;
     left: 0;
     height: 2px;
     width: 0%;
@@ -68,38 +65,62 @@
 }
 
 /* ----------------------------------------------
-   MOBILE MENU
+   MOBILE STYLES
 ---------------------------------------------- */
 @media (max-width: 700px) {
 
     .nav__button {
         display: block;
+        z-index: 40;
     }
 
-    /* START HIDDEN */
+    /* The mobile menu starts hidden but accessible */
     .nav__list {
-        display: none;
+        position: fixed;
+        inset: 0;
+        background: var(--background-color);
+
+        /* ACCESSIBLE HIDING (not display:none) */
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 1.5rem;
-
-        /* full-width dropdown feel */
-        width: 100%;
-        padding: 2rem 0;
-        margin-top: 1.5rem;
-
-        background: var(--background-color);
-        border-top: 2px solid var(--main-color);
+        gap: 2rem;
+background: var(--bg-nav);
+        transition: opacity 0.35s ease, visibility 0.35s ease;
+        z-index: 30;
     }
 
-    /* When open: show */
+    /* When open — fade in */
     .nav__list.nav--open {
-        display: flex;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
     }
 
-    /* make links bigger on mobile */
+    /* bigger links */
     .nav__list a {
-        font-size: 1.4rem;
+        font-size: 2rem;
+    }
+
+    /* logo hides when menu open */
+    .nav.nav--menu-open .nav__logo {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+}
+
+/* fade animation (extra smoothness) */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
     }
 }

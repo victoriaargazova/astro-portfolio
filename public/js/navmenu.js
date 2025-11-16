@@ -1,3 +1,4 @@
+const nav = document.querySelector(".nav");
 const navButton = document.querySelector(".nav__button");
 const navList = document.querySelector(".nav__list");
 const navIcon = document.querySelector(".nav__icon");
@@ -5,13 +6,15 @@ const navIcon = document.querySelector(".nav__icon");
 navButton.addEventListener("click", () => {
     const expanded = navButton.getAttribute("aria-expanded") === "true";
 
-    navButton.setAttribute("aria-expanded", String(!expanded));
+    navButton.setAttribute("aria-expanded", !expanded);
 
     if (!expanded) {
         navList.classList.add("nav--open");
+        nav.classList.add("nav--menu-open");
         navIcon.src = "/icons/close.svg";
     } else {
         navList.classList.remove("nav--open");
+        nav.classList.remove("nav--menu-open");
         navIcon.src = "/icons/navicon.svg";
     }
 });

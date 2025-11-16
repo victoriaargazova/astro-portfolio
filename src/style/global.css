@@ -2,213 +2,165 @@
    GLOBAL VARIABLES
 ---------------------------------------------------- */
 :root {
-    --background-gradient: linear-gradient(135deg,
-            #fff8fb 0%,
-            #ffeef4 40%,
-            #ffdce6 100%);
-    /* soft, fun white-pink */
+    --bg-black: radial-gradient(circle at left top, #ff4f87 0%, transparent 45%),
+        linear-gradient(135deg, #14141c 0%, #090910 60%);
+            --bg-nav: radial-gradient(circle at center , #ff4f87 0%, transparent 45%),
+                    linear-gradient(135deg, #14141c 0%, #090910 60%);
+        /* graphite black */
+        --bg-gradient-pink: radial-gradient(circle at top, rgba(255, 100, 150, 0.25), transparent 70%);
+        --main-color: #fcc8da;
+        /* modern pink/red accent */
+        --accent-color: hsl(340, 100%, 77%);
+        --text-color: #ffe8f0;
 
-    --text-color: #3c0000;
-
-    --main-color: #540101;
-    /* deep red */
-    --accent-color: #a50404;
-    /* brighter red */
-
+    /* Fonts */
     --display-font: "Impact", Haettenschweiler, "Arial Black", sans-serif;
     --body-font: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    --cursive-font: "Brush Script MT", cursive;
 
-    --radius-lg: 1.6rem;
-    --radius-md: 1rem;
+    /* Typography scale */
+    --fs-xs: 0.75rem;
+    --fs-sm: 0.9rem;
+    --fs-base: 1rem;
+    --fs-lg: 1.25rem;
+    --fs-xl: 1.8rem;
+    --fs-xxl: 3rem;
+    --fs-hero: clamp(3rem, 12vw, 6rem);
 
-    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.06);
-    --shadow-hover: 0 18px 40px rgba(0, 0, 0, 0.12);
+    /* Spacing Scale */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 3rem;
+    --space-xl: 5rem;
+
+    /* Container widths */
+    --max-width: 1200px;
+
+    /* Shadows */
+    --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.15);
+    --shadow-strong: 0 20px 40px rgba(0, 0, 0, 0.25);
 }
 
 /* ----------------------------------------------------
-   RESET
+   GLOBAL RESETS
 ---------------------------------------------------- */
-*,
-*::before,
-*::after {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 html {
-    background: var(--background-gradient);
-    font-family: var(--body-font);
     scroll-behavior: smooth;
 }
 
 body {
+    background: var(--bg-black);
     color: var(--text-color);
-    padding: 2.5rem;
-    max-width: 1000px;
-    margin: 0 auto 6rem auto;
+    font-family: var(--body-font);
     line-height: 1.6;
+    margin: 0 auto;
+    padding: 0 var(--space-md) var(--space-xl) var(--space-md);
+    max-width: var(--max-width);
 }
 
+/* Images */
 img {
     max-width: 100%;
     display: block;
-    border-radius: var(--radius-lg);
 }
 
+/* Lists */
 ul,
 li {
     list-style: none;
 }
 
-/* ----------------------------------------------------
-   HERO SECTION (BIG + CENTERED + ISOLATED)
----------------------------------------------------- */
-.hero {
-    text-align: center;
-    margin-top: 6rem;
-    margin-bottom: 8rem;
-}
-
-.hero-image {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    margin: 0 auto 2rem auto;
-    object-fit: cover;
-    box-shadow: var(--shadow-soft);
-}
-
-.hero-welcome {
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
+/* Links */
+a {
+    text-decoration: none;
     color: var(--accent-color);
-    margin-bottom: 1.5rem;
-}
-
-.hero-title {
-    font-family: var(--display-font);
-    font-size: clamp(3rem, 12vw, 8rem);
-    text-transform: uppercase;
-    color: var(--main-color);
-    line-height: 0.9;
-    margin-bottom: 1rem;
-}
-
-.hero-subtitle {
-    font-size: clamp(1.4rem, 3.5vw, 2rem);
-    font-weight: 700;
-    color: var(--accent-color);
-    margin-top: 0.5rem;
-}
-
-.hero p {
-    max-width: 60ch;
-    margin: 2rem auto 0 auto;
-    font-size: 1.2rem;
-    opacity: 0.85;
 }
 
 /* ----------------------------------------------------
-   SECTION TITLES
+   TYPOGRAPHY BASE
 ---------------------------------------------------- */
-.section-title {
-    margin-top: 6rem;
-    margin-bottom: 2.5rem;
+h1,
+h2,
+h3,
+h4 {
     font-family: var(--display-font);
-    font-size: clamp(2.5rem, 7vw, 4.5rem);
-    color: var(--main-color);
-    text-transform: uppercase;
-    line-height: 0.9;
-    letter-spacing: 0.02em;
-}
-
-/* ----------------------------------------------------
-   SELECTED WORK — MODERN, SINGLE-COLOR TILE
----------------------------------------------------- */
-.work-card {
-    display: block;
-    background: linear-gradient(145deg,
-            #fff1f5,
-            #ffdbe7,
-            #ffc8d4);
-    border-radius: var(--radius-lg);
-    padding: 0;
-    overflow: hidden;
-
-    box-shadow: var(--shadow-soft);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.work-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-hover);
-}
-
-.work-card img {
-    border-radius: 0;
-    width: 100%;
-}
-
-.work-card-title {
-    padding: 1.7rem 2rem;
-    font-size: 1.7rem;
     font-weight: 900;
-    text-transform: uppercase;
-    color: var(--main-color);
+    line-height: 1.1;
+    color: var(--text-color);
+}
+
+p {
+    font-size: var(--fs-base);
+    line-height: 1.6;
+    max-width: 65ch;
+}
+
+/* Cursive element utility */
+.cursive {
+    font-family: var(--cursive-font);
 }
 
 /* ----------------------------------------------------
-   LET'S CONNECT
+   LAYOUT UTILITIES
 ---------------------------------------------------- */
-.connect {
-    margin-top: 5rem;
+.section {
+    padding: var(--space-xl) 0;
 }
 
-.connect p {
-    max-width: 55ch;
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
+.section-title {
+    margin-bottom: var(--space-md);
+    font-size: var(--fs-xxl);
 }
 
-.connect a {
-    font-weight: 800;
-    color: var(--accent-color);
-    text-decoration: underline;
-}
-
-/* ----------------------------------------------------
-   FOOTER
----------------------------------------------------- */
-footer {
-    margin-top: 7rem;
-    padding: 2.3rem;
+.center {
     text-align: center;
-    color: var(--main-color);
-    opacity: 0.7;
-    font-size: 1rem;
 }
 
-footer a {
-    color: var(--accent-color);
-    font-weight: 700;
+.grid {
+    display: grid;
+    gap: var(--space-lg);
+}
+
+.flex {
+    display: flex;
+    gap: var(--space-md);
 }
 
 /* ----------------------------------------------------
-   RESPONSIVE
+   RESPONSIVE UTILITIES ONLY
 ---------------------------------------------------- */
-@media (max-width: 700px) {
+/* Phone */
+@media (max-width: 600px) {
     body {
-        padding: 1.5rem;
+        padding: 0 var(--space-sm);
     }
 
-    .hero {
-        margin-top: 4rem;
-        margin-bottom: 6rem;
+    .section-title {
+        font-size: 2.2rem;
     }
 
-    .work-card-title {
-        font-size: 1.4rem;
+    p {
+        font-size: 1rem;
+    }
+}
+
+/* Tablet */
+@media (min-width: 601px) and (max-width: 999px) {
+    .section-title {
+        font-size: 2.7rem;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1000px) {
+    .section-title {
+        font-size: 3.5rem;
     }
 }

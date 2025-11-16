@@ -1,0 +1,200 @@
+/* ----------------------------------------------------
+   PAGE WRAPPER
+---------------------------------------------------- */
+.home-page {
+    padding: var(--space-md);
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+/* Shared spacing */
+.home-section {
+    margin: var(--space-xl) 0;
+}
+
+/* Section titles */
+.home-section h2 {
+    font-family: var(--display-font);
+    text-transform: uppercase;
+    color: var(--main-color);
+    font-size: var(--fs-xl);
+    line-height: 0.95;
+        text-transform: uppercase;
+}
+
+/* Paragraphs */
+.home-section p {
+    max-width: 60ch;
+    margin: var(--space-sm) auto;
+    line-height: 1.6;
+    font-size: var(--fs-xl);
+}
+
+/* ----------------------------------------------------
+   HERO — centered on all screens
+---------------------------------------------------- */
+.hero {
+    text-align: center;
+    padding-top: var(--space-lg);
+    margin-bottom: var(--space-xl);
+}
+
+/* Welcome */
+.hero-welcome {
+    font-family: var(--display-font);
+    font-size: var(--fs-xxl);
+    color: var(--main-color);
+    margin-bottom: var(--space-sm);
+}
+
+/* Image wrapper */
+.hero-image-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--space-sm);
+}
+
+.hero-img {
+    width: min(300px, 60vw);
+    border-radius: 1.2rem;
+}
+
+/* Arrow + Victoria’s */
+.hero-arrow-block {
+    text-align: center;
+    margin-bottom: var(--space-sm);
+}
+
+.hero-arrow-block .arrow {
+    display: block;
+    font-size: var(--fs-xl);
+    color: var(--accent-color);
+}
+
+.hero-arrow-block p {
+    font-family: var(--cursive-font);
+    font-size: var(--fs-xl);
+    color: var(--accent-color);
+}
+
+/* Portfolio */
+.hero-portfolio {
+    font-family: var(--display-font);
+    font-size: var(--fs-hero);
+    text-transform: uppercase;
+    color: var(--main-color);
+    line-height: 1;
+}
+
+/* ----------------------------------------------------
+   SELECTED WORK — CARD
+---------------------------------------------------- */
+.work-card {
+    background: #ffb1cccc;
+    border-radius: 1.2rem;
+    padding: var(--space-md);
+    display: block;
+    text-decoration: none;
+    color: var(--main-color);
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    margin: 0 auto;
+    max-width: 450px;
+    margin-top: var(--space-md);
+}
+
+.work-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-strong);
+}
+
+.work-card img {
+    width: 100%;
+    border-radius: 1rem;
+    margin-bottom: var(--space-sm);
+}
+
+.work-card-title {
+    font-family: var(--display-font);
+    font-size: var(--fs-xl);
+    color: #28000ecc;
+ 
+}
+
+/* ----------------------------------------------------
+   TABLET LAYOUT
+---------------------------------------------------- */
+@media (min-width: 700px) and (max-width: 1024px) {
+
+    .home-section {
+        text-align: left;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-lg);
+        align-items: start;
+    }
+
+    .tablet-title-left {
+        grid-column: 1;
+    }
+
+    .tablet-content-right {
+        grid-column: 2;
+    }
+
+    .tablet-title-right {
+        grid-column: 2;
+        text-align: right;
+    }
+
+    .tablet-content-left {
+        grid-column: 1;
+    }
+}
+
+/* ----------------------------------------------------
+   DESKTOP LAYOUT — Alternating layouts
+---------------------------------------------------- */
+@media (min-width: 1025px) {
+
+    .home-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-xl);
+        align-items: start;
+        padding: var(--space-sm) 0;
+        text-align: left;
+    }
+
+    /* Who Is Victoria?  → title left / text right */
+    .section-who .title-area {
+        grid-column: 1;
+        font-size: var(--fs-xl);
+    }
+
+    .section-who .content-area {
+        grid-column: 2;
+        font-size: var(--fs-lg);
+    }
+
+    /* Selected Work → title right / card left */
+    .section-work .title-area {
+        grid-column: 2;
+        text-align: right;
+        font-size: var(--fs-xl);
+    }
+
+    .section-work .content-area {
+        grid-column: 1;
+    }
+
+    /* Let's Connect → title left / content right */
+    .section-connect .title-area {
+        grid-column: 1;
+        font-size: var(--fs-xl);
+    }
+
+    .section-connect .content-area {
+        grid-column: 2;
+    }
+}

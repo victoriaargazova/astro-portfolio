@@ -1,36 +1,69 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import "../style/home.css";
 ---
 
 <BaseLayout title="Home">
-    <section class="hero">
-        <div class="hero-welcome">Welcome</div>
-        <img src="/images/victoria.png" alt="Portrait of Victoria" />
-        <h1 class="hero-title">Victoria<br />Argazova</h1>
+    <!-- HERO SECTION -->
+    <section class="hero home-section">
+        <h1 class="hero-welcome">Welcome to</h1>
 
-        <h2 class="hero-subtitle">Digital Designer & Developer</h2>
+        <div class="hero-image-wrap">
+            <img
+                src="/images/hero.png"
+                alt="Photo of Victoria"
+                class="hero-img"
+            />
+        </div>
 
-        <p>
-            I create immersive digital experiences blending interaction,
-            storytelling, and bold visual design. My work explores narrative and
-            emotional impact through modern web technologies.
-        </p>
+        <div class="hero-arrow-block">
+            <span class="arrow">↑</span>
+            <p>Victoria’s</p>
+        </div>
+
+        <h2 class="hero-portfolio">Portfolio</h2>
     </section>
 
-    <section>
-        <h2 class="section-title">Selected Work</h2>
+    <!-- SECTION 1 : WHO IS VICTORIA -->
+    <section class="home-section section-who">
+        <div class="title-area">
+            <h2>Who is Victoria?</h2>
+        </div>
 
-        <a href="/projects/project-2" class="work-card">
-            <img src="/images/bulbthumbnail.png" alt="Bulb Thumbnail" />
-            <div class="work-card-title">Bulb Website</div>
-        </a>
+        <div class="content-area">
+            <p>
+                I'm a digital design student passionate about blending
+                storytelling, interaction, and visual design into memorable
+                experiences.
+            </p>
+        </div>
     </section>
 
-    <section class="connect">
-        <h2 class="section-title">Let's Connect</h2>
-        <p>
-            Have an idea, collaboration, or project in mind?
-            <a href="mailto:v.argazova@email.com"> Contact me → </a>
-        </p>
+    <!-- SECTION 2 : SELECTED WORK -->
+    <section class="home-section section-work">
+        <div class="title-area">
+            <h2>Selected Work</h2>
+        </div>
+
+        <div class="content-area">
+            <a href="/projects/project-2" class="work-card">
+                <img src="/images/bulbthumbnail.png" alt="Project thumbnail" />
+                <p class="work-card-title">Rooted Bulb</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- SECTION 3 : LET'S CONNECT -->
+    <section class="home-section section-connect">
+        <div class="title-area">
+            <h2>Let's Connect</h2>
+        </div>
+
+        <div class="content-area">
+            <p>
+                Want to collaborate or chat about design?
+                <a href="mailto:v.argazova@email.com"> Email me → </a>
+            </p>
+        </div>
     </section>
 </BaseLayout>
