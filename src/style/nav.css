@@ -1,0 +1,105 @@
+/* ----------------------------------------------
+   NAV WRAPPER
+---------------------------------------------- */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+/* ----------------------------------------------
+   LOGO (VA)
+---------------------------------------------- */
+.nav__logo {
+    font-family: var(--display-font);
+    font-size: 2rem;
+    color: var(--main-color);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+}
+
+/* ----------------------------------------------
+   HAMBURGER BUTTON
+---------------------------------------------- */
+.nav__button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: none;
+    /* hidden on desktop */
+}
+
+.nav__icon {
+    width: 32px;
+    height: 32px;
+}
+
+/* ----------------------------------------------
+   NAV LIST (DESKTOP)
+---------------------------------------------- */
+.nav__list {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav__list a {
+    color: var(--main-color);
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+    text-decoration: none;
+}
+
+/* Underline hover */
+.nav__list a::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    height: 2px;
+    width: 0%;
+    background: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.nav__list a:hover::after {
+    width: 100%;
+}
+
+/* ----------------------------------------------
+   MOBILE MENU
+---------------------------------------------- */
+@media (max-width: 700px) {
+
+    .nav__button {
+        display: block;
+    }
+
+    /* START HIDDEN */
+    .nav__list {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+
+        /* full-width dropdown feel */
+        width: 100%;
+        padding: 2rem 0;
+        margin-top: 1.5rem;
+
+        background: var(--background-color);
+        border-top: 2px solid var(--main-color);
+    }
+
+    /* When open: show */
+    .nav__list.nav--open {
+        display: flex;
+    }
+
+    /* make links bigger on mobile */
+    .nav__list a {
+        font-size: 1.4rem;
+    }
+}

@@ -1,20 +1,22 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
-import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectsLayout from "../layouts/ProjectsLayout.astro";
 
 const projects: CollectionEntry<"projects">[] = await getCollection("projects");
 ---
 
-<BaseLayout pageTitle="Project">
-    <h1>Projects</h1>
-    <ul>
-        {
-            projects.map((project) => (
-                <li>
-                    <a href={`/projects/${project.id}`}>{project.data.title}</a> —{" "}
-                    {new Date(project.data.pubDate).toDateString()}
-                </li>
-            ))
-        }
-    </ul>
-</BaseLayout>
+<ProjectsLayout pageTitle="Projects">
+    {
+        projects.map((project) => (
+            <a class="project-card" href={`/projects/${project.id}`}>
+                <h2 class="project-title">{project.data.title}</h2>
+
+                {project.data.pubDate && (
+                    <p class="project-desc">
+                        {new Date(project.data.pubDate).toDateString()}
+                    </p>
+                )}
+            </a>
+        ))
+    }
+</ProjectsLayout>

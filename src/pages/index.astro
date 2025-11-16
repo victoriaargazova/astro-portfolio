@@ -3,38 +3,34 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="Home">
-    <h1>Victoria Argazova</h1>
-    <h2>Digital Design Student Creating Immersive Experiences</h2>
-    <p>
-        I'm a digital design student at Devine (Kortrijk, Belgium) passionate
-        about blending storytelling, animation, and interaction. My mission? To
-        make every project a memorable experience.
-    </p>
+    <section class="hero">
+        <div class="hero-welcome">Welcome</div>
+        <img src="/images/victoria.png" alt="Portrait of Victoria" />
+        <h1 class="hero-title">Victoria<br />Argazova</h1>
 
-    <h3>Favorite Project</h3>
-    <strong>Marie Antoinette Figma Website</strong>
-    <p>
-        Visual storytelling inspires everything I make. My favorite project is
-        an interactive website I designed in Figma about Marie Antoinette,
-        exploring narrative and user engagement through visuals.
-    </p>
+        <h2 class="hero-subtitle">Digital Designer & Developer</h2>
 
-    <h3>Selected Work</h3>
-    <ul>
-        <li>
-            <strong>Repurposing Bulb Website:</strong> Storytelling website <a
-                class="project-link"
-                href="https://victoriaargazova.be/rootedBulb/">View Project</a
-            >
-        </li>
-    </ul>
+        <p>
+            I create immersive digital experiences blending interaction,
+            storytelling, and bold visual design. My work explores narrative and
+            emotional impact through modern web technologies.
+        </p>
+    </section>
 
-    <h3>Let’s Connect</h3>
-    <p>
-        Want to collaborate or chat about digital storytelling? <a
-            class="project-link"
+    <section>
+        <h2 class="section-title">Selected Work</h2>
 
-            href="mailto:v.argazova@email.com">Contact me</a
-        >
-    </p>
+        <a href="/projects/project-2" class="work-card">
+            <img src="/images/bulbthumbnail.png" alt="Bulb Thumbnail" />
+            <div class="work-card-title">Bulb Website</div>
+        </a>
+    </section>
+
+    <section class="connect">
+        <h2 class="section-title">Let's Connect</h2>
+        <p>
+            Have an idea, collaboration, or project in mind?
+            <a href="mailto:v.argazova@email.com"> Contact me → </a>
+        </p>
+    </section>
 </BaseLayout>

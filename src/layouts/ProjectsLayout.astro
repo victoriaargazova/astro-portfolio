@@ -1,0 +1,33 @@
+---
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
+import "../style/global.css";
+const { pageTitle } = Astro.props;
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{pageTitle}</title>
+
+     
+    </head>
+
+    <body>
+        <Navigation />
+
+        <main class="container">
+            <h1>{pageTitle}</h1>
+
+            <section class="projects-grid">
+                <slot />
+            </section>
+        </main>
+
+        <Footer />
+
+        <!-- Your JS (e.g., mobile nav toggle) -->
+        <script src="../js/menu.js"></script>
+    </body>
+</html>
