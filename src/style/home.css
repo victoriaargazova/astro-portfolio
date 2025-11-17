@@ -2,14 +2,16 @@
    PAGE WRAPPER
 ---------------------------------------------------- */
 .home-page {
-    padding: var(--space-md);
-    max-width: var(--max-width);
+    padding: var(--space-c);
     margin: 0 auto;
 }
 
 /* Shared spacing */
 .home-section {
-    margin: var(--space-xl) 0;
+    margin-top:3rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 4rem;
 }
 
 /* Section titles */
@@ -24,10 +26,10 @@
 
 /* Paragraphs */
 .home-section p {
-    max-width: 60ch;
+    max-width: 30rem;
     margin: var(--space-sm) auto;
     line-height: 1.6;
-    font-size: var(--fs-xl);
+    font-size: var(--fs-lg);
 }
 
 /* ----------------------------------------------------
@@ -35,8 +37,8 @@
 ---------------------------------------------------- */
 .hero {
     text-align: center;
-    padding-top: var(--space-lg);
-    margin-bottom: var(--space-xl);
+    padding-top: var(--space-md);
+    margin-bottom: var(--space-xxl);
 }
 
 /* Welcome */
@@ -86,6 +88,74 @@
     line-height: 1;
 }
 
+.section-layout {
+    display: grid;
+    grid-template-columns: 1fr minmax(auto, 700px) 1fr;
+    justify-items: center;
+    align-items: start;
+    gap: var(--space-s);
+    
+}
+
+.title-area,
+.content-area {
+    grid-column: 2;
+    text-align: center;
+}
+/* Make inner content center properly */
+.content-area {
+    display: flex;
+    justify-content: center;
+}
+
+.content-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* THIS centers the button */
+    width: 100%;
+}
+/* ----------------------------------------------------
+   PRIMARY BUTTON (Email me)
+---------------------------------------------------- */
+.content-items{
+    display: flex;
+    flex-direction: column;
+}
+.primary-button {
+    display: inline-block;
+    margin-top: var(--space-sm);
+    padding: 0.75rem 1.8rem;
+
+    border-radius: 999px;
+    border: none;
+
+    background: var(--accent-color);
+    color: var(--dark--text--color);
+    font-family: var(--body-font);
+    font-size: var(--fs-base);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+
+    text-decoration: none;
+    box-shadow: var(--shadow-soft);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  justify-self: center;
+}
+
+.primary-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-strong);
+    background: #ffd0e6;
+    /* slightly lighter for hover feedback */
+}
+
+.primary-button:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+}
 /* ----------------------------------------------------
    SELECTED WORK — CARD
 ---------------------------------------------------- */
@@ -93,14 +163,13 @@
     background: #ffb1cccc;
     border-radius: 1.2rem;
     padding: var(--space-md);
-    display: block;
     text-decoration: none;
-    color: var(--main-color);
     box-shadow: var(--shadow-soft);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
     margin: 0 auto;
     max-width: 450px;
     margin-top: var(--space-md);
+
 }
 
 .work-card:hover {
@@ -111,15 +180,27 @@
 .work-card img {
     width: 100%;
     border-radius: 1rem;
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-md);
 }
 
-.work-card-title {
+/* Work card title & subtitle */
+.work-title {
     font-family: var(--display-font);
     font-size: var(--fs-xl);
-    color: #28000ecc;
- 
+    line-height: 1.1;
+    color: var(--dark--text--color);
+    text-align: center;
+    margin-top: 0.2rem;
 }
+
+.work-subtitle {
+    font-size: var(--fs-base);
+    color: var(--dark--text--color--secondary);
+    opacity: 0.9;
+        text-align: center;
+}
+
+
 
 /* ----------------------------------------------------
    TABLET LAYOUT

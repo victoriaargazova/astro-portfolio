@@ -12,6 +12,8 @@
         /* modern pink/red accent */
         --accent-color: hsl(340, 100%, 77%);
         --text-color: #ffe8f0;
+        --dark--text--color:#430017;
+        --dark--text--color--secondary: #4e172a;
 
     /* Fonts */
     --display-font: "Impact", Haettenschweiler, "Arial Black", sans-serif;
@@ -33,6 +35,7 @@
     --space-md: 2rem;
     --space-lg: 3rem;
     --space-xl: 5rem;
+        --space-xxl: 7rem;
 
     /* Container widths */
     --max-width: 1200px;
@@ -61,14 +64,12 @@ body {
     font-family: var(--body-font);
     line-height: 1.6;
     margin: 0 auto;
-    padding: 0 var(--space-md) var(--space-xl) var(--space-md);
-    max-width: var(--max-width);
 }
 
 /* Images */
 img {
     max-width: 100%;
-    display: block;
+
 }
 
 /* Lists */
@@ -134,13 +135,38 @@ p {
 }
 
 /* ----------------------------------------------------
+   FOOTER — full width, centered, responsive
+---------------------------------------------------- */
+.footer {
+    width: 100vw;
+    background: rgba(255, 200, 215, 0.35);
+    /* pale, soft pink wash */
+    backdrop-filter: blur(4px);
+    /* optional soft glass effect */
+    padding: var(--space-sm);
+    text-align: center;
+    color: var(--main-color);
+    font-size: var(--fs-base);
+    line-height: 1.5;
+    margin-top: var(--space-xl);
+    border-top: 2px solid rgba(255, 105, 130, 0.25);
+}
+
+.footer a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+/* ----------------------------------------------------
    RESPONSIVE UTILITIES ONLY
 ---------------------------------------------------- */
 /* Phone */
 @media (max-width: 600px) {
-    body {
-        padding: 0 var(--space-sm);
-    }
+   
 
     .section-title {
         font-size: 2.2rem;
@@ -149,7 +175,10 @@ p {
     p {
         font-size: 1rem;
     }
-}
+     .footer {
+            
+               font-size: var(--fs-sm);
+}}
 
 /* Tablet */
 @media (min-width: 601px) and (max-width: 999px) {

@@ -25,7 +25,7 @@ import "../style/home.css";
     </section>
 
     <!-- SECTION 1 : WHO IS VICTORIA -->
-    <section class="home-section section-who">
+    <section class="home-section section-layout section-who">
         <div class="title-area">
             <h2>Who is Victoria?</h2>
         </div>
@@ -40,30 +40,44 @@ import "../style/home.css";
     </section>
 
     <!-- SECTION 2 : SELECTED WORK -->
-    <section class="home-section section-work">
+    <section class="home-section section-layout section-work">
         <div class="title-area">
             <h2>Selected Work</h2>
         </div>
 
         <div class="content-area">
-            <a href="/projects/project-2" class="work-card">
-                <img src="/images/bulbthumbnail.png" alt="Project thumbnail" />
-                <p class="work-card-title">Rooted Bulb</p>
+            <a href="/projects/project-2">
+                <div class="work-card">
+                    <img
+                        src="/images/bulbthumbnail.png"
+                        alt="Rooted Bulb project thumbnail"
+                    />
+
+                    <h3 class="work-title">Rooted Bulb</h3>
+                    <p class="work-subtitle">Interactive web experience</p>
+                </div>
             </a>
         </div>
     </section>
 
     <!-- SECTION 3 : LET'S CONNECT -->
-    <section class="home-section section-connect">
+    <section class="home-section section-layout section-connect">
         <div class="title-area">
             <h2>Let's Connect</h2>
         </div>
 
         <div class="content-area">
-            <p>
-                Want to collaborate or chat about design?
-                <a href="mailto:v.argazova@email.com"> Email me → </a>
-            </p>
+            <div class="content-items">
+                <p>
+                    Want to collaborate or chat about design?
+                    <a
+                        class="primary-button"
+                        href="mailto:v.argazova@email.com"
+                    >
+                        Email me →
+                    </a>
+                </p>
+            </div>
         </div>
     </section>
 </BaseLayout>

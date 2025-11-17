@@ -8,6 +8,7 @@
     margin-bottom: 3rem;
     position: relative;
     z-index: 20;
+    padding: 1rem 2rem 0rem 2rem;
 }
 
 .nav__logo {
