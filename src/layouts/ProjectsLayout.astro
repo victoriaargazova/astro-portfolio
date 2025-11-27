@@ -1,32 +1,16 @@
 ---
-import Navigation from "../components/Navigation.astro";
-import Footer from "../components/Footer.astro";
-import "../style/global.css";
+import BaseLayout from "./BaseLayout.astro";
 import "../style/projects.css";
+
 const { pageTitle } = Astro.props;
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>{pageTitle}</title>
-    </head>
+<BaseLayout pageTitle={pageTitle}>
+    <main class="projects-page">
+        <h1 class="page-heading">{pageTitle}</h1>
 
-    <body>
-        <Navigation />
-
-        <main class="container">
-            <h1>{pageTitle}</h1>
-
-            <section class="projects-grid">
-                <slot />
-            </section>
-        </main>
-
-        <Footer />
-
-        <!-- Your JS (e.g., mobile nav toggle) -->
-        <script src="../public/js/navmenu.js" defer></script>
-    </body>
-</html>
+        <section class="projects-list">
+            <slot />
+        </section>
+    </main>
+</BaseLayout>

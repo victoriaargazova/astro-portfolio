@@ -1,44 +1,40 @@
 /* ----------------------------------------------------
-   PROJECTS PAGE — MUTED PACKAGING CARDS
+   PROJECTS PAGE — MUTED PACKAGING CARDS (MOBILE FIRST)
 ---------------------------------------------------- */
+
+/* MOBILE FIRST: PAGE HEADING */
 .page-heading {
     font-family: var(--display-font);
         font-weight: 900;
-        letter-spacing: -0.02em;
         text-transform: uppercase;
+        letter-spacing: -0.02em;
         color: #fff;
-        font-size: clamp(3rem, 16vw, 10rem);
+    
+        /* mobile first */
+        font-size: 3rem;
         line-height: 0.9;
-        margin-left: 10rem;
-
+        text-align: center;
+        margin-bottom: 2rem;
 }
+
+/* MOBILE FIRST: PAGE WRAPPER */
 .projects-page {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: var(--space-xl) 2rem var(--space-xxl);
+    padding: var(--space-lg) 0 var(--space-xl);
 }
 
-/* GRID */
+/* MOBILE FIRST: GRID */
 .projects-list {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-xl);
-}
-
-@media (min-width: 700px) {
-    .projects-list {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (min-width: 1100px) {
-    .projects-list {
-        grid-template-columns: repeat(3, 1fr);
-    }
+    gap: var(--space-lg);
+    margin: 0 1.5rem;
 }
 
 /* ----------------------------------------------------
    BASE CARD — SUPER ROUND, PORTRAIT, B&W TYPE
+   (MOBILE FIRST)
 ---------------------------------------------------- */
 
 .project-card {
@@ -49,9 +45,9 @@
 
     gap: 1rem;
 
-    padding: 2rem 1.8rem 2.2rem;
-    border-radius: 2.2rem;
-    /* super rounded */
+    padding: 1.7rem 1.6rem 1.9rem;
+    border-radius: 2rem;
+    /* very rounded on mobile */
     border: 1px solid rgba(0, 0, 0, 0.12);
 
     text-decoration: none;
@@ -80,8 +76,8 @@
 
 .project-thumb img {
     width: 100%;
-    height: 210px;
-    /* portrait feel */
+    height: 190px;
+    /* slightly shorter on mobile */
     object-fit: cover;
     display: block;
 }
@@ -94,8 +90,9 @@
     font-stretch: 110%;
     text-transform: uppercase;
     letter-spacing: -0.02em;
-    font-size: 1.35rem;
-    margin: 4;
+    font-size: 1.2rem;
+    /* mobile size */
+    margin: 0;
     color: inherit;
     /* color comes from card theme */
 }
@@ -132,9 +129,6 @@
 
 /* ----------------------------------------------------
    COLOR THEMES PER CARD (muted, like your reference)
-   1) Warm off-white
-   2) Muted cobalt
-   3) Deep charcoal
 ---------------------------------------------------- */
 
 /* Card 1, 4, 7... — warm “packaging” off-white */
@@ -173,22 +167,53 @@
     border-color: rgba(255, 255, 255, 0.35);
 }
 
-/* MOBILE TWEAKS */
-@media (max-width: 600px) {
+/* ----------------------------------------------------
+   TABLET (>= 700px)
+---------------------------------------------------- */
+
+@media (min-width: 700px) {
+    .page-heading {
+        font-size: 4rem;
+        margin: 0 auto var(--space-xl);
+        text-align: center;
+    }
+
     .projects-page {
-        padding: var(--space-lg) 1.5rem var(--space-xl);
+        padding: var(--space-xl) 0 var(--space-xxl);
+    }
+
+    .projects-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-xl);
+        margin: 0 2rem;
     }
 
     .project-card {
-        padding: 1.7rem 1.6rem 1.9rem;
-        border-radius: 2rem;
+        padding: 2rem 1.8rem 2.2rem;
+        border-radius: 2.2rem;
     }
 
     .project-thumb img {
-        height: 190px;
+        height: 210px;
     }
 
     .project-title {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
+    }
+}
+
+/* ----------------------------------------------------
+   DESKTOP (>= 1100px)
+---------------------------------------------------- */
+
+@media (min-width: 1100px) {
+    .page-heading {
+        font-size: 5.5rem;
+        margin-bottom: var(--space-xxl);
+    }
+
+    .projects-list {
+        grid-template-columns: repeat(3, 1fr);
+        margin: 0 1rem;
     }
 }
