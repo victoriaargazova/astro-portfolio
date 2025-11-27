@@ -1,0 +1,253 @@
+/* ----------------------------------------------------
+   BLOG PAGE — INDEX + ARTICLE
+   Black, editorial, but distinct from Projects
+---------------------------------------------------- */
+
+.blog-page {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--space-xl) 2rem var(--space-xxl);
+}
+
+/* ----------------------------------------------------
+   BLOG INDEX
+---------------------------------------------------- */
+
+.blog-header {
+    margin-bottom: var(--space-xl);
+    max-width: 40rem;
+}
+
+.blog-label {
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--accent-color);
+    margin-bottom: var(--space-xs);
+}
+
+.blog-title {
+    font-family: var(--display-font);
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 0 0 var(--space-sm);
+    color: var(--text-main);
+}
+
+.blog-intro {
+    font-size: var(--fs-base);
+    line-height: 1.8;
+    color: var(--text-muted);
+}
+
+/* List wrapper */
+.blog-list {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    margin-top: var(--space-lg);
+}
+
+/* each row */
+.blog-list-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* clickable row */
+.blog-list-link {
+    display: block;
+    padding: 1.2rem 0;
+    text-decoration: none;
+    color: var(--text-main);
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.blog-list-link:hover {
+    background: rgba(255, 255, 255, 0.04);
+    transform: translateX(4px);
+}
+
+/* meta row (date + tags) */
+.blog-list-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: baseline;
+    margin-bottom: 0.3rem;
+}
+
+.blog-list-date {
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--text-muted);
+}
+
+.blog-list-tags {
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* title in list */
+.blog-list-title {
+    font-family: var(--display-font);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    line-height: 1.2;
+    margin: 0;
+}
+
+/* short description */
+.blog-list-desc {
+    margin: 0.35rem 0 0;
+    font-size: var(--fs-sm);
+    line-height: 1.7;
+    color: var(--text-muted);
+}
+
+/* ----------------------------------------------------
+   SINGLE BLOG ARTICLE
+---------------------------------------------------- */
+
+.blog-article {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 2fr);
+    column-gap: var(--space-xxl);
+    row-gap: var(--space-xl);
+}
+
+/* left column */
+.blog-article-header {
+    align-self: flex-start;
+}
+
+.blog-article-label {
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--accent-color);
+    margin-bottom: var(--space-xs);
+}
+
+/* main article title */
+.blog-article-title {
+    font-family: var(--display-font);
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    line-height: 1.05;
+    margin: 0 0 var(--space-sm);
+}
+
+/* meta block (author, date, tags) */
+.blog-article-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-bottom: var(--space-md);
+}
+
+.blog-article-meta p {
+    margin: 0;
+    font-size: var(--fs-sm);
+}
+
+.blog-meta-key {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--text-muted);
+    margin-right: 0.75rem;
+}
+
+.blog-meta-value {
+    color: var(--text-main);
+}
+
+/* description/excerpt */
+.blog-article-excerpt {
+    font-size: var(--fs-base);
+    line-height: 1.8;
+    color: var(--text-muted);
+    max-width: 32rem;
+}
+
+/* right column — markdown content */
+.blog-article-body {
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    padding-top: var(--space-md);
+}
+
+/* base typography for markdown */
+.blog-article-body h2,
+.blog-article-body h3,
+.blog-article-body h4 {
+    font-family: var(--display-font);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-xs);
+    color: var(--text-main);
+}
+
+.blog-article-body p {
+    font-size: var(--fs-base);
+    line-height: 1.9;
+    margin-bottom: 1rem;
+    color: var(--text-main);
+}
+
+.blog-article-body ul,
+.blog-article-body ol {
+    padding-left: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.blog-article-body li {
+    margin-bottom: 0.3rem;
+}
+
+.blog-article-body a {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.blog-article-body img {
+    max-width: 100%;
+    display: block;
+    margin: var(--space-md) 0;
+}
+
+/* ----------------------------------------------------
+   RESPONSIVE
+---------------------------------------------------- */
+
+@media (max-width: 960px) {
+    .blog-page {
+        padding: var(--space-xl) 1.5rem var(--space-xxl);
+    }
+
+    .blog-article {
+        grid-template-columns: 1fr;
+        column-gap: 0;
+        row-gap: var(--space-lg);
+    }
+}
+
+@media (max-width: 600px) {
+    .blog-page {
+        padding: var(--space-lg) 1.5rem var(--space-xl);
+    }
+
+    .blog-article-title {
+        font-size: clamp(1.8rem, 7vw, 2.4rem);
+    }
+
+    .blog-list-link {
+        padding: 1rem 0;
+    }
+}

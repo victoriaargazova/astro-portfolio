@@ -1,6 +1,6 @@
 ---
 import { getEntry, getCollection, render } from "astro:content";
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 export async function getStaticPaths() {
     const blogPosts = await getCollection("blog");
@@ -19,14 +19,44 @@ if (!entry) {
 const { Content } = await render(entry);
 ---
 
-<BaseLayout pageTitle={entry.data.title}>
-    <p><strong>By:</strong> {entry.data.author}</p>
-    <p><strong>Published:</strong> {entry.data.pubDate.toDateString()}</p>
-    <p><em>{entry.data.description}</em></p>
-    <p><strong>Tags:</strong> {entry.data.tags.join(", ")}</p>
-    <hr />
-    <article>
-        <Content />
-    </article>
-</BaseLayout>
+<BlogLayout pageTitle={entry.data.title}>
+    <article class="blog-article">
+        <header class="blog-article-header">
+            <p class="blog-article-label">Blog</p>
+            <h1 class="blog-article-title">{entry.data.title}</h1>
 
+            <div class="blog-article-meta">
+                <p>
+                    <span class="blog-meta-key">By</span>
+                    <span class="blog-meta-value">{entry.data.author}</span>
+                </p>
+                <p>
+                    <span class="blog-meta-key">Published</span>
+                    <span class="blog-meta-value">
+                        {entry.data.pubDate.toDateString()}
+                    </span>
+                </p>
+                {
+                    entry.data.tags && entry.data.tags.length > 0 && (
+                        <p>
+                            <span class="blog-meta-key">Tags</span>
+                            <span class="blog-meta-value">
+                                {entry.data.tags.join(", ")}
+                            </span>
+                        </p>
+                    )
+                }
+            </div>
+
+            {
+                entry.data.description && (
+                    <p class="blog-article-excerpt">{entry.data.description}</p>
+                )
+            }
+        </header>
+
+        <section class="blog-article-body">
+            <Content />
+        </section>
+    </article>
+</BlogLayout>

@@ -107,12 +107,16 @@ background: var(--bg-nav);
         font-size: 2rem;
     }
 
-    /* logo hides when menu open */
-    .nav.nav--menu-open .nav__logo {
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-    }
+  .nav:has(.nav__list.nav--open) .nav__logo {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+  }
+
+  /* Dim the page when mobile menu is open */
+  body:has(.nav__list.nav--open) {
+      overflow: hidden;
+  }
 }
 
 /* fade animation (extra smoothness) */

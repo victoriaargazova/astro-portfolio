@@ -1,0 +1,194 @@
+/* ----------------------------------------------------
+   PROJECTS PAGE — MUTED PACKAGING CARDS
+---------------------------------------------------- */
+.page-heading {
+    font-family: var(--display-font);
+        font-weight: 900;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
+        color: #fff;
+        font-size: clamp(3rem, 16vw, 10rem);
+        line-height: 0.9;
+        margin-left: 10rem;
+
+}
+.projects-page {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--space-xl) 2rem var(--space-xxl);
+}
+
+/* GRID */
+.projects-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+}
+
+@media (min-width: 700px) {
+    .projects-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1100px) {
+    .projects-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ----------------------------------------------------
+   BASE CARD — SUPER ROUND, PORTRAIT, B&W TYPE
+---------------------------------------------------- */
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    gap: 1rem;
+
+    padding: 2rem 1.8rem 2.2rem;
+    border-radius: 2.2rem;
+    /* super rounded */
+    border: 1px solid rgba(0, 0, 0, 0.12);
+
+    text-decoration: none;
+    box-shadow: 0 20px 55px rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.28s ease,
+        border-color 0.28s ease;
+}
+
+/* hover */
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.35);
+    border-color: rgba(0, 0, 0, 0.4);
+}
+
+/* THUMBNAIL */
+.project-thumb {
+    width: 100%;
+    border-radius: 1.6rem;
+    overflow: hidden;
+    margin-bottom: 0.6rem;
+}
+
+.project-thumb img {
+    width: 100%;
+    height: 210px;
+    /* portrait feel */
+    object-fit: cover;
+    display: block;
+}
+
+/* TITLE — super bold, more “black” */
+.project-title {
+    font-family: var(--display-font);
+    font-weight: 900;
+    /* black weight */
+    font-stretch: 110%;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    font-size: 1.35rem;
+    margin: 4;
+    color: inherit;
+    /* color comes from card theme */
+}
+
+/* TAG PILLS UNDER TITLE */
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0;
+    margin: 0.2rem 0 0.5rem;
+    list-style: none;
+}
+
+.project-tag {
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border: 1px solid rgba(0, 0, 0, 0.16);
+}
+
+/* DATE */
+.project-desc {
+    margin: 0;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    opacity: 0.7;
+    color: inherit;
+}
+
+/* ----------------------------------------------------
+   COLOR THEMES PER CARD (muted, like your reference)
+   1) Warm off-white
+   2) Muted cobalt
+   3) Deep charcoal
+---------------------------------------------------- */
+
+/* Card 1, 4, 7... — warm “packaging” off-white */
+.project-card:nth-child(3n + 1) {
+    background: #f3eee4;
+    /* not pure white */
+    color: #171717;
+}
+
+.project-card:nth-child(3n + 1) .project-tag {
+    background: rgba(0, 0, 0, 0.06);
+    border-color: rgba(0, 0, 0, 0.18);
+}
+
+/* Card 2, 5, 8... — muted blue (text in off-white) */
+.project-card:nth-child(3n + 2) {
+    background: #2f59c6;
+    color: #f8f5ee;
+    border-color: rgba(0, 0, 0, 0.18);
+}
+
+.project-card:nth-child(3n + 2) .project-tag {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.45);
+}
+
+/* Card 3, 6, 9... — deep charcoal */
+.project-card:nth-child(3n) {
+    background: #2a2d33;
+    color: #f4f1e8;
+    border-color: rgba(0, 0, 0, 0.3);
+}
+
+.project-card:nth-child(3n) .project-tag {
+    background: rgba(255, 255, 255, 0.10);
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+/* MOBILE TWEAKS */
+@media (max-width: 600px) {
+    .projects-page {
+        padding: var(--space-lg) 1.5rem var(--space-xl);
+    }
+
+    .project-card {
+        padding: 1.7rem 1.6rem 1.9rem;
+        border-radius: 2rem;
+    }
+
+    .project-thumb img {
+        height: 190px;
+    }
+
+    .project-title {
+        font-size: 1.2rem;
+    }
+}

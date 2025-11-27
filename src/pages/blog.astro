@@ -1,20 +1,46 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BlogLayout from "../layouts/BlogLayout.astro";
 
 const blogPosts: CollectionEntry<"blog">[] = await getCollection("blog");
+const sortedPosts = blogPosts.sort(
+    (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
+);
 ---
 
-<BaseLayout pageTitle="Blog">
-    <h1>Blog Posts</h1>
-    <ul>
+<BlogLayout pageTitle="Blog">
+    <header class="blog-header">
+        <p class="blog-label">Journal</p>
+        <h1 class="blog-title">Blog Posts</h1>
+        <p class="blog-intro">
+            Notes, process, and experiments from my work as a digital designer.
+        </p>
+    </header>
+
+    <section class="blog-list">
         {
-            blogPosts.map((post) => (
-                <li>
-                    <a href={`/blog/${post.id}`}>{post.data.title}</a> —{" "}
-                    {new Date(post.data.pubDate).toDateString()}
-                </li>
+            sortedPosts.map((post) => (
+                <article class="blog-list-item">
+                    <a class="blog-list-link" href={`/blog/${post.id}`}>
+                        <div class="blog-list-meta">
+                            <span class="blog-list-date">
+                                {new Date(post.data.pubDate).toDateString()}
+                            </span>
+                            {post.data.tags && post.data.tags.length > 0 && (
+                                <span class="blog-list-tags">
+                                    {post.data.tags.join(" / ")}
+                                </span>
+                            )}
+                        </div>
+                        <h2 class="blog-list-title">{post.data.title}</h2>
+                        {post.data.description && (
+                            <p class="blog-list-desc">
+                                {post.data.description}
+                            </p>
+                        )}
+                    </a>
+                </article>
             ))
         }
-    </ul>
-</BaseLayout>
+    </section>
+</BlogLayout>

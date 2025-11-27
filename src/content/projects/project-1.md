@@ -2,6 +2,7 @@
 title: "Marie Antoinette "
 author: "Victoria Argazova"
 description: "An immersive digital storytelling experience exploring the life of Marie Antoinette through interactive design and animation."
+thumbnail: "/images/bulbthumbnail.png"
 pubDate: 2025-04-22
 tags: ["Figma", "Storytelling", "Interactive Design"]
 ---

@@ -1,50 +1,33 @@
-/* ----------------------------------------------------
-   GLOBAL VARIABLES
----------------------------------------------------- */
 :root {
-    --bg-black: radial-gradient(circle at left top, #ff4f87 0%, transparent 45%),
-        linear-gradient(135deg, #14141c 0%, #090910 60%);
-            --bg-nav: radial-gradient(circle at center , #ff4f87 0%, transparent 45%),
-                    linear-gradient(135deg, #14141c 0%, #090910 60%);
-        /* graphite black */
-        --bg-gradient-pink: radial-gradient(circle at top, rgba(255, 100, 150, 0.25), transparent 70%);
-        --main-color: #fcc8da;
-        /* modern pink/red accent */
-        --accent-color: hsl(340, 100%, 77%);
-        --text-color: #ffe8f0;
-        --dark--text--color:#430017;
-        --dark--text--color--secondary: #4e172a;
+    --bg-page: #050505;
+    /* near black */
+    --text-main: #f5f5f5;
+    --text-muted: #7b7b7b;
+    --accent-color: #a4162a;
+    /* burgundy */
 
-    /* Fonts */
-    --display-font: "Impact", Haettenschweiler, "Arial Black", sans-serif;
-    --body-font: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    --cursive-font: "Brush Script MT", cursive;
+--display-font: "League Spartan", sans-serif;
+    /* replaces Pragmatica Extended */
+    --subtitle-font: "Archivo Narrow", sans-serif;
+        --body-font: "Archivo Narrow", sans-serif;
+    /* italic subtitle */
 
-    /* Typography scale */
     --fs-xs: 0.75rem;
     --fs-sm: 0.9rem;
     --fs-base: 1rem;
     --fs-lg: 1.25rem;
     --fs-xl: 1.8rem;
     --fs-xxl: 3rem;
-    --fs-hero: clamp(3rem, 12vw, 6rem);
 
-    /* Spacing Scale */
     --space-xs: 0.5rem;
     --space-sm: 1rem;
     --space-md: 2rem;
     --space-lg: 3rem;
     --space-xl: 5rem;
-        --space-xxl: 7rem;
+    --space-xxl: 7rem;
 
-    /* Container widths */
     --max-width: 1200px;
-
-    /* Shadows */
-    --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.15);
-    --shadow-strong: 0 20px 40px rgba(0, 0, 0, 0.25);
 }
-
 /* ----------------------------------------------------
    GLOBAL RESETS
 ---------------------------------------------------- */
@@ -59,17 +42,22 @@ html {
 }
 
 body {
-    background: var(--bg-black);
-    color: var(--text-color);
+    background: var(--bg-page);
+    color: var(--text-main);
     font-family: var(--body-font);
     line-height: 1.6;
-    margin: 0 auto;
+    margin: 0;
+}
+
+@view-transition {
+ navigation: auto;
 }
 
 /* Images */
 img {
     max-width: 100%;
-
+    height: auto;
+    display: block;
 }
 
 /* Lists */

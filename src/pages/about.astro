@@ -1,13 +1,15 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import "../style/about.css";
 
-const pageTitle = "About Me";
+const pageTitle = "About";
 
 const identity = {
     firstName: "Victoria",
+    lastName: "Argazova",
     country: "Bulgaria",
-     residenceCountry:"Belgium",
-    occupation: "student",
+    residenceCountry: "Belgium",
+    occupation: "Digital & UX/UI Designer",
     hobbies: ["video editing", "dancing", "pop culture"],
 };
 
@@ -19,34 +21,103 @@ const skills = [
     "Astro",
     "JavaScript",
 ];
-
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-    <section>
-        <h2>This is my portfolio! Welcome!</h2>
+    <main class="about-page">
+        <!-- LEFT COLUMN: NAME / ROLE / OPTIONAL IMAGE -->
+        <aside class="about-left">
+            <p class="about-label">About</p>
 
-        <p>Here are a few things you need to know about me:</p>
-        <ul>
-            <li>My name is {identity.firstName}.</li>
-            <li>
-                I am from {identity.country}, but I am based in {
-                    identity.residenceCountry
-                } I am currently a {identity.occupation}.
-            </li>
-            {
-                identity.hobbies.length >= 2 && (
-                    <li>
-                        My hobbies are{identity.hobbies[0]} and{" "}
-                        {identity.hobbies[1]}
-                    </li>
-                )
-            }
-        </ul>
+            <h1 class="about-name">
+                {identity.firstName}
+                <span>{identity.lastName}</span>
+            </h1>
 
-        <p>My skills are:</p>
-        <ul>
-            {skills.map((skill) => <li class="skill">{skill}</li>)}
-        </ul>
+            <p class="about-role">{identity.occupation}</p>
 
+            <!-- OPTIONAL PORTRAIT: put your image here -->
+            <figure class="about-portrait">
+                <img
+                    src="/images/victoria-portrait.jpg"
+                    alt="Portrait of Victoria Argazova"
+                />
+            </figure>
+        </aside>
+
+        <!-- RIGHT COLUMN: COPY -->
+        <section class="about-right">
+            <section class="about-block">
+                <h2 class="about-block-title">Overview</h2>
+                <p>
+                    I’m {identity.firstName}, a {
+                        identity.occupation.toLowerCase()
+                    } from{" "}
+                    {identity.country}, currently based in {
+                        identity.residenceCountry
+                    }. I’m interested in building digital work that feels sharp,
+                    clear, and a bit dramatic.
+                </p>
+                <p>
+                    I like using strong typography, simple grids and bold
+                    contrasts to create interfaces that are both functional and
+                    visually opinionated.
+                </p>
+            </section>
+
+            <section class="about-block about-block-split">
+                <div>
+                    <h2 class="about-block-title">Details</h2>
+                    <ul class="about-details">
+                        <li>
+                            <span class="about-details-label">Name</span>
+                            <span>{identity.firstName} {identity.lastName}</span
+                            >
+                        </li>
+                        <li>
+                            <span class="about-details-label">From</span>
+                            <span>{identity.country}</span>
+                        </li>
+                        <li>
+                            <span class="about-details-label">Based in</span>
+                            <span>{identity.residenceCountry}</span>
+                        </li>
+                        <li>
+                            <span class="about-details-label">Role</span>
+                            <span>{identity.occupation}</span>
+                        </li>
+                        <li>
+                            <span class="about-details-label">Hobbies</span>
+                            <span>{identity.hobbies.join(", ")}</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2 class="about-block-title">Skills</h2>
+                    <ul class="about-skills">
+                        {
+                            skills.map((skill) => (
+                                <li class="about-skill-pill">{skill}</li>
+                            ))
+                        }
+                    </ul>
+                </div>
+            </section>
+
+            <section class="about-block">
+                <h2 class="about-block-title">Currently</h2>
+                <p>
+                    I’m exploring how brutalist layouts, editorial typography
+                    and UX thinking can live together in dark, minimal
+                    interfaces.
+                </p>
+                <p>
+                    I’m open to collaborations, conversations, and projects that
+                    push digital design into slightly stranger, more expressive
+                    directions.
+                </p>
+            </section>
+        </section>
+    </main>
 </BaseLayout>

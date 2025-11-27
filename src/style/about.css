@@ -1,0 +1,203 @@
+/* ----------------------------------------------------
+   ABOUT — BLACK, BOLD, TWO-COLUMN
+   Lydia-inspired structure, Victoria content
+---------------------------------------------------- */
+
+.about-page {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--space-xl) 2rem var(--space-xxl);
+
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 2fr);
+    column-gap: var(--space-xxl);
+    row-gap: var(--space-xl);
+}
+
+/* LEFT COLUMN ------------------------------------------------ */
+
+.about-left {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    position: sticky;
+    top: 5rem;
+    align-self: flex-start;
+}
+
+.about-label {
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent-color);
+}
+
+/* big bold name */
+.about-name {
+    font-family: var(--display-font);
+    font-weight: 400;
+    font-size: clamp(2.4rem, 4vw, 3.2rem);
+    line-height: 0.9;
+    text-transform: uppercase;
+    color: var(--text-main);
+}
+
+.about-name span {
+    display: block;
+}
+
+/* role */
+.about-role {
+    font-family: var(--body-font);
+    font-size: var(--fs-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--text-muted);
+}
+
+/* portrait */
+.about-portrait {
+    margin: var(--space-lg) 0 0;
+    max-width: 260px;
+}
+
+.about-portrait img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+/* RIGHT COLUMN ------------------------------------------------ */
+
+.about-right {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+}
+
+.about-block {
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    padding-top: var(--space-md);
+}
+
+.about-block-title {
+    font-family: var(--body-font);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--text-muted);
+    margin-bottom: var(--space-sm);
+}
+
+/* text */
+.about-block p {
+    font-size: var(--fs-base);
+    line-height: 1.9;
+    color: var(--text-main);
+    max-width: 40rem;
+}
+
+/* DETAILS + SKILLS SPLIT ------------------------------------- */
+
+.about-block-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+    gap: var(--space-lg);
+}
+
+/* details list */
+.about-details {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.about-details li {
+    display: grid;
+    grid-template-columns: 110px minmax(0, 1fr);
+    gap: var(--space-sm);
+    padding: 0.45rem 0;
+    font-size: var(--fs-sm);
+}
+
+.about-details-label {
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--text-muted);
+}
+
+/* skills */
+.about-skills {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.about-skill-pill {
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--text-main);
+}
+
+/* ----------------------------------------------------
+   RESPONSIVE — TABLET
+---------------------------------------------------- */
+
+@media (max-width: 960px) {
+    .about-page {
+        grid-template-columns: 1fr;
+        column-gap: 0;
+        row-gap: var(--space-lg);
+        padding: var(--space-xl) 1.5rem var(--space-xxl);
+    }
+
+    .about-left {
+        position: static;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+
+    .about-portrait {
+        max-width: 220px;
+        margin-top: 0;
+    }
+}
+
+/* ----------------------------------------------------
+   RESPONSIVE — MOBILE
+---------------------------------------------------- */
+
+@media (max-width: 600px) {
+    .about-page {
+        padding: var(--space-lg) 1.5rem var(--space-xl);
+    }
+
+    .about-left {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-sm);
+    }
+
+    .about-name {
+        font-size: clamp(2rem, 8vw, 2.4rem);
+    }
+
+    .about-block-split {
+        grid-template-columns: 1fr;
+    }
+
+    .about-details li {
+        grid-template-columns: 1fr;
+        gap: 0.2rem;
+    }
+}

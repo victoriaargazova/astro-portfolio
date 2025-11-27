@@ -1,0 +1,12 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import "../style/blog.css";
+
+const { pageTitle } = Astro.props;
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <main class="blog-page">
+        <slot />
+    </main>
+</BaseLayout>

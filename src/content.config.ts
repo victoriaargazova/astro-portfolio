@@ -20,6 +20,7 @@ const projects = defineCollection({
         pubDate: z.date(),
         description: z.string().optional(),
         tags: z.array(z.string()),
+        thumbnail: z.string().optional(),
     }),
 });
 

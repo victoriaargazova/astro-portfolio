@@ -1,17 +1,25 @@
 /* ----------------------------------------------------
    PAGE WRAPPER
 ---------------------------------------------------- */
+
 .home-page {
-    padding: var(--space-c);
+    padding: var(--space-sm);
     margin: 0 auto;
 }
 
-/* Shared spacing */
+/* Shared spacing for sections */
 .home-section {
-    margin-top:3rem;
+    margin-top: 3rem;
     margin-left: 2rem;
     margin-right: 2rem;
     margin-bottom: 4rem;
+
+    /* subtle brutalist separators */
+    border-top: 2px solid rgba(255, 255, 255, 0.14);
+    padding-top: var(--space-sm);
+
+    /* enable container queries if you want later */
+    container-type: inline-size;
 }
 
 /* Section titles */
@@ -21,7 +29,6 @@
     color: var(--main-color);
     font-size: var(--fs-xl);
     line-height: 0.95;
-        text-transform: uppercase;
 }
 
 /* Paragraphs */
@@ -33,68 +40,73 @@
 }
 
 /* ----------------------------------------------------
-   HERO — centered on all screens
+   HERO — TYPOGRAPHIC POSTER, NO IMAGE
 ---------------------------------------------------- */
+
+/* ----------------------------------------------------
+   EXPERIMENTAL POSTER HERO — Contemporary / Brutalist
+---------------------------------------------------- */
+
 .hero {
-    text-align: center;
-    padding-top: var(--space-md);
-    margin-bottom: var(--space-xxl);
+    padding: var(--space-xxl) 2rem var(--space-xl);
+    text-align: left;
 }
 
-/* Welcome */
-.hero-welcome {
+.hero-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* Main artist name — ultra bold, ultra wide, huge */
+.hero-heading {
     font-family: var(--display-font);
-    font-size: var(--fs-xxl);
-    color: var(--main-color);
-    margin-bottom: var(--space-sm);
-}
-
-/* Image wrapper */
-.hero-image-wrap {
-    display: flex;
-    justify-content: center;
-    margin-bottom: var(--space-sm);
-}
-
-.hero-img {
-    width: min(300px, 60vw);
-    border-radius: 1.2rem;
-}
-
-/* Arrow + Victoria’s */
-.hero-arrow-block {
-    text-align: center;
-    margin-bottom: var(--space-sm);
-}
-
-.hero-arrow-block .arrow {
-    display: block;
-    font-size: var(--fs-xl);
-    color: var(--accent-color);
-}
-
-.hero-arrow-block p {
-    font-family: var(--cursive-font);
-    font-size: var(--fs-xl);
-    color: var(--accent-color);
-}
-
-/* Portfolio */
-.hero-portfolio {
-    font-family: var(--display-font);
-    font-size: var(--fs-hero);
+    font-weight: 900;
+    letter-spacing: -0.02em;
     text-transform: uppercase;
-    color: var(--main-color);
-    line-height: 1;
+    color: #fff;
+    font-size: clamp(3rem, 16vw, 10rem);
+    line-height: 0.9;
+    margin-bottom: var(--space-sm);
 }
+
+/* Subtitle — narrow + italic */
+.hero-sub {
+    font-family: var(--subtitle-font);
+    font-style: italic;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+
+    margin-top: 0.5rem;
+    font-size: clamp(1.1rem, 3vw, 2rem);
+}
+
+/* Optional accent script overlay removed — not needed for this style */
+
+/* “VICTORIA ARGAZOVA” underneath, smaller */
+.hero-name {
+    margin-top: var(--space-sm);
+    font-family: var(--body-font);
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-size: clamp(0.8rem, 1.6vw, 1.1rem);
+    border-top: 2px solid var(--accent-color);
+    padding-top: 0.6rem;
+}
+
+/* ----------------------------------------------------
+   SECTION LAYOUT (Who / Work / Connect)
+---------------------------------------------------- */
 
 .section-layout {
     display: grid;
     grid-template-columns: 1fr minmax(auto, 700px) 1fr;
     justify-items: center;
     align-items: start;
-    gap: var(--space-s);
-    
+    gap: var(--space-sm);
 }
 
 .title-area,
@@ -102,6 +114,7 @@
     grid-column: 2;
     text-align: center;
 }
+
 /* Make inner content center properly */
 .content-area {
     display: flex;
@@ -112,26 +125,23 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* THIS centers the button */
     width: 100%;
 }
+
 /* ----------------------------------------------------
    PRIMARY BUTTON (Email me)
 ---------------------------------------------------- */
-.content-items{
-    display: flex;
-    flex-direction: column;
-}
+
 .primary-button {
     display: inline-block;
     margin-top: var(--space-sm);
     padding: 0.75rem 1.8rem;
 
     border-radius: 999px;
-    border: none;
+    border: 2px solid var(--accent-color);
 
     background: var(--accent-color);
-    color: var(--dark--text--color);
+    color: var(--black);
     font-family: var(--body-font);
     font-size: var(--fs-base);
     font-weight: 700;
@@ -141,46 +151,63 @@
     text-decoration: none;
     box-shadow: var(--shadow-soft);
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-  justify-self: center;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease;
+    justify-self: center;
 }
 
 .primary-button:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-strong);
-    background: #ffd0e6;
-    /* slightly lighter for hover feedback */
+    background: transparent;
+    color: var(--accent-color);
 }
 
 .primary-button:focus-visible {
     outline: 2px solid #fff;
     outline-offset: 3px;
 }
+
 /* ----------------------------------------------------
    SELECTED WORK — CARD
 ---------------------------------------------------- */
+
 .work-card {
-    background: #ffb1cccc;
-    border-radius: 1.2rem;
+    background: var(--white);
+    border-radius: 0;
+    /* square, brutal */
     padding: var(--space-md);
     text-decoration: none;
-    box-shadow: var(--shadow-soft);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 6px 6px 0 var(--black);
+    border: 3px solid var(--black);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
     margin: 0 auto;
     max-width: 450px;
     margin-top: var(--space-md);
-
 }
 
-.work-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-strong);
-}
-
+/* Image inside card */
 .work-card img {
     width: 100%;
-    border-radius: 1rem;
+    border-radius: 0;
     margin-bottom: var(--space-md);
+}
+
+/* Only cards with an image get the hover effect */
+.work-card:has(img) {
+    cursor: pointer;
+}
+
+.work-card:has(img):hover {
+    transform: translate(-6px, -6px);
+    box-shadow: 10px 10px 0 var(--accent-color);
+    background: #f3f3f3;
 }
 
 /* Work card title & subtitle */
@@ -188,24 +215,37 @@
     font-family: var(--display-font);
     font-size: var(--fs-xl);
     line-height: 1.1;
-    color: var(--dark--text--color);
+    color: var(--black);
     text-align: center;
     margin-top: 0.2rem;
 }
 
 .work-subtitle {
     font-size: var(--fs-base);
-    color: var(--dark--text--color--secondary);
-    opacity: 0.9;
-        text-align: center;
+    color: #333333;
+    opacity: 0.95;
+    text-align: center;
 }
-
-
 
 /* ----------------------------------------------------
    TABLET LAYOUT
 ---------------------------------------------------- */
+
 @media (min-width: 700px) and (max-width: 1024px) {
+
+    .hero {
+        min-height: 80vh;
+        padding-top: var(--space-xxl);
+    }
+
+    .hero-title {
+        font-size: clamp(4rem, 14vw, 7rem);
+        letter-spacing: 0.12em;
+    }
+
+    .hero-name {
+        font-size: clamp(0.9rem, 1.4vw, 1.2rem);
+    }
 
     .home-section {
         text-align: left;
@@ -213,6 +253,17 @@
         grid-template-columns: 1fr 1fr;
         gap: var(--space-lg);
         align-items: start;
+    }
+
+    .section-layout {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-lg);
+    }
+
+    .title-area,
+    .content-area {
+        grid-column: auto;
+        text-align: left;
     }
 
     .tablet-title-left {
@@ -236,7 +287,29 @@
 /* ----------------------------------------------------
    DESKTOP LAYOUT — Alternating layouts
 ---------------------------------------------------- */
+
 @media (min-width: 1025px) {
+
+    .hero {
+        min-height: 85vh;
+        padding-top: var(--space-xxl);
+        padding-left: 4rem;
+        padding-right: 4rem;
+        align-items: flex-end;
+    }
+
+    .hero-inner {
+        max-width: 70rem;
+    }
+
+    .hero-title {
+        font-size: clamp(5rem, 11vw, 9rem);
+        letter-spacing: 0.18em;
+    }
+
+    .hero-name {
+        font-size: 1rem;
+    }
 
     .home-section {
         display: grid;
@@ -245,6 +318,17 @@
         align-items: start;
         padding: var(--space-sm) 0;
         text-align: left;
+        border-top: 2px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .section-layout {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-xl);
+    }
+
+    .title-area,
+    .content-area {
+        grid-column: auto;
     }
 
     /* Who Is Victoria?  → title left / text right */

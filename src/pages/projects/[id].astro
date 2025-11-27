@@ -1,6 +1,7 @@
 ---
 import { getEntry, getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import "../../style/projects.css";
 
 export async function getStaticPaths() {
     const blogPosts = await getCollection("projects");
@@ -20,12 +21,41 @@ const { Content } = await render(entry);
 ---
 
 <BaseLayout pageTitle={entry.data.title}>
-    <p><strong>By:</strong> {entry.data.author}</p>
-    <p><strong>Published:</strong> {entry.data.pubDate.toDateString()}</p>
-    <p><em>{entry.data.description}</em></p>
-    <p><strong>Tags:</strong> {entry.data.tags.join(", ")}</p>
-    <hr />
-    <article>
-        <Content />
-    </article>
+    <main class="project-page">
+        <header class="project-header">
+            <p class="project-meta-label">Project</p>
+            <h1 class="project-title-main">{entry.data.title}</h1>
+
+            <div class="project-meta">
+                <p>
+                    <span class="project-meta-key">By</span>
+                    <span class="project-meta-value">{entry.data.author}</span>
+                </p>
+                <p>
+                    <span class="project-meta-key">Published</span>
+                    <span class="project-meta-value">
+                        {entry.data.pubDate.toDateString()}
+                    </span>
+                </p>
+                <p>
+                    <span class="project-meta-key">Tags</span>
+                    <span class="project-meta-value">
+                        {entry.data.tags.join(", ")}
+                    </span>
+                </p>
+            </div>
+
+            {
+                entry.data.description && (
+                    <p class="project-description-intro">
+                        {entry.data.description}
+                    </p>
+                )
+            }
+        </header>
+
+        <article class="project-body">
+            <Content />
+        </article>
+    </main>
 </BaseLayout>
