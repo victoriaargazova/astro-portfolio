@@ -17,9 +17,9 @@ import "../style/nav.css";
     </button>
 
     <ul class="nav__list" id="nav__list">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about/">About</a></li>
-        <li><a href="/projects/">Projects</a></li>
-        <li><a href="/blog/">Blog</a></li>
+        <li><a href={import.meta.env.BASE_URL}>Home</a></li>
+        <li><a href={`${import.meta.env.BASE_URL}about/`}>About</a></li>
+        <li><a href={`${import.meta.env.BASE_URL}projects/`}>Projects</a></li>
+        <li><a href={`${import.meta.env.BASE_URL}blog/`}>Blog</a></li>
     </ul>
 </nav>
