@@ -10,11 +10,9 @@ navButton.addEventListener("click", () => {
 
     if (!expanded) {
         navList.classList.add("nav--open");
-        nav.classList.add("nav--menu-open");
         navIcon.src = "/icons/close.svg";
     } else {
         navList.classList.remove("nav--open");
-        nav.classList.remove("nav--menu-open");
         navIcon.src = "/icons/navicon.svg";
     }
 });

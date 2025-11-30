@@ -1,203 +1,232 @@
-/* ----------------------------------------------------
-   ABOUT — BLACK, BOLD, TWO-COLUMN
-   Lydia-inspired structure, Victoria content
----------------------------------------------------- */
-
 .about-page {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: var(--space-xl) 2rem var(--space-xxl);
 
-    display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 2fr);
-    column-gap: var(--space-xxl);
-    row-gap: var(--space-xl);
+    padding: var(--space-lg) var(--space-sm) var(--space-xl);
 }
 
-/* LEFT COLUMN ------------------------------------------------ */
-
-.about-left {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-    position: sticky;
-    top: 5rem;
-    align-self: flex-start;
+.about-heading-block {
+    margin-bottom: var(--space-xl);
 }
 
-.about-label {
-    font-size: var(--fs-xs);
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: var(--accent-color);
-}
-
-/* big bold name */
-.about-name {
-    font-family: var(--display-font);
-    font-weight: 400;
-    font-size: clamp(2.4rem, 4vw, 3.2rem);
-    line-height: 0.9;
-    text-transform: uppercase;
-    color: var(--text-main);
-}
-
-.about-name span {
-    display: block;
-}
-
-/* role */
-.about-role {
-    font-family: var(--body-font);
-    font-size: var(--fs-sm);
-    text-transform: uppercase;
-    letter-spacing: 0.22em;
-    color: var(--text-muted);
-}
-
-/* portrait */
-.about-portrait {
-    margin: var(--space-lg) 0 0;
-    max-width: 260px;
-}
-
-.about-portrait img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 0;
-}
-
-/* RIGHT COLUMN ------------------------------------------------ */
-
-.about-right {
+.about-layout {
     display: flex;
     flex-direction: column;
     gap: var(--space-xl);
 }
 
+.about-left {
+    display: flex;
+    justify-content: center;
+}
+
+.about-portrait {
+    height: auto;
+}
+
+.about-portrait img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: var(--space-sm);
+}
+
+.about-right {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
 .about-block {
-    border-top: 1px solid rgba(255, 255, 255, 0.14);
-    padding-top: var(--space-md);
+    border-radius: var(--space-sm);
+    padding: var(--space-md);
+    border: 1px solid var(--color-border-light);
+}
+
+.about-block--overview {
+    background: var(--color-title);
+    color: #000000;
+}
+
+.about-block--details {
+    background: var(--card-bg-dark);
+    color: var(--card-text-light);
+}
+
+.about-block--current {
+    background: #050505;
+    color: var(--card-text-white);
 }
 
 .about-block-title {
-    font-family: var(--body-font);
-    font-size: 0.8rem;
+    font-family: var(--font-titles);
+    font-size: var(--fs-xl);
     text-transform: uppercase;
     letter-spacing: 0.22em;
-    color: var(--text-muted);
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-lg);
+    font-weight: 900;
+    font-style: normal;
 }
 
-/* text */
 .about-block p {
-    font-size: var(--fs-base);
-    line-height: 1.9;
-    color: var(--text-main);
-    max-width: 40rem;
+    font-family: var(--font-body);
+    font-size: var(--fs-lg);
+    font-weight: 400;
+    line-height: 1.8;
+    margin-bottom: var(--space-md);
 }
-
-/* DETAILS + SKILLS SPLIT ------------------------------------- */
 
 .about-block-split {
     display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+    grid-template-columns: 1fr;
     gap: var(--space-lg);
 }
 
-/* details list */
 .about-details {
-    list-style: none;
     padding: 0;
     margin: 0;
+    list-style: none;
 }
 
 .about-details li {
-    display: grid;
-    grid-template-columns: 110px minmax(0, 1fr);
-    gap: var(--space-sm);
-    padding: 0.45rem 0;
-    font-size: var(--fs-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.5rem 0;
 }
 
 .about-details-label {
+    font-family: var(--font-titles);
+    font-size: var(--fs-sm);
     text-transform: uppercase;
     letter-spacing: 0.16em;
-    color: var(--text-muted);
+    opacity: 0.7;
+    font-weight: 900;
+    font-style: normal;
 }
 
-/* skills */
 .about-skills {
-    list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem;
+    padding: 0;
+    margin: 0;
 }
 
 .about-skill-pill {
-    padding: 0.35rem 0.9rem;
+    padding: 0.5rem 1rem;
     border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    font-size: var(--fs-xs);
+    font-family: var(--font-display);
+    font-size: var(--fs-base);
     text-transform: uppercase;
     letter-spacing: 0.14em;
-    color: var(--text-main);
+    font-weight: 900;
+    font-style: normal;
+    border: 1px solid transparent;
 }
 
-/* ----------------------------------------------------
-   RESPONSIVE — TABLET
----------------------------------------------------- */
-
-@media (max-width: 960px) {
-    .about-page {
-        grid-template-columns: 1fr;
-        column-gap: 0;
-        row-gap: var(--space-lg);
-        padding: var(--space-xl) 1.5rem var(--space-xxl);
-    }
-
-    .about-left {
-        position: static;
-        flex-direction: row;
-        align-items: flex-end;
-        justify-content: space-between;
-    }
-
-    .about-portrait {
-        max-width: 220px;
-        margin-top: 0;
-    }
+.about-skill-pill:nth-child(3n + 1) {
+    background: var(--card-bg-light);
+    color: var(--card-text-dark);
+    border-color: var(--color-border-light);
 }
 
-/* ----------------------------------------------------
-   RESPONSIVE — MOBILE
----------------------------------------------------- */
+.about-skill-pill:nth-child(3n + 2) {
+    background: var(--card-bg-dark);
+    color: var(--card-text-light);
+    border-color: rgba(0, 0, 0, 0.25);
+}
 
-@media (max-width: 600px) {
+.about-skill-pill:nth-child(3n) {
+    background: var(--card-bg-light);
+    color: var(--card-text-dark);
+    border-color: rgba(0, 0, 0, 0.35);
+}
+
+@media (min-width: 700px) {
     .about-page {
-        padding: var(--space-lg) 1.5rem var(--space-xl);
+        padding: var(--space-xl) var(--space-md) var(--space-xxl);
     }
 
-    .about-left {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--space-sm);
+    .page-heading {
+        font-size: var(--fs-heading-tablet);
     }
 
-    .about-name {
-        font-size: clamp(2rem, 8vw, 2.4rem);
+    .about-heading-block {
+        margin-bottom: var(--space-xxl);
+    }
+
+    .about-block {
+        padding: var(--space-lg);
+    }
+
+    .about-block-title {
+        font-size: var(--fs-xxl);
+        margin-bottom: var(--space-xl);
+    }
+
+    .about-block p {
+        font-size: var(--fs-xl);
+        margin-bottom: var(--space-xl);
     }
 
     .about-block-split {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
 
     .about-details li {
-        grid-template-columns: 1fr;
-        gap: 0.2rem;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+@media (min-width: 1100px) {
+    .about-page{margin:3rem 3rem 0rem 2rem;}
+    .about-layout {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        align-items: flex-start;
+        gap: var(--space-lg);
+    }
+
+    .about-left {
+        align-items: flex-start;
+        position: sticky;
+        top: 6rem;
+    }
+
+    .about-portrait {
+      height: auto;
+    }
+
+    .about-right {
+        gap: var(--space-xl);
+        grid-column: 2;
+    }
+
+    .about-block {
+        padding: var(--space-lg);
+    }
+
+    .about-block-title {
+        font-size: clamp(2.5rem, 4vw, var(--fs-xxxl));
+        margin-bottom: var(--space-lg);
+    }
+
+    .about-block p {
+        font-size: var(--fs-xl);
+
+    }
+
+    .about-block-split {
+
+        gap: var(--space-xxl);
+    }
+
+    .about-details li {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .page-heading {
+        font-size: var(--fs-heading-desktop);
     }
 }

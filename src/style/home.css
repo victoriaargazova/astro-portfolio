@@ -1,365 +1,208 @@
-/* ----------------------------------------------------
-   PAGE WRAPPER
----------------------------------------------------- */
-
 .home-page {
     padding: var(--space-sm);
     margin: 0 auto;
 }
 
-/* Shared spacing for sections */
-.home-section {
-    margin-top: 3rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
-    margin-bottom: 4rem;
-
-    /* subtle brutalist separators */
-    border-top: 2px solid rgba(255, 255, 255, 0.14);
-    padding-top: var(--space-sm);
-
-    /* enable container queries if you want later */
-    container-type: inline-size;
-}
-
-/* Section titles */
-.home-section h2 {
-    font-family: var(--display-font);
-    text-transform: uppercase;
-    color: var(--main-color);
-    font-size: var(--fs-xl);
-    line-height: 0.95;
-}
-
-/* Paragraphs */
-.home-section p {
-    max-width: 30rem;
-    margin: var(--space-sm) auto;
-    line-height: 1.6;
-    font-size: var(--fs-lg);
-}
-
-/* ----------------------------------------------------
-   HERO — TYPOGRAPHIC POSTER, NO IMAGE
----------------------------------------------------- */
-
-/* ----------------------------------------------------
-   EXPERIMENTAL POSTER HERO — Contemporary / Brutalist
----------------------------------------------------- */
-
 .hero {
-    padding: var(--space-xxl) 2rem var(--space-xl);
-    text-align: left;
+    padding: var(--space-xxl) var(--space-md) var(--space-xl);
+    text-align: center;
+    margin-bottom: var(--space-xxxl);
+    margin-top: var(--space-xxl);
 }
 
 .hero-inner {
-    max-width: 1300px;
     margin: 0 auto;
 }
 
-/* Main artist name — ultra bold, ultra wide, huge */
 .hero-heading {
-    font-family: var(--display-font);
-    font-weight: 900;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 800;
     letter-spacing: -0.02em;
-    text-transform: uppercase;
-    color: #fff;
-    font-size: clamp(3rem, 16vw, 10rem);
+    color: var(--color-title);
+    font-size: var(--fs-hero);
     line-height: 0.9;
     margin-bottom: var(--space-sm);
 }
 
-/* Subtitle — narrow + italic */
+.first-letter {
+    font-family: var(--font-cursive);
+    font-size: 1.4em;
+    color: var(--card-text-white);
+    margin-right: 0.15em;
+    display: inline-block;
+}
+
 .hero-sub {
-    font-family: var(--subtitle-font);
-    font-style: italic;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.9);
-
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-
-    margin-top: 0.5rem;
-    font-size: clamp(1.1rem, 3vw, 2rem);
+    font-family: var(--font-cursive);
+    font-size: var(--fs-lg);
+    color: var(--card-text-white);
+    margin-top: var(--space-xs);
 }
 
-/* Optional accent script overlay removed — not needed for this style */
-
-/* “VICTORIA ARGAZOVA” underneath, smaller */
-.hero-name {
-    margin-top: var(--space-sm);
-    font-family: var(--body-font);
-    color: var(--accent-color);
-    text-transform: uppercase;
-    letter-spacing: 0.25em;
-    font-size: clamp(0.8rem, 1.6vw, 1.1rem);
-    border-top: 2px solid var(--accent-color);
-    padding-top: 0.6rem;
+.home-section {
+    padding: var(--space-xl) var(--space-md);
+    margin-bottom: var(--space-xl);
 }
 
-/* ----------------------------------------------------
-   SECTION LAYOUT (Who / Work / Connect)
----------------------------------------------------- */
-
-.section-layout {
+.home-section-inner {
+    background: var(--color-title);
+    color: #000000;
+    border-radius: 2rem;
+    padding: var(--space-lg) var(--space-md);
     display: grid;
-    grid-template-columns: 1fr minmax(auto, 700px) 1fr;
-    justify-items: center;
-    align-items: start;
-    gap: var(--space-sm);
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
 }
 
-.title-area,
-.content-area {
-    grid-column: 2;
+.section-title {
+    font-family: var(--font-display);
+    font-size: var(--fs-xl);
+    text-transform: uppercase;
+    margin: 0;
     text-align: center;
 }
 
-/* Make inner content center properly */
-.content-area {
-    display: flex;
-    justify-content: center;
+.section-content {
+    text-align: left;
 }
 
-.content-items {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
-/* ----------------------------------------------------
-   PRIMARY BUTTON (Email me)
----------------------------------------------------- */
-
-.primary-button {
-    display: inline-block;
-    margin-top: var(--space-sm);
-    padding: 0.75rem 1.8rem;
-
-    border-radius: 999px;
-    border: 2px solid var(--accent-color);
-
-    background: var(--accent-color);
-    color: var(--black);
-    font-family: var(--body-font);
+.section-text {
+    color: #000000;
+    font-family: var(--font-body);
     font-size: var(--fs-base);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-
-    text-decoration: none;
-    box-shadow: var(--shadow-soft);
-    cursor: pointer;
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease,
-        background 0.2s ease,
-        color 0.2s ease;
-    justify-self: center;
+    line-height: 1.7;
+    margin: 0 0 var(--space-sm);
 }
-
-.primary-button:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-strong);
-    background: transparent;
-    color: var(--accent-color);
-}
-
-.primary-button:focus-visible {
-    outline: 2px solid #fff;
-    outline-offset: 3px;
-}
-
-/* ----------------------------------------------------
-   SELECTED WORK — CARD
----------------------------------------------------- */
 
 .work-card {
-    background: var(--white);
-    border-radius: 0;
-    /* square, brutal */
-    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 0.75rem;
+    padding: 1.6rem 1.5rem 1.8rem;
+    border-radius: 1.6rem;
+    border: 1px solid rgba(0, 0, 0, 0.4);
     text-decoration: none;
-    box-shadow: 6px 6px 0 var(--black);
-    border: 3px solid var(--black);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
     transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        background 0.25s ease;
-    margin: 0 auto;
-    max-width: 450px;
-    margin-top: var(--space-md);
+        transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.28s ease,
+        border-color 0.28s ease,
+        background-color 0.28s ease;
+    background: #050505;
+    color: var(--card-text-white);
+    font-family: var(--font-body);
 }
 
-/* Image inside card */
-.work-card img {
+.work-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 26px 60px rgba(0, 0, 0, 0.6);
+    border-color: rgba(255, 255, 255, 0.4);
+    background: #111111;
+}
+
+.work-card-thumb {
     width: 100%;
-    border-radius: 0;
-    margin-bottom: var(--space-md);
+    border-radius: 1.2rem;
+    overflow: hidden;
 }
 
-/* Only cards with an image get the hover effect */
-.work-card:has(img) {
-    cursor: pointer;
+.work-card-thumb img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
 }
 
-.work-card:has(img):hover {
-    transform: translate(-6px, -6px);
-    box-shadow: 10px 10px 0 var(--accent-color);
-    background: #f3f3f3;
-}
-
-/* Work card title & subtitle */
 .work-title {
-    font-family: var(--display-font);
-    font-size: var(--fs-xl);
-    line-height: 1.1;
-    color: var(--black);
-    text-align: center;
-    margin-top: 0.2rem;
+    font-family: var(--font-display);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    font-size: 1.2rem;
+    margin: 0;
+    color: var(--card-text-white);
 }
 
 .work-subtitle {
-    font-size: var(--fs-base);
-    color: #333333;
-    opacity: 0.95;
-    text-align: center;
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    margin: 0;
+    color: var(--card-text-white);
+    opacity: 0.9;
 }
 
-/* ----------------------------------------------------
-   TABLET LAYOUT
----------------------------------------------------- */
-
-@media (min-width: 700px) and (max-width: 1024px) {
-
-    .hero {
-        min-height: 80vh;
-        padding-top: var(--space-xxl);
-    }
-
-    .hero-title {
-        font-size: clamp(4rem, 14vw, 7rem);
-        letter-spacing: 0.12em;
-    }
-
-    .hero-name {
-        font-size: clamp(0.9rem, 1.4vw, 1.2rem);
-    }
-
-    .home-section {
-        text-align: left;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-lg);
-        align-items: start;
-    }
-
-    .section-layout {
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-lg);
-    }
-
-    .title-area,
-    .content-area {
-        grid-column: auto;
-        text-align: left;
-    }
-
-    .tablet-title-left {
-        grid-column: 1;
-    }
-
-    .tablet-content-right {
-        grid-column: 2;
-    }
-
-    .tablet-title-right {
-        grid-column: 2;
-        text-align: right;
-    }
-
-    .tablet-content-left {
-        grid-column: 1;
-    }
+.primary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1.6rem;
+    border-radius: 999px;
+    border: 1px solid #000000;
+    background: #000000;
+    color: var(--card-text-white);
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
 }
 
-/* ----------------------------------------------------
-   DESKTOP LAYOUT — Alternating layouts
----------------------------------------------------- */
+.primary-button:hover {
+    transform: translateY(-3px);
+    background: #111111;
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+}
+
+@media (min-width: 700px) {
+    .home-section-inner {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+        gap: var(--space-lg);
+        padding: var(--space-lg);
+        align-items: center;
+    }
+
+    .section-title {
+        text-align: left;
+        font-size: var(--fs-xxl);
+    }
+
+    .section-content {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
+
+    .hero-sub {
+        font-size: var(--fs-xxl);
+    }
+}
 
 @media (min-width: 1025px) {
-
-    .hero {
-        min-height: 85vh;
-        padding-top: var(--space-xxl);
-        padding-left: 4rem;
-        padding-right: 4rem;
-        align-items: flex-end;
-    }
-
-    .hero-inner {
-        max-width: 70rem;
-    }
-
-    .hero-title {
-        font-size: clamp(5rem, 11vw, 9rem);
-        letter-spacing: 0.18em;
-    }
-
-    .hero-name {
-        font-size: 1rem;
-    }
-
-    .home-section {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-xl);
-        align-items: start;
-        padding: var(--space-sm) 0;
-        text-align: left;
-        border-top: 2px solid rgba(255, 255, 255, 0.14);
-    }
-
-    .section-layout {
-        grid-template-columns: 1fr 1fr;
+    .home-section-inner {
+        padding: var(--space-xxl) var(--space-xl);
         gap: var(--space-xl);
     }
 
-    .title-area,
-    .content-area {
-        grid-column: auto;
+    .section-title {
+        font-size: var(--fs-xxxl);
     }
 
-    /* Who Is Victoria?  → title left / text right */
-    .section-who .title-area {
-        grid-column: 1;
+    .section-text {
         font-size: var(--fs-xl);
     }
 
-    .section-who .content-area {
-        grid-column: 2;
-        font-size: var(--fs-lg);
-    }
-
-    /* Selected Work → title right / card left */
-    .section-work .title-area {
-        grid-column: 2;
-        text-align: right;
-        font-size: var(--fs-xl);
-    }
-
-    .section-work .content-area {
-        grid-column: 1;
-    }
-
-    /* Let's Connect → title left / content right */
-    .section-connect .title-area {
-        grid-column: 1;
-        font-size: var(--fs-xl);
-    }
-
-    .section-connect .content-area {
-        grid-column: 2;
+    .work-card {
+        max-width: 50%;
     }
 }

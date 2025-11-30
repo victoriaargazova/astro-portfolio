@@ -1,30 +1,8 @@
-/* ----------------------------------------------------
-   PROJECTS PAGE — MUTED PACKAGING CARDS (MOBILE FIRST)
----------------------------------------------------- */
-
-/* MOBILE FIRST: PAGE HEADING */
-.page-heading {
-    font-family: var(--display-font);
-        font-weight: 900;
-        text-transform: uppercase;
-        letter-spacing: -0.02em;
-        color: #fff;
-    
-        /* mobile first */
-        font-size: 3rem;
-        line-height: 0.9;
-        text-align: center;
-        margin-bottom: 2rem;
-}
-
-/* MOBILE FIRST: PAGE WRAPPER */
 .projects-page {
-    max-width: var(--max-width);
-    margin: 0 auto;
+    margin: 3rem;
     padding: var(--space-lg) 0 var(--space-xl);
 }
 
-/* MOBILE FIRST: GRID */
 .projects-list {
     display: grid;
     grid-template-columns: 1fr;
@@ -32,41 +10,29 @@
     margin: 0 1.5rem;
 }
 
-/* ----------------------------------------------------
-   BASE CARD — SUPER ROUND, PORTRAIT, B&W TYPE
-   (MOBILE FIRST)
----------------------------------------------------- */
-
 .project-card {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-
     gap: 1rem;
-
-    padding: 1.7rem 1.6rem 1.9rem;
+        padding: 2rem;
     border-radius: 2rem;
-    /* very rounded on mobile */
     border: 1px solid rgba(0, 0, 0, 0.12);
-
     text-decoration: none;
     box-shadow: 0 20px 55px rgba(0, 0, 0, 0.25);
-
     transition:
         transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
         box-shadow 0.28s ease,
         border-color 0.28s ease;
 }
 
-/* hover */
 .project-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 28px 70px rgba(0, 0, 0, 0.35);
     border-color: rgba(0, 0, 0, 0.4);
 }
 
-/* THUMBNAIL */
 .project-thumb {
     width: 100%;
     border-radius: 1.6rem;
@@ -77,27 +43,21 @@
 .project-thumb img {
     width: 100%;
     height: 190px;
-    /* slightly shorter on mobile */
     object-fit: cover;
     display: block;
 }
 
-/* TITLE — super bold, more “black” */
 .project-title {
-    font-family: var(--display-font);
+    font-family: var(--font-display);
     font-weight: 900;
-    /* black weight */
     font-stretch: 110%;
     text-transform: uppercase;
     letter-spacing: -0.02em;
     font-size: 1.2rem;
-    /* mobile size */
     margin: 0;
     color: inherit;
-    /* color comes from card theme */
 }
 
-/* TAG PILLS UNDER TITLE */
 .project-tags {
     display: flex;
     flex-wrap: wrap;
@@ -117,7 +77,6 @@
     border: 1px solid rgba(0, 0, 0, 0.16);
 }
 
-/* DATE */
 .project-desc {
     margin: 0;
     font-size: 0.7rem;
@@ -127,53 +86,40 @@
     color: inherit;
 }
 
-/* ----------------------------------------------------
-   COLOR THEMES PER CARD (muted, like your reference)
----------------------------------------------------- */
-
-/* Card 1, 4, 7... — warm “packaging” off-white */
 .project-card:nth-child(3n + 1) {
-    background: #f3eee4;
-    /* not pure white */
-    color: #171717;
+    background: var(--card-bg-light);
+    color: var(--card-bg-red);
 }
 
 .project-card:nth-child(3n + 1) .project-tag {
-    background: rgba(0, 0, 0, 0.06);
-    border-color: rgba(0, 0, 0, 0.18);
+    background: rgba(242, 5, 5, 0.1);
+    border-color: rgba(255, 106, 106, 0.3);
 }
 
-/* Card 2, 5, 8... — muted blue (text in off-white) */
 .project-card:nth-child(3n + 2) {
-    background: #2f59c6;
-    color: #f8f5ee;
+    background: var(--card-bg-dark);
+    color: var(--card-text-white);
     border-color: rgba(0, 0, 0, 0.18);
 }
 
 .project-card:nth-child(3n + 2) .project-tag {
-    background: rgba(255, 255, 255, 0.16);
+    background: rgba(226, 226, 226, 0.16);
     border-color: rgba(255, 255, 255, 0.45);
 }
 
-/* Card 3, 6, 9... — deep charcoal */
 .project-card:nth-child(3n) {
-    background: #2a2d33;
-    color: #f4f1e8;
-    border-color: rgba(0, 0, 0, 0.3);
+    background: var(--card-bg-red);
+    color: #000000;
 }
 
 .project-card:nth-child(3n) .project-tag {
-    background: rgba(255, 255, 255, 0.10);
-    border-color: rgba(255, 255, 255, 0.35);
+    background: rgba(0, 0, 0, 0.15);
+    border-color: rgba(0, 0, 0, 0.4);
 }
-
-/* ----------------------------------------------------
-   TABLET (>= 700px)
----------------------------------------------------- */
 
 @media (min-width: 700px) {
     .page-heading {
-        font-size: 4rem;
+        font-size: var(--fs-heading-tablet);
         margin: 0 auto var(--space-xl);
         text-align: center;
     }
@@ -189,7 +135,7 @@
     }
 
     .project-card {
-        padding: 2rem 1.8rem 2.2rem;
+        padding:2rem;
         border-radius: 2.2rem;
     }
 
@@ -202,18 +148,14 @@
     }
 }
 
-/* ----------------------------------------------------
-   DESKTOP (>= 1100px)
----------------------------------------------------- */
-
 @media (min-width: 1100px) {
     .page-heading {
-        font-size: 5.5rem;
+        font-size: var(--fs-heading-desktop);
         margin-bottom: var(--space-xxl);
     }
 
     .projects-list {
         grid-template-columns: repeat(3, 1fr);
-        margin: 0 1rem;
+        margin: 0 3rem;
     }
 }

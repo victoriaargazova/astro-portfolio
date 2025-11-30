@@ -7,7 +7,7 @@ const pageTitle = "About";
 const identity = {
     firstName: "Victoria",
     lastName: "Argazova",
-    country: "Bulgaria",
+    country: "Bulgaria", // ✅ fixed typo (was countitltry)
     residenceCountry: "Belgium",
     occupation: "Digital & UX/UI Designer",
     hobbies: ["video editing", "dancing", "pop culture"],
@@ -25,76 +25,45 @@ const skills = [
 
 <BaseLayout pageTitle={pageTitle}>
     <main class="about-page">
-        <!-- LEFT COLUMN: NAME / ROLE / OPTIONAL IMAGE -->
-        <aside class="about-left">
-            <p class="about-label">About</p>
+        <!-- HEADLINE SAME AS PROJECTS/BLOG -->
+        <header class="about-heading-block">
+            <h1 class="page-heading">About</h1>
+        </header>
 
-            <h1 class="about-name">
-                {identity.firstName}
-                <span>{identity.lastName}</span>
-            </h1>
+        <!-- LAYOUT: LEFT = ONLY PORTRAIT -->
+        <section class="about-layout">
+            <aside class="about-left">
+                <figure class="about-portrait">
+                    <img
+                        src="/images/hero.png"
+                        alt="Portrait of Victoria Argazova"
+                    />
+                </figure>
+            </aside>
 
-            <p class="about-role">{identity.occupation}</p>
+            <!-- RIGHT COLUMN CONTENT -->
+            <section class="about-right">
+                <!-- CARD 1: WHO AM I -->
+                <section class="about-block about-block--overview">
+                    <h2 class="about-block-title">Who am I</h2>
+                    <p>
+                        I’m {identity.firstName}
+                        {identity.lastName}, a{" "}
+                        {identity.occupation.toLowerCase()} from{" "}
+                        {identity.country}, currently based in{" "}
+                        {identity.residenceCountry}.
+                        I care about making digital work that feels sharp,
+                        cinematic, and a bit dramatic less “template”, more
+                        “this could only belong to one person”.
+                        When I’m not designing, I’m usually into{" "}
+                        {identity.hobbies.join(", ")}, which all sneak back into
+                        my work one way or another.
+                    </p>
+                </section>
 
-            <!-- OPTIONAL PORTRAIT: put your image here -->
-            <figure class="about-portrait">
-                <img
-                    src="/images/victoria-portrait.jpg"
-                    alt="Portrait of Victoria Argazova"
-                />
-            </figure>
-        </aside>
-
-        <!-- RIGHT COLUMN: COPY -->
-        <section class="about-right">
-            <section class="about-block">
-                <h2 class="about-block-title">Overview</h2>
-                <p>
-                    I’m {identity.firstName}, a {
-                        identity.occupation.toLowerCase()
-                    } from{" "}
-                    {identity.country}, currently based in {
-                        identity.residenceCountry
-                    }. I’m interested in building digital work that feels sharp,
-                    clear, and a bit dramatic.
-                </p>
-                <p>
-                    I like using strong typography, simple grids and bold
-                    contrasts to create interfaces that are both functional and
-                    visually opinionated.
-                </p>
-            </section>
-
-            <section class="about-block about-block-split">
-                <div>
-                    <h2 class="about-block-title">Details</h2>
-                    <ul class="about-details">
-                        <li>
-                            <span class="about-details-label">Name</span>
-                            <span>{identity.firstName} {identity.lastName}</span
-                            >
-                        </li>
-                        <li>
-                            <span class="about-details-label">From</span>
-                            <span>{identity.country}</span>
-                        </li>
-                        <li>
-                            <span class="about-details-label">Based in</span>
-                            <span>{identity.residenceCountry}</span>
-                        </li>
-                        <li>
-                            <span class="about-details-label">Role</span>
-                            <span>{identity.occupation}</span>
-                        </li>
-                        <li>
-                            <span class="about-details-label">Hobbies</span>
-                            <span>{identity.hobbies.join(", ")}</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h2 class="about-block-title">Skills</h2>
+                <!-- CARD 2: SKILLS ONLY -->
+                <section class="about-block about-block--details">
+                    <h2 class="about-block-title">My skills</h2>
                     <ul class="about-skills">
                         {
                             skills.map((skill) => (
@@ -102,21 +71,25 @@ const skills = [
                             ))
                         }
                     </ul>
-                </div>
-            </section>
+                </section>
 
-            <section class="about-block">
-                <h2 class="about-block-title">Currently</h2>
-                <p>
-                    I’m exploring how brutalist layouts, editorial typography
-                    and UX thinking can live together in dark, minimal
-                    interfaces.
-                </p>
-                <p>
-                    I’m open to collaborations, conversations, and projects that
-                    push digital design into slightly stranger, more expressive
-                    directions.
-                </p>
+                <!-- CARD 3: DESIGN PHILOSOPHY -->
+                <section class="about-block about-block--current">
+                    <h2 class="about-block-title">Design philosophy</h2>
+                    <p>
+                        I don’t see websites as static pages — I see them as
+                        experiences people move through, with mood, rhythm and
+                        attitude.
+                        I like using bold typography, limited color and
+                        deliberate layouts to make people <em>feel</em> the brand
+                        as much as they read it. I want visitors to remember how
+                        a site felt, not just what it said.
+                        My goal is to design interfaces that make people pause
+                        for a second, notice the details, and realise that
+                        someone actually cared about the experience they’re
+                        having on a screen.
+                    </p>
+                </section>
             </section>
         </section>
     </main>

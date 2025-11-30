@@ -3,67 +3,61 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import "../style/home.css";
 ---
 
+--- import BaseLayout from "../layouts/BaseLayout.astro"; import
+"../style/home.css"; ---
+
 <BaseLayout title="Home">
     <section class="hero">
         <div class="hero-inner">
-            <h1 class="hero-heading">Victoria Argazova</h1>
-            <p class="hero-sub">digital designer</p>
+            <h1 class="hero-heading">
+                <span class="first-letter">V</span>ictoria Argazova
+            </h1>
+            <p class="hero-sub">Digital Designer</p>
         </div>
     </section>
 
-    <!-- SECTION 1 : WHO IS VICTORIA -->
-    <section class="home-section section-layout section-who">
-        <div class="title-area">
-            <h2>Who is Victoria?</h2>
-        </div>
-
-        <div class="content-area">
-            <p>
-                I'm a digital design student passionate about blending
-                storytelling, interaction, and visual design into memorable
-                experiences.
-            </p>
+    <section class="home-section">
+        <div class="home-section-inner">
+            <h2 class="section-title">Who is Victoria?</h2>
+            <div class="section-content">
+                <p class="section-text">
+                    I'm a digital design student interested in bold, graphic
+                    interfaces that feel more like experiences than "just
+                    websites".
+                </p>
+            </div>
         </div>
     </section>
 
-    <!-- SECTION 2 : SELECTED WORK -->
-    <section class="home-section section-layout section-work">
-        <div class="title-area">
-            <h2>Selected Work</h2>
-        </div>
-
-        <div class="content-area">
-            <a href="/projects/project-2">
-                <div class="work-card">
-                    <img
-                        src="/images/bulbthumbnail.png"
-                        alt="Rooted Bulb project thumbnail"
-                    />
-
+    <section class="home-section">
+        <div class="home-section-inner">
+            <h2 class="section-title">Selected Work</h2>
+            <div class="section-content">
+                <a href="/projects/project-2" class="work-card">
+                    <div class="work-card-thumb">
+                        <img
+                            src="/images/bulbthumbnail.png"
+                            alt="Rooted Bulb thumbnail"
+                        />
+                    </div>
                     <h3 class="work-title">Rooted Bulb</h3>
                     <p class="work-subtitle">Interactive web experience</p>
-                </div>
-            </a>
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- SECTION 3 : LET'S CONNECT -->
-    <section class="home-section section-layout section-connect">
-        <div class="title-area">
-            <h2>Let's Connect</h2>
-        </div>
-
-        <div class="content-area">
-            <div class="content-items">
-                <p>
-                    Want to collaborate or chat about design?
-                    <a
-                        class="primary-button"
-                        href="mailto:v.argazova@email.com"
-                    >
-                        Email me →
-                    </a>
+    <section class="home-section">
+        <div class="home-section-inner">
+            <h2 class="section-title">Let's connect</h2>
+            <div class="section-content">
+                <p class="section-text">
+                    Want to collaborate or talk about design, interfaces or
+                    weird websites?
                 </p>
+                <a class="primary-button" href="mailto:v.argazova@email.com">
+                    Email me →
+                </a>
             </div>
         </div>
     </section>
