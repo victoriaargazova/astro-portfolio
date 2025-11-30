@@ -9,7 +9,7 @@ const projects: CollectionEntry<"projects">[] = await getCollection("projects");
 <ProjectsLayout pageTitle={pageTitle}>
     {
         projects.map((project) => (
-            <a class="project-card" href={`/projects/${project.id}`}>
+            <a class="project-card" href={`projects/${project.id}/`}>
                 {project.data.thumbnail && (
                     <figure class="project-thumb">
                         <img
