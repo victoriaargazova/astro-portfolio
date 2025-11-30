@@ -2,7 +2,7 @@
 title: "Relit the Bulb Interactive Website"
 author: "Victoria Argazova"
 description: "A creative interactive website focusing on user engagement through animations and dynamic design elements."
-thumbnail: "/images/bulbthumbnail.png"
+thumbnail: "/astro-portfolio/images/bulbthumbnail.png"
 pubDate: 2025-04-10
 tags: ["JavaScript", "Interactive Design", "Animation"]
 ---
