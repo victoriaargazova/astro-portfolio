@@ -1,20 +1,20 @@
-const nav = document.querySelector(".nav");
-const navButton = document.querySelector(".nav__button");
-const navList = document.querySelector(".nav__list");
-const navIcon = document.querySelector(".nav__icon");
+// public/js/navmenu.js
 
-navButton.addEventListener("click", () => {
-    const expanded = navButton.getAttribute("aria-expanded") === "true";
+window.addEventListener('DOMContentLoaded', () => {
+    console.log('navmenu.js loaded');
 
-    navButton.setAttribute("aria-expanded", !expanded);
+    const navButton = document.querySelector('.nav__button');
+    const navList = document.querySelector('.nav__list');
 
-    if (!expanded) {
-        navList.classList.add("nav--open");
-        navIcon.src = "/icons/close.svg";
-    } else {
-        navList.classList.remove("nav--open");
-        navIcon.src = "/icons/navicon.svg";
+    if (!navButton || !navList) {
+        console.warn('Nav button or nav list not found');
+        return; // prevents "classList of null" crashes
     }
+
+    navButton.addEventListener('click', () => {
+        navList.classList.toggle('nav--open');
+    });
 });
+
 
 
