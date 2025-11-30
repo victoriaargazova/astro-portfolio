@@ -10,10 +10,10 @@ navButton.addEventListener("click", () => {
 
     if (!expanded) {
         navList.classList.add("nav--open");
-        navIcon.src = "/astro-portfolio/icons/navicon.svg";
+        navIcon.src = "/icons/close.svg";
     } else {
         navList.classList.remove("nav--open");
-        navIcon.src = "/astro-portfolio/icons/navicon.svg";
+        navIcon.src = "/icons/navicon.svg";
     }
 });
 
