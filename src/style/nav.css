@@ -36,6 +36,22 @@
     height: 120%;
 }
 
+.nav__icon--open {
+    display: block;
+}
+
+.nav__icon--close {
+    display: none;
+}
+
+.nav:has(.nav__list.nav--open) .nav__icon--open {
+    display: none;
+}
+
+.nav:has(.nav__list.nav--open) .nav__icon--close {
+    display: block;
+}
+
 .nav__list {
     position: fixed;
     inset: 0;

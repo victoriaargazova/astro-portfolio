@@ -17,7 +17,7 @@ const sortedPosts = blogPosts.sort(
         {
             sortedPosts.map((post) => (
                 <article class="blog-list-item">
-                    <a class="blog-list-link" href={`/blog/${post.id}`}>
+                    <a class="blog-list-link" href={`blog/${post.id}`}> 
                         <div class="blog-list-meta">
                             <span class="blog-list-date">
                                 {new Date(post.data.pubDate).toDateString()}
