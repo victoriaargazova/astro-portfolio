@@ -2,7 +2,7 @@
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
 import "../style/global.css";
-
+const base = import.meta.env.BASE_URL;
 const { title } = Astro.props;
 ---
 
@@ -10,6 +10,7 @@ const { title } = Astro.props;
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
+		<base href={import.meta.env.BASE_URL} />
 		<title>{title}</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,7 +27,8 @@ const { title } = Astro.props;
 			<slot />
 		</main>
 
-		<script src="../public/js/navmenu.js" defer></script>
+		<script src="js/navmenu.js" defer></script>
+
 		<Footer />
 	</body>
 </html>
