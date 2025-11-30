@@ -1,45 +1,20 @@
 :root {
-    /* =========================================
-       COLORS — GLOBAL
-       ========================================= */
-
-    /* Page background + default text */
     --color-bg: #050505;
-    /* page background (black) */
     --color-title: #F8061F;
-    /* red used for all page headings */
     --color-text-main: #F8061F;
-    /* main red text */
     --color-text-body: #f1e9e9;
-    /* normal body text (white) */
-
---card-bg-light: #d9d9d9;
+    --card-bg-light: #d9d9d9;
     --card-bg-dark: #23232B;
     --card-bg-red: #F8061F;
     --card-text-dark: #171717;
     --card-text-light: #dfdfdf;
     --card-text-white: #ffffff;
-
-    /* Border + subtle UI neutrals */
     --color-border-light: rgba(0, 0, 0, 0.14);
     --color-border-dark: rgba(255, 255, 255, 0.14);
-
-
-    /* =========================================
-       TYPOGRAPHY — GLOBAL FONTS
-       ========================================= */
     --font-display: "League Spartan", sans-serif;
     --font-titles: "Archivo Black", sans-serif;
     --font-body: "Plus Jakarta Sans", sans-serif;
     --font-cursive: "Imperial Script", serif;
-
-
-    /* =========================================
-       FONT SIZES — GLOBAL SCALE
-       (Only the essential tokens)
-       ========================================= */
-
-    /* Base scale used everywhere */
     --fs-xs: 0.75rem;
     --fs-sm: 0.9rem;
     --fs-base: 1rem;
@@ -48,20 +23,11 @@
     --fs-xl: 1.8rem;
     --fs-xxl: 2.4rem;
     --fs-xxxl: 3rem;
-        --fs-xxxxl: 4.5rem;
-
-    /* Special — hero title on Home */
+    --fs-xxxxl: 4.5rem;
     --fs-hero: clamp(4rem, 15vw, 10rem);
-
-    /* Special — section titles on Projects / Blog / About */
     --fs-heading-mobile: 3rem;
     --fs-heading-tablet: 4rem;
     --fs-heading-desktop: 5.5rem;
-
-
-    /* =========================================
-       SPACING — GLOBAL
-       ========================================= */
     --space-xs: 0.5rem;
     --space-sm: 1rem;
     --space-md: 2rem;
@@ -69,12 +35,8 @@
     --space-xl: 5rem;
     --space-xxl: 7rem;
     --space-xxxl: 10rem;
-
-   
 }
-/* ----------------------------------------------------
-   GLOBAL RESETS
----------------------------------------------------- */
+
 * {
     margin: 0;
     padding: 0;
@@ -87,12 +49,12 @@
     text-transform: uppercase;
     letter-spacing: -0.02em;
     color: var(--color-text-main);
-    /* mobile first */
     font-size: 3rem;
     line-height: 0.9;
     text-align: center;
     margin-bottom: 2rem;
 }
+
 html {
     scroll-behavior: smooth;
 }
@@ -110,32 +72,25 @@ body {
     font-weight: 400;
     font-style: normal;
 }
+
 @view-transition {
- navigation: auto;
+    navigation: auto;
 }
 
-/* Images */
 img {
     max-width: 100%;
     height: auto;
-  
 }
 
-/* Lists */
 ul,
 li {
     list-style: none;
 }
 
-/* Links */
 a {
     text-decoration: none;
     color: var(--accent-color);
 }
-
-/* ----------------------------------------------------
-   TYPOGRAPHY BASE
----------------------------------------------------- */
 
 h2,
 h3,
@@ -149,17 +104,12 @@ h4 {
 p {
     font-size: var(--fs-base);
     line-height: 1.6;
-
 }
 
-/* Cursive element utility */
 .cursive {
     font-family: var(--cursive-font);
 }
 
-/* ----------------------------------------------------
-   LAYOUT UTILITIES
----------------------------------------------------- */
 .section {
     padding: var(--space-xl) 0;
 }
@@ -183,15 +133,10 @@ p {
     gap: var(--space-md);
 }
 
-/* ----------------------------------------------------
-   FOOTER — full width, centered, responsive
----------------------------------------------------- */
 .footer {
     width: 100vw;
     background: var(--color-title);
-    /* pale, soft pink wash */
     backdrop-filter: blur(4px);
-    /* optional soft glass effect */
     padding: var(--space-sm);
     text-align: center;
     color: var(--main-color);
@@ -210,13 +155,8 @@ p {
 .footer a:hover {
     text-decoration: underline;
 }
-/* ----------------------------------------------------
-   RESPONSIVE UTILITIES ONLY
----------------------------------------------------- */
-/* Phone */
-@media (max-width: 600px) {
-   
 
+@media (max-width: 600px) {
     .section-title {
         font-size: 2.2rem;
     }
@@ -224,19 +164,18 @@ p {
     p {
         font-size: 1rem;
     }
-     .footer {
-            
-               font-size: var(--fs-sm);
-}}
 
-/* Tablet */
+    .footer {
+        font-size: var(--fs-sm);
+    }
+}
+
 @media (min-width: 601px) and (max-width: 999px) {
     .section-title {
         font-size: 2.7rem;
     }
 }
 
-/* Desktop */
 @media (min-width: 1000px) {
     .section-title {
         font-size: 3.5rem;

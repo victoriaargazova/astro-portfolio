@@ -17,7 +17,6 @@ const { Content } = await render(entry);
 ---
 
 <BlogArticleLayout pageTitle={entry.data.title}>
-    <!-- PASS META DATA -->
     <Fragment slot="meta">
         <span class="meta-item">
             <span class="meta-key">By</span>
@@ -36,8 +35,6 @@ const { Content } = await render(entry);
             )
         }
     </Fragment>
-
-    <!-- PASS EXCERPT -->
     <Fragment slot="excerpt">
         {
             entry.data.description && (
@@ -45,7 +42,5 @@ const { Content } = await render(entry);
             )
         }
     </Fragment>
-
-    <!-- PASS CONTENT -->
     <Content />
 </BlogArticleLayout>

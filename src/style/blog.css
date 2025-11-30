@@ -1,9 +1,3 @@
-/* Add this to top of blog-article.css to reset browser defaults */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 .blog-page {
     padding: var(--space-lg) 1.5rem var(--space-xl);
 }

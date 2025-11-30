@@ -1,61 +1,63 @@
 ---
 import { getEntry, getCollection, render } from "astro:content";
-import ProjectsLayout from "../../layouts/ProjectsLayout.astro";
-import "../../style/projects.css";
+import ProjectDetailLayout from "../../layouts/ProjectDetailLayout.astro";
+import "../../style/project-detail.css";
 
 export async function getStaticPaths() {
-    const blogPosts = await getCollection("projects");
-    return blogPosts.map((post) => ({
-        params: { id: post.id },
-    }));
+    const projects = await getCollection("projects");
+    return projects.map((post) => ({ params: { id: post.id } }));
 }
 
 const { id } = Astro.params;
 const entry = await getEntry("projects", id);
-
-if (!entry) {
-    return Astro.redirect("/404");
-}
+if (!entry) return Astro.redirect("/404");
 
 const { Content } = await render(entry);
 ---
 
-<ProjectsLayout pageTitle={entry.data.title}>
-    <main class="project-page">
-        <header class="project-header">
-            <p class="project-meta-label">Project</p>
-            <h1 class="project-title-main">{entry.data.title}</h1>
+<ProjectDetailLayout pageTitle={entry.data.title}>
+    <!-- META SLOT -->
+    <Fragment slot="meta">
+        <div class="meta-item">
+            <span class="meta-key">By</span>
+            <span class="meta-value">{entry.data.author}</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-key">Published</span>
+            <span class="meta-value">{entry.data.pubDate.toDateString()}</span>
+        </div>
+        {
+            entry.data.tags && (
+                <div class="meta-item">
+                    <span class="meta-key">Tags</span>
+                    <div class="tags-container">
+                        {entry.data.tags.map((tag) => (
+                            <span class="tag-pill">{tag}</span>
+                        ))}
+                    </div>
+                </div>
+            )
+        }
+    </Fragment>
 
-            <div class="project-meta">
-                <p>
-                    <span class="project-meta-key">By</span>
-                    <span class="project-meta-value">{entry.data.author}</span>
+    <!-- DESCRIPTION SLOT -->
+    <Fragment slot="description">
+        {
+            entry.data.description && (
+                <p class="project-detail-description">
+                    {entry.data.description}
                 </p>
-                <p>
-                    <span class="project-meta-key">Published</span>
-                    <span class="project-meta-value">
-                        {entry.data.pubDate.toDateString()}
-                    </span>
-                </p>
-                <p>
-                    <span class="project-meta-key">Tags</span>
-                    <span class="project-meta-value">
-                        {entry.data.tags.join(", ")}
-                    </span>
-                </p>
-            </div>
-
-            {
-                entry.data.description && (
-                    <p class="project-description-intro">
-                        {entry.data.description}
-                    </p>
-                )
-            }
-        </header>
-
-        <article class="project-body">
-            <Content />
-        </article>
-    </main>
-</ProjectsLayout>
+            )
+        }
+    </Fragment>
+    <Fragment slot="thumbnail">
+        {
+            entry.data.thumbnail && (
+                <div class="project-detail-thumbnail">
+                    <img src={entry.data.thumbnail} alt={entry.data.title} />
+                </div>
+            )
+        }
+    </Fragment>
+    <Content />
+</ProjectDetailLayout>
