@@ -1,5 +1,4 @@
 .about-page {
-
     padding: var(--space-lg) var(--space-sm) var(--space-xl);
 }
 
@@ -42,36 +41,41 @@
 }
 
 .about-block--overview {
-    background: var(--color-title);
-    color: #000000;
+    background: var(--card-bg-light);
+    color: var(--card-bg-red);
+}
+
+.about-block--overview .about-block-title {
+    font-weight: 700;
 }
 
 .about-block--details {
     background: var(--card-bg-dark);
-    color: var(--card-text-light);
-}
-
-.about-block--current {
-    background: #050505;
     color: var(--card-text-white);
 }
 
+.about-block--current {
+    background: var(--card-bg-red);
+    color: var(--card-text-dark);
+}
+
 .about-block-title {
-    font-family: var(--font-titles);
-    font-size: var(--fs-xl);
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: var(--fs-lg);
     text-transform: uppercase;
     letter-spacing: 0.22em;
-    margin-bottom: var(--space-lg);
-    font-weight: 900;
+    margin-bottom: var(--space-sm);
+    font-weight: 600;
     font-style: normal;
 }
 
 .about-block p {
     font-family: var(--font-body);
-    font-size: var(--fs-lg);
+    font-size: var(--fs-base);
     font-weight: 400;
     line-height: 1.8;
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-sm);
 }
 
 .about-block-split {
@@ -95,7 +99,7 @@
 
 .about-details-label {
     font-family: var(--font-titles);
-    font-size: var(--fs-sm);
+    font-size: var(--fs-xs);
     text-transform: uppercase;
     letter-spacing: 0.16em;
     opacity: 0.7;
@@ -112,13 +116,13 @@
 }
 
 .about-skill-pill {
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.8rem;
     border-radius: 999px;
     font-family: var(--font-display);
-    font-size: var(--fs-base);
+    font-size: var(--fs-sm);
     text-transform: uppercase;
     letter-spacing: 0.14em;
-    font-weight: 900;
+    font-weight: 600;
     font-style: normal;
     border: 1px solid transparent;
 }
@@ -131,12 +135,12 @@
 
 .about-skill-pill:nth-child(3n + 2) {
     background: var(--card-bg-dark);
-    color: var(--card-text-light);
+    color: var(--card-text-white);
     border-color: rgba(0, 0, 0, 0.25);
 }
 
 .about-skill-pill:nth-child(3n) {
-    background: var(--card-bg-light);
+    background: var(--card-bg-red);
     color: var(--card-text-dark);
     border-color: rgba(0, 0, 0, 0.35);
 }
@@ -159,13 +163,13 @@
     }
 
     .about-block-title {
-        font-size: var(--fs-xxl);
-        margin-bottom: var(--space-xl);
+        font-size: var(--fs-xl);
+        margin-bottom: var(--space-md);
     }
 
     .about-block p {
-        font-size: var(--fs-xl);
-        margin-bottom: var(--space-xl);
+        font-size: var(--fs-lg);
+        margin-bottom: var(--space-md);
     }
 
     .about-block-split {
@@ -179,7 +183,10 @@
 }
 
 @media (min-width: 1100px) {
-    .about-page{margin:3rem 3rem 0rem 2rem;}
+    .about-page {
+        margin: 3rem 3rem 0 2rem;
+    }
+
     .about-layout {
         display: grid;
         grid-template-columns: 1fr 2fr;
@@ -194,7 +201,7 @@
     }
 
     .about-portrait {
-      height: auto;
+        height: auto;
     }
 
     .about-right {
@@ -207,17 +214,15 @@
     }
 
     .about-block-title {
-        font-size: clamp(2.5rem, 4vw, var(--fs-xxxl));
-        margin-bottom: var(--space-lg);
+        font-size: var(--fs-xxl);
+        margin-bottom: var(--space-md);
     }
 
     .about-block p {
-        font-size: var(--fs-xl);
-
+        font-size: var(--fs-lg);
     }
 
     .about-block-split {
-
         gap: var(--space-xxl);
     }
 

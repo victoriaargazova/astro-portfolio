@@ -1,0 +1,20 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import "../style/blog-article.css";
+const { pageTitle } = Astro.props;
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <main class="blog-article-page">
+        <!-- DIRECT GRID CHILDREN -->
+        <header class="article-header">
+            <h1 class="article-title">{pageTitle}</h1>
+            <div class="article-meta"><slot name="meta" /></div>
+        </header>
+
+        <div class="article-content">
+            <slot />
+            <!-- Markdown content -->
+        </div>
+    </main>
+</BaseLayout>

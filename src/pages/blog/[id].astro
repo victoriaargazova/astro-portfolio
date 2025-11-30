@@ -1,6 +1,6 @@
 ---
+import BlogArticleLayout from "../../layouts/BlogArticleLayout.astro";
 import { getEntry, getCollection, render } from "astro:content";
-import BlogLayout from "../../layouts/BlogLayout.astro";
 
 export async function getStaticPaths() {
     const blogPosts = await getCollection("blog");
@@ -11,52 +11,41 @@ export async function getStaticPaths() {
 
 const { id } = Astro.params;
 const entry = await getEntry("blog", id);
-
-if (!entry) {
-    return Astro.redirect("/404");
-}
+if (!entry) return Astro.redirect("/404");
 
 const { Content } = await render(entry);
 ---
 
-<BlogLayout pageTitle={entry.data.title}>
-    <article class="blog-article">
-        <header class="blog-article-header">
-            <p class="blog-article-label">Blog</p>
-            <h1 class="blog-article-title">{entry.data.title}</h1>
+<BlogArticleLayout pageTitle={entry.data.title}>
+    <!-- PASS META DATA -->
+    <Fragment slot="meta">
+        <span class="meta-item">
+            <span class="meta-key">By</span>
+            <span class="meta-value">{entry.data.author}</span>
+        </span>
+        <span class="meta-item">
+            <span class="meta-key">Published</span>
+            <span class="meta-value">{entry.data.pubDate.toDateString()}</span>
+        </span>
+        {
+            entry.data.tags && (
+                <span class="meta-item">
+                    <span class="meta-key">Tags</span>
+                    <span class="meta-value">{entry.data.tags.join(", ")}</span>
+                </span>
+            )
+        }
+    </Fragment>
 
-            <div class="blog-article-meta">
-                <p>
-                    <span class="blog-meta-key">By</span>
-                    <span class="blog-meta-value">{entry.data.author}</span>
-                </p>
-                <p>
-                    <span class="blog-meta-key">Published</span>
-                    <span class="blog-meta-value">
-                        {entry.data.pubDate.toDateString()}
-                    </span>
-                </p>
-                {
-                    entry.data.tags && entry.data.tags.length > 0 && (
-                        <p>
-                            <span class="blog-meta-key">Tags</span>
-                            <span class="blog-meta-value">
-                                {entry.data.tags.join(", ")}
-                            </span>
-                        </p>
-                    )
-                }
-            </div>
+    <!-- PASS EXCERPT -->
+    <Fragment slot="excerpt">
+        {
+            entry.data.description && (
+                <p class="article-excerpt">{entry.data.description}</p>
+            )
+        }
+    </Fragment>
 
-            {
-                entry.data.description && (
-                    <p class="blog-article-excerpt">{entry.data.description}</p>
-                )
-            }
-        </header>
-
-        <section class="blog-article-body">
-            <Content />
-        </section>
-    </article>
-</BlogLayout>
+    <!-- PASS CONTENT -->
+    <Content />
+</BlogArticleLayout>

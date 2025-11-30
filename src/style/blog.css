@@ -1,7 +1,13 @@
+/* Add this to top of blog-article.css to reset browser defaults */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .blog-page {
-    margin: 0 auto;
     padding: var(--space-lg) 1.5rem var(--space-xl);
 }
+
 
 .blog-heading-block {
     margin-bottom: var(--space-xl);
@@ -18,6 +24,8 @@
     list-style: none;
     border-radius: 1.8rem;
     overflow: hidden;
+    width: 100%;
+    max-width: none;
 }
 
 .blog-list-link {
@@ -42,21 +50,26 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
-    align-items: baseline;
+    align-items: center;
+    justify-content: center;
 }
 
 .blog-list-date {
     font-size: var(--fs-xs);
+    font-family: var(--font-body);
     text-transform: uppercase;
     letter-spacing: 0.18em;
     opacity: 0.85;
+    text-align: center;
 }
 
 .blog-list-tags {
     font-size: var(--fs-xs);
+    font-family: var(--font-body);
     text-transform: uppercase;
     letter-spacing: 0.16em;
     opacity: 0.8;
+    text-align: center;
 }
 
 .blog-list-title {
@@ -66,12 +79,15 @@
     letter-spacing: -0.01em;
     line-height: 1.2;
     margin: 0;
+    text-align: center;
 }
 
 .blog-list-desc {
     margin: 0;
     font-size: var(--fs-sm);
+    font-family: var(--font-body);
     line-height: 1.7;
+    text-align: center;
 }
 
 .blog-list-item:nth-child(3n + 1) .blog-list-link {
@@ -111,14 +127,17 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-xl);
+    width: 100%;
 }
 
 .blog-article-label {
     font-size: var(--fs-xs);
+    font-family: var(--font-body);
     text-transform: uppercase;
     letter-spacing: 0.22em;
     color: var(--card-bg-light);
-    margin-bottom: var(--space-xs);
+    margin: 0 auto var(--space-xs);
+    text-align: center;
 }
 
 .blog-article-title {
@@ -129,6 +148,7 @@
     line-height: 1.02;
     margin: 0 0 var(--space-sm);
     color: var(--card-text-white);
+    text-align: center;
 }
 
 .blog-article-meta {
@@ -136,28 +156,36 @@
     flex-direction: column;
     gap: 0.25rem;
     margin-bottom: var(--space-md);
+    align-items: center;
+    text-align: center;
 }
 
 .blog-meta-key {
+    font-family: var(--font-body);
     text-transform: uppercase;
     letter-spacing: 0.18em;
     color: var(--card-text-dark);
 }
 
 .blog-meta-value {
+    font-family: var(--font-body);
     color: var(--card-bg-light);
 }
 
 .blog-article-excerpt {
     font-size: var(--fs-base);
+    font-family: var(--font-body);
     line-height: 1.8;
     color: var(--card-text-light);
-    max-width: 32rem;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .blog-article-body {
     border-top: 1px solid rgba(255, 255, 255, 0.16);
     padding-top: var(--space-md);
+    width: 100%;
 }
 
 .blog-article-body h2,
@@ -168,16 +196,20 @@
     margin-top: var(--space-lg);
     margin-bottom: var(--space-xs);
     color: var(--card-text-white);
+    text-align: center;
 }
 
 .blog-article-body p {
     font-size: var(--fs-base);
+    font-family: var(--font-body);
     line-height: 1.9;
     color: var(--card-bg-light);
     margin-bottom: 1rem;
+    text-align: center;
 }
 
 .blog-article-body a {
+    font-family: var(--font-body);
     color: var(--card-bg-light);
     text-decoration: underline;
 }
@@ -187,9 +219,12 @@
     margin: var(--space-md) 0;
 }
 
+
+
 @media (min-width: 700px) {
     .blog-page {
-        padding: var(--space-xl) 1.5rem var(--space-xxl);
+        margin: 0 10rem;
+        padding: var(--space-xl) 2rem var(--space-xxl);
     }
 
     .page-heading {
@@ -214,7 +249,8 @@
 
 @media (min-width: 1100px) {
     .blog-page {
-        padding: var(--space-xl) 2rem var(--space-xxl);
+        margin: 0 10rem;
+        padding: var(--space-xl) 2.5rem var(--space-xxl);
     }
 
     .page-heading {
