@@ -1,5 +1,6 @@
 let bow;
 
+
 function setup() {
     const hero = document.querySelector(".hero");
     const firstLetter = document.querySelector(".first-letter");
@@ -8,8 +9,6 @@ function setup() {
     if (!hero || !firstLetter || !container) return;
 
     const heroRect = hero.getBoundingClientRect();
-
-
     const cnv = createCanvas(heroRect.width, heroRect.height);
     cnv.parent(container);
     clear(); 
@@ -22,6 +21,7 @@ function draw() {
         bow.update();
     }
 }
+
 
 function windowResized() {
     const hero = document.querySelector(".hero");
@@ -38,20 +38,40 @@ function windowResized() {
     bow = createBowForHero(heroRect, firstLetter);
 }
 
+function computeBowSize(heroRect) {
+    const vw = window.innerWidth;
 
+    let sizeFromHeight = heroRect.height * 0.35;
+    let sizeFromWidth = heroRect.width * 0.22;
+    let baseSize = (sizeFromHeight + sizeFromWidth) / 2;
+
+    if (vw < 700) {
+        baseSize *= 0.9; 
+    } else if (vw > 1200) {
+        baseSize *= 1.1; 
+    }
+
+    return constrain(baseSize, 70, 200); 
+}
 
 function createBowForHero(heroRect, firstLetterEl) {
     const letterRect = firstLetterEl.getBoundingClientRect();
-    const bowSize = constrain(heroRect.height * 0.35, 300, 500);
+    const bowSize = computeBowSize(heroRect);
 
-    const bowX =
-        letterRect.left - heroRect.left + letterRect.width / 2;
+    const offsetX = 10;
+    const bowX = letterRect.left - heroRect.left + offsetX;
+    const vw = window.innerWidth;
+    let verticalOffset;
 
-    const verticalOffset = 140;
+    if (vw < 700) {
+        verticalOffset = -10;
+      
+    } else {
+        verticalOffset = 50; 
+    }
+
     let bowY = letterRect.top - heroRect.top - verticalOffset;
-
     bowY = max(bowSize * 0.6, bowY);
-
     return new Bow(bowX, bowY, bowSize);
 }
 
@@ -209,7 +229,7 @@ class Bow {
             return;
         }
 
-        // Animate outline drawing
+       
         let t = p * 4;
 
         if (t > 0)
@@ -225,5 +245,6 @@ class Bow {
             line(-w / 2, h / 2, -w / 2, h / 2 - min(h, h * (t - 3)));
     }
 }
+
 
 
