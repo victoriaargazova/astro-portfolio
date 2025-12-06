@@ -1,6 +1,5 @@
 let bow;
 
-
 function setup() {
     const hero = document.querySelector(".hero");
     const firstLetter = document.querySelector(".first-letter");
@@ -11,17 +10,17 @@ function setup() {
     const heroRect = hero.getBoundingClientRect();
     const cnv = createCanvas(heroRect.width, heroRect.height);
     cnv.parent(container);
-    clear(); 
 
     bow = createBowForHero(heroRect, firstLetter);
 }
 
 function draw() {
-    if (bow) {
-        bow.update();
-    }
-}
+    if (!bow) return;
 
+    clear(); 
+    bow.update();
+    bow.render();
+}
 
 function windowResized() {
     const hero = document.querySelector(".hero");
@@ -33,10 +32,10 @@ function windowResized() {
     const heroRect = hero.getBoundingClientRect();
 
     resizeCanvas(heroRect.width, heroRect.height);
-    clear();
 
     bow = createBowForHero(heroRect, firstLetter);
 }
+
 
 function computeBowSize(heroRect) {
     const vw = window.innerWidth;
@@ -46,12 +45,12 @@ function computeBowSize(heroRect) {
     let baseSize = (sizeFromHeight + sizeFromWidth) / 2;
 
     if (vw < 700) {
-        baseSize *= 0.9; 
+        baseSize *= 0.9;
     } else if (vw > 1200) {
-        baseSize *= 1.1; 
+        baseSize *= 1.1;
     }
 
-    return constrain(baseSize, 70, 200); 
+    return constrain(baseSize, 70, 200);
 }
 
 function createBowForHero(heroRect, firstLetterEl) {
@@ -60,18 +59,18 @@ function createBowForHero(heroRect, firstLetterEl) {
 
     const offsetX = 10;
     const bowX = letterRect.left - heroRect.left + offsetX;
+
     const vw = window.innerWidth;
     let verticalOffset;
-
     if (vw < 700) {
         verticalOffset = -10;
-      
     } else {
-        verticalOffset = 50; 
+        verticalOffset = 50;
     }
 
     let bowY = letterRect.top - heroRect.top - verticalOffset;
     bowY = max(bowSize * 0.6, bowY);
+
     return new Bow(bowX, bowY, bowSize);
 }
 
@@ -93,22 +92,69 @@ class Bow {
         this.knotProgress = 0;
 
         this.phase = "left";
+
+
+        this.rotation = 0; 
+        this.rotationTarget = -0.18; 
+        this.rotationSpeed = 0.04;  
+        this.rotationStarted = false;
     }
 
     update() {
-        push();
-        translate(this.x, this.y);
-        stroke(255, 50, 50);
-        strokeWeight(7);
-        noFill();
+        if (this.phase === "left") {
+            this.tLeft += 0.03;
+            if (this.tLeft >= 1) {
+                this.tLeft = 1;
+                this.phase = "right";
+            }
+        } else if (this.phase === "right") {
+            this.tRight += 0.03;
+            if (this.tRight >= 1) {
+                this.tRight = 1;
+                this.phase = "tail1";
+            }
+        } else if (this.phase === "tail1") {
+            this.tTail1 += 0.05;
+            if (this.tTail1 >= 1) {
+                this.tTail1 = 1;
+                this.phase = "tail2";
+            }
+        } else if (this.phase === "tail2") {
+            this.tTail2 += 0.05;
+            if (this.tTail2 >= 1) {
+                this.tTail2 = 1;
+                this.phase = "knot";
+            }
+        } else if (this.phase === "knot") {
+            this.knotProgress += 0.05;
+            if (this.knotProgress >= 1) {
+                this.knotProgress = 1;
+                this.phase = "done";
+                this.rotationStarted = true;
+            }
+        }
 
-        if (this.phase === "left") this.drawLeftLoop();
-        else if (this.phase === "right") this.drawRightLoop();
-        else if (this.phase === "tail1") this.drawLeftTail();
-        else if (this.phase === "tail2") this.drawRightTail();
-        else if (this.phase === "knot") this.drawKnot();
+        if (this.rotationStarted) {
+            this.rotation += (this.rotationTarget - this.rotation) * this.rotationSpeed;
+            if (abs(this.rotation - this.rotationTarget) < 0.001) {
+                this.rotation = this.rotationTarget;
+                this.rotationStarted = false;
+            }
+        }
+    }
 
-        pop();
+
+    drawBezierPartial(x0, y0, x1, y1, x2, y2, x3, y3, tMax, segments = 40) {
+        if (tMax <= 0) return;
+        let steps = floor(constrain(tMax, 0, 1) * segments);
+        if (steps < 1) return;
+
+        let prevT = 0;
+        for (let i = 1; i <= steps; i++) {
+            let t = (tMax * i) / steps;
+            this.drawBezierSegment(x0, y0, x1, y1, x2, y2, x3, y3, prevT, t);
+            prevT = t;
+        }
     }
 
     drawBezierSegment(x0, y0, x1, y1, x2, y2, x3, y3, tPrev, tCur) {
@@ -119,12 +165,16 @@ class Bow {
         line(ax, ay, bx, by);
     }
 
-    drawLeftLoop() {
-        let prev = this.tLeft;
-        this.tLeft += 0.03;
-        if (this.tLeft > 1) this.tLeft = 1;
+    render() {
+        push();
+        translate(this.x, this.y);
+        rotate(this.rotation);
 
-        this.drawBezierSegment(
+        stroke(255, 50, 50);
+        strokeWeight(7);
+        noFill();
+
+        this.drawBezierPartial(
             0,
             0,
             -this.half * 1.2,
@@ -133,19 +183,10 @@ class Bow {
             this.half * 0.8,
             0,
             0,
-            prev,
             this.tLeft
         );
 
-        if (this.tLeft === 1) this.phase = "right";
-    }
-
-    drawRightLoop() {
-        let prev = this.tRight;
-        this.tRight += 0.03;
-        if (this.tRight > 1) this.tRight = 1;
-
-        this.drawBezierSegment(
+        this.drawBezierPartial(
             0,
             0,
             this.half * 1.2,
@@ -154,22 +195,12 @@ class Bow {
             this.half * 0.8,
             0,
             0,
-            prev,
             this.tRight
         );
 
-        if (this.tRight === 1) this.phase = "tail1";
-    }
-
-    drawLeftTail() {
-        let prev = this.tTail1;
-        this.tTail1 += 0.05;
-        if (this.tTail1 > 1) this.tTail1 = 1;
-
         let x0 = -this.knotW * 0.3;
         let y0 = this.knotH * 0.2;
-
-        this.drawBezierSegment(
+        this.drawBezierPartial(
             x0,
             y0,
             x0 - this.size * 0.02,
@@ -178,22 +209,12 @@ class Bow {
             y0 + this.size * 0.2,
             x0 + this.size * 0.01,
             y0 + this.size * 0.7,
-            prev,
             this.tTail1
         );
 
-        if (this.tTail1 === 1) this.phase = "tail2";
-    }
-
-    drawRightTail() {
-        let prev = this.tTail2;
-        this.tTail2 += 0.05;
-        if (this.tTail2 > 1) this.tTail2 = 1;
-
-        let x0 = this.knotW * 0.3;
-        let y0 = this.knotH * 0.2;
-
-        this.drawBezierSegment(
+        x0 = this.knotW * 0.3;
+        y0 = this.knotH * 0.2;
+        this.drawBezierPartial(
             x0,
             y0,
             x0 + this.size * 0.02,
@@ -202,47 +223,56 @@ class Bow {
             y0 + this.size * 0.2,
             x0 - this.size * 0.01,
             y0 + this.size * 0.7,
-            prev,
             this.tTail2
         );
 
-        if (this.tTail2 === 1) this.phase = "knot";
+        this.renderKnot();
+
+        pop();
     }
 
-    drawKnot() {
-        this.knotProgress += 0.05;
-        let p = constrain(this.knotProgress, 0, 1);
-
-        let c = color(255, 40, 40);
-        stroke(c);
-
+    renderKnot() {
         const w = this.knotW * 0.45;
         const h = this.knotH * 0.45;
-
         rectMode(CENTER);
+        let c = color(255, 40, 40);
 
-        if (p >= 1) {
+        if (this.phase === "knot" && this.knotProgress < 1) {
+            strokeWeight(12)
+            stroke(c);
+            noFill();
+
+            let p = this.knotProgress;
+            let t = p * 4;
+
+            if (t > 0)
+                line(-w / 2, -h / 2, -w / 2 + min(w, w * t), -h / 2);
+            if (t > 1)
+                line(
+                    w / 2,
+                    -h / 2,
+                    w / 2,
+                    -h / 2 + min(h, h * (t - 1))
+                );
+            if (t > 2)
+                line(
+                    w / 2,
+                    h / 2,
+                    w / 2 - min(w, w * (t - 2)),
+                    h / 2
+                );
+            if (t > 3)
+                line(
+                    -w / 2,
+                    h / 2,
+                    -w / 2,
+                    h / 2 - min(h, h * (t - 3))
+                );
+        } else if (this.phase === "done" || this.knotProgress >= 1) {
+            strokeWeight(13);
             fill(c);
-            noStroke();
             rect(0, 0, w, h, 4);
-            this.phase = "done";
-            return;
         }
-
-       
-        let t = p * 4;
-
-        if (t > 0)
-            line(-w / 2, -h / 2, -w / 2 + min(w, w * t), -h / 2);
-
-        if (t > 1)
-            line(w / 2, -h / 2, w / 2, -h / 2 + min(h, h * (t - 1)));
-
-        if (t > 2)
-            line(w / 2, h / 2, w / 2 - min(w, w * (t - 2)), h / 2);
-
-        if (t > 3)
-            line(-w / 2, h / 2, -w / 2, h / 2 - min(h, h * (t - 3)));
     }
 }
 
