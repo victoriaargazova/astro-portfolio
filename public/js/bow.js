@@ -1,33 +1,20 @@
 let bow;
 
-
-
 function setup() {
-    const container = document.querySelector("#bow-canvas");
-    const heading = document.querySelector(".hero-heading");
+    const hero = document.querySelector(".hero");
     const firstLetter = document.querySelector(".first-letter");
+    const container = document.querySelector("#bow-canvas");
 
-    if (!container || !heading || !firstLetter) return;
+    if (!hero || !firstLetter || !container) return;
 
-    const containerRect = container.getBoundingClientRect();
-    const letterRect = firstLetter.getBoundingClientRect();
+    const heroRect = hero.getBoundingClientRect();
 
 
-    const extraTop = 80; 
-
-   
-    let cnv = createCanvas(containerRect.width, containerRect.height + extraTop);
+    const cnv = createCanvas(heroRect.width, heroRect.height);
     cnv.parent(container);
+    clear(); 
 
-    clear();
-
-
-    const bowX =
-        letterRect.left - containerRect.left + letterRect.width / 2;
-    const bowY =
-        letterRect.top - containerRect.top - 50+ extraTop; 
-
-    bow = new Bow(bowX, bowY, 160); 
+    bow = createBowForHero(heroRect, firstLetter);
 }
 
 function draw() {
@@ -36,6 +23,37 @@ function draw() {
     }
 }
 
+function windowResized() {
+    const hero = document.querySelector(".hero");
+    const firstLetter = document.querySelector(".first-letter");
+    const container = document.querySelector("#bow-canvas");
+
+    if (!hero || !firstLetter || !container) return;
+
+    const heroRect = hero.getBoundingClientRect();
+
+    resizeCanvas(heroRect.width, heroRect.height);
+    clear();
+
+    bow = createBowForHero(heroRect, firstLetter);
+}
+
+
+
+function createBowForHero(heroRect, firstLetterEl) {
+    const letterRect = firstLetterEl.getBoundingClientRect();
+    const bowSize = constrain(heroRect.height * 0.35, 300, 500);
+
+    const bowX =
+        letterRect.left - heroRect.left + letterRect.width / 2;
+
+    const verticalOffset = 140;
+    let bowY = letterRect.top - heroRect.top - verticalOffset;
+
+    bowY = max(bowSize * 0.6, bowY);
+
+    return new Bow(bowX, bowY, bowSize);
+}
 
 
 class Bow {
@@ -96,7 +114,7 @@ class Bow {
             0,
             0,
             prev,
-            this.tLeft,
+            this.tLeft
         );
 
         if (this.tLeft === 1) this.phase = "right";
@@ -117,7 +135,7 @@ class Bow {
             0,
             0,
             prev,
-            this.tRight,
+            this.tRight
         );
 
         if (this.tRight === 1) this.phase = "tail1";
@@ -141,7 +159,7 @@ class Bow {
             x0 + this.size * 0.01,
             y0 + this.size * 0.7,
             prev,
-            this.tTail1,
+            this.tTail1
         );
 
         if (this.tTail1 === 1) this.phase = "tail2";
@@ -165,7 +183,7 @@ class Bow {
             x0 - this.size * 0.01,
             y0 + this.size * 0.7,
             prev,
-            this.tTail2,
+            this.tTail2
         );
 
         if (this.tTail2 === 1) this.phase = "knot";
@@ -191,16 +209,21 @@ class Bow {
             return;
         }
 
-   
+        // Animate outline drawing
         let t = p * 4;
 
-        if (t > 0) line(-w / 2, -h / 2, -w / 2 + min(w, w * t), -h / 2);
+        if (t > 0)
+            line(-w / 2, -h / 2, -w / 2 + min(w, w * t), -h / 2);
+
         if (t > 1)
             line(w / 2, -h / 2, w / 2, -h / 2 + min(h, h * (t - 1)));
+
         if (t > 2)
             line(w / 2, h / 2, w / 2 - min(w, w * (t - 2)), h / 2);
+
         if (t > 3)
             line(-w / 2, h / 2, -w / 2, h / 2 - min(h, h * (t - 3)));
     }
 }
+
 
