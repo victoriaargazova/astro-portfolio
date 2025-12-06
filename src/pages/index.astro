@@ -5,6 +5,8 @@ import "../style/home.css";
 
 <BaseLayout title="Home">
     <section class="hero">
+        <div id="bow-canvas"></div>
+        <!-- free floating! -->
         <div class="hero-inner">
             <h1 class="hero-heading">
                 <span class="first-letter">V</span>ictoria Argazova
@@ -58,4 +60,80 @@ import "../style/home.css";
             </div>
         </div>
     </section>
+    <script>
+        import { gsap } from "gsap";
+
+        if (!import.meta.env.SSR) {
+            (function () {
+                const hero = document.querySelector(".hero");
+                const heading = document.querySelector(".hero-heading");
+
+                if (!hero || !heading) return;
+
+                const firstLetterEl = heading.querySelector(".first-letter");
+                if (!firstLetterEl) return;
+
+                const originalText = (heading.textContent || "").trim();
+                const firstLetterText = firstLetterEl.textContent || "";
+
+                const restText = originalText.slice(firstLetterText.length);
+
+                heading.innerHTML = "";
+                heading.appendChild(firstLetterEl);
+
+                restText.split("").forEach((char) => {
+                    const span = document.createElement("span");
+                    span.textContent = char;
+                    span.classList.add("hero-char");
+                    heading.appendChild(span);
+                });
+
+                gsap.timeline({ defaults: { ease: "power3.out" } })
+                    .from(".hero", {
+                        opacity: 0,
+                        y: 100,
+                        duration: 2,
+                        scale: 0.8,
+                    })
+                    .from(
+                        ".first-letter",
+                        {
+                            opacity: 0,
+                            scale: 0.3,
+                            rotation: 360,
+                            duration: 1.5,
+                        },
+                        "-=1",
+                    )
+                    .from(
+                        ".hero-char",
+                        {
+                            opacity: 0,
+                            y: 80,
+                            rotationX: -90,
+                            stagger: 0.05,
+                            duration: 1.5,
+                        },
+                        "-=1",
+                    )
+                    .from(
+                        ".hero-sub",
+                        { opacity: 0, y: 50, duration: 1.2 },
+                        "-=0.8",
+                    );
+
+                gsap.to(".hero-char", {
+                    y: -6,
+                    duration: 0.25,
+                    ease: "power1.out",
+                    stagger: {
+                        each: 0.03,
+                        from: "center",
+                    },
+                    repeat: -1,
+                    yoyo: true,
+                });
+            })();
+        }
+    </script>
 </BaseLayout>
