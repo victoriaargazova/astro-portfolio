@@ -58,4 +58,34 @@ import "../style/home.css";
             </div>
         </div>
     </section>
+
+    <!-- GSAP animation: all handled here -->
+    <script >
+        import { gsap } from "gsap";
+
+        if (!import.meta.env.SSR) {
+            gsap.from(".hero-heading", {
+                opacity: 0,
+                y: 40,
+                duration: 1.2,
+                ease: "power2.out",
+            });
+
+            gsap.from(".hero-sub", {
+                opacity: 0,
+                y: 20,
+                duration: 1,
+                delay: 0.3,
+                ease: "power2.out",
+            });
+
+            gsap.from(".first-letter", {
+                opacity: 0,
+                scale: 0.6,
+                duration: 0.8,
+                delay: 0.1,
+                ease: "back.out(1.7)",
+            });
+        }
+    </script>
 </BaseLayout>
