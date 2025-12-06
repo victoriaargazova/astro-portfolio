@@ -28,9 +28,7 @@
 .first-letter {
     font-family: var(--font-cursive);
     font-size: 1.4em;
-   
     margin-right: 0.15em;
-    display: inline-block;
 }
 
 .hero-sub {

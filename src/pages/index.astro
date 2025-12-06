@@ -58,34 +58,73 @@ import "../style/home.css";
             </div>
         </div>
     </section>
-
-    <!-- GSAP animation: all handled here -->
-    <script >
+    <script>
         import { gsap } from "gsap";
 
         if (!import.meta.env.SSR) {
-            gsap.from(".hero-heading", {
-                opacity: 0,
-                y: 40,
-                duration: 1.2,
-                ease: "power2.out",
-            });
+            (function () {
+                const hero = document.querySelector(".hero");
+                const heading = document.querySelector(".hero-heading");
 
-            gsap.from(".hero-sub", {
-                opacity: 0,
-                y: 20,
-                duration: 1,
-                delay: 0.3,
-                ease: "power2.out",
-            });
+                if (!hero || !heading) return;
 
-            gsap.from(".first-letter", {
-                opacity: 0,
-                scale: 0.6,
-                duration: 0.8,
-                delay: 0.1,
-                ease: "back.out(1.7)",
-            });
+                const firstLetterEl = heading.querySelector(".first-letter");
+                if (!firstLetterEl) return;
+
+                // 🔑 TRIM THE TEXT SO WE DON'T KEEP THE LEADING WHITESPACE
+                const originalText = (heading.textContent || "").trim();
+                const firstLetterText = firstLetterEl.textContent || "";
+
+                // everything after the first letter ("ictoria Argazova")
+                const restText = originalText.slice(firstLetterText.length);
+
+                // clear heading, then re-append the original first-letter span
+                heading.innerHTML = "";
+                heading.appendChild(firstLetterEl);
+
+                // create spans for the remaining characters
+                restText.split("").forEach((char) => {
+                    const span = document.createElement("span");
+                    span.textContent = char;
+                    span.classList.add("hero-char");
+                    heading.appendChild(span);
+                });
+
+                // GSAP timeline
+                gsap.timeline({ defaults: { ease: "power3.out" } })
+                    .from(".hero", {
+                        opacity: 0,
+                        y: 100,
+                        duration: 2,
+                        scale: 0.8,
+                    })
+                    .from(
+                        ".first-letter",
+                        {
+                            opacity: 0,
+                            scale: 0.3,
+                            rotation: 360,
+                            duration: 1.5,
+                        },
+                        "-=1",
+                    )
+                    .from(
+                        ".hero-char",
+                        {
+                            opacity: 0,
+                            y: 80,
+                            rotationX: -90,
+                            stagger: 0.05,
+                            duration: 1.5,
+                        },
+                        "-=1",
+                    )
+                    .from(
+                        ".hero-sub",
+                        { opacity: 0, y: 50, duration: 1.2 },
+                        "-=0.8",
+                    );
+            })();
         }
     </script>
 </BaseLayout>
