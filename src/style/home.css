@@ -53,6 +53,22 @@
     gap: var(--space-md);
 }
 
+.hero-title-wrap {
+    position: relative;
+    display: inline-block;
+    /* shrink-wrap around the text */
+}
+
+#bow-canvas {
+    position: absolute;
+    inset: 0;
+    /* fill the title box */
+    pointer-events: none;
+    /* so clicks go through */
+    z-index: 2;
+    /* above text or below, depending on your taste */
+}
+
 .section-title {
     font-family: var(--font-display);
     font-size: var(--fs-xl);
