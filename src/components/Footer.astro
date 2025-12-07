@@ -1,14 +1,14 @@
 ---
-import '../style/global.css';
+import SocialLinks from "./SocialLinks.astro";
+import "../style/global.css";
 ---
 
 <footer class="footer">
-    <section>
-        <p>&copy; 2025 Victoria Argazova. All rights reserved.</p>
-        <p>
-            Follow me:
-            <a href="https://instagram.com" target="_blank">Instagram</a> |
-            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-        </p>
-    </section>
+    <div class="footer-left">
+        <p class="footer-text">© 2025 Victoria Argazova</p>
+    </div>
+
+    <div class="footer-right">
+        <SocialLinks />
+    </div>
 </footer>

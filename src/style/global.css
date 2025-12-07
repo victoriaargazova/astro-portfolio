@@ -133,6 +133,31 @@ p {
     gap: var(--space-md);
 }
 
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    justify-content: center;
+}
+
+.social-link {
+    padding: 0.5rem 1.2rem;
+    border-radius: 999px;
+    border: 1px solid var(--card-bg-red);
+    color: var(--card-text-white);
+    font-family: var(--font-body);
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.social-link:hover {
+    background: var(--card-bg-red);
+    color: var(--card-text-dark);
+}
+
 .footer {
     width: 100vw;
     background: var(--color-title);

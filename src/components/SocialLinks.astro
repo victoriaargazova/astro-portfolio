@@ -1,0 +1,26 @@
+---
+type Social = {
+    label: string;
+    href: string;
+};
+
+const socials: Social[] = [
+    { label: "Behance", href: "https://www.behance.net/victoriargazov" },
+    { label: "GitHub", href: "https://github.com/victoriaargazova" },
+];
+---
+
+<nav class="social-links" aria-label="Social media links">
+    {
+        socials.map((s) => (
+            <a
+                class="social-link"
+                href={s.href}
+                target="_blank"
+                rel="noreferrer"
+            >
+                {s.label}
+            </a>
+        ))
+    }
+</nav>
