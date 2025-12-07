@@ -1,8 +1,9 @@
 ---
-title: "Surviving Off-the-Grid – Lifestyle Guide Website"
+title: "Surviving Off-the-Grid Lifestyle Guide Website"
 author: "Victoria Argazova"
 description: "A beginner-friendly HTML/CSS website with a collage-inspired aesthetic, exploring how women can escape the corporate grind and embrace freedom."
-thumbnail: "images/offthegrid.png"
+thumbnail: "../assets/offthegrid.png"
+thumbnailAlt: "Pink and black collage-style web layout for a Marie Antoinette storytelling website"
 pubDate: 2024-10-05
 tags: ["HTML", "CSS", "Collage Style", "Web Design"]
 url: "https://www.victoriaargazova.be/Integration1/tips.html"
@@ -14,7 +15,7 @@ Surviving Off-the-Grid was the very first website I ever coded, and it represent
 
 Visually, I leaned into a muted collage aesthetic, using soft textures, poster-like backgrounds, and scrapbook-inspired compositions to reflect the emotional warmth of starting fresh. Even though the HTML and CSS were not yet refined, the project taught me how design and code can work together to express mood and narrative. It became a safe space to experiment, make mistakes, and discover my natural affinity for collage-driven visual storytelling.
 
-Key features and accomplishments include:
+## Key features and accomplishments include:
 
 - **Conceptual Reinterpretation:** Transformed a survival guide into a feminist, lifestyle-focused narrative about escaping burnout.
 - **Muted Collage Style:** Used soft colors and layered textures to create a scrapbook-like aesthetic that feels comforting and personal.
