@@ -37,7 +37,7 @@
 .about-block {
     border-radius: var(--space-sm);
     padding: var(--space-md);
-    border: 1px solid var(--color-border-light);
+    border: 0.1rem solid var(--color-border-light);
 }
 
 .about-block--overview {
@@ -61,13 +61,11 @@
 
 .about-block-title {
     font-family: var(--font-display);
-    font-style: italic;
     font-size: var(--fs-lg);
     text-transform: uppercase;
     letter-spacing: 0.22em;
     margin-bottom: var(--space-sm);
     font-weight: 600;
-    font-style: normal;
 }
 
 .about-block p {
@@ -104,48 +102,102 @@
     letter-spacing: 0.16em;
     opacity: 0.7;
     font-weight: 900;
-    font-style: normal;
 }
 
 .about-skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
     padding: 0;
     margin: 0;
 }
 
-.about-skill-pill {
-    padding: 0.4rem 0.8rem;
-    border-radius: 999px;
-    font-family: var(--font-display);
-    font-size: var(--fs-sm);
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    font-weight: 600;
-    font-style: normal;
-    border: 1px solid transparent;
+/* skills by category */
+
+.skills-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
 }
 
-.about-skill-pill:nth-child(3n + 1) {
+.skills-group {
+    border-radius: var(--space-sm);
+    padding: var(--space-md);
+    border: 0.1rem solid var(--color-border-light);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+/* first box (e.g. Development) */
+.skills-group:first-child {
+    background: var(--card-bg-dark);
+    color: var(--card-text-white);
+}
+
+/* second box (e.g. Design / Tools / Other) */
+.skills-group:last-child {
+    background: var(--card-bg-light);
+    color: var(--card-text-dark);
+}
+
+.skills-group-title {
+    font-family: var(--font-display);
+    font-size: var(--fs-md);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    margin: 0 0 var(--space-xs);
+}
+
+.skills-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.skill-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-sm);
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+}
+
+.skill-name {
+    font-weight: 500;
+}
+
+.skill-level {
+    padding: 0.25rem 0.9rem;
+    border-radius: 999rem;
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-weight: 700;
+    border: 0.1rem solid transparent;
+}
+
+/* level colors */
+.skill-level--beginner {
     background: var(--card-bg-light);
     color: var(--card-text-dark);
     border-color: var(--color-border-light);
 }
 
-.about-skill-pill:nth-child(3n + 2) {
-    background: var(--card-bg-dark);
-    color: var(--card-text-white);
-    border-color: rgba(0, 0, 0, 0.25);
-}
-
-.about-skill-pill:nth-child(3n) {
+.skill-level--intermediate {
     background: var(--card-bg-red);
     color: var(--card-text-dark);
     border-color: rgba(0, 0, 0, 0.35);
 }
 
-@media (min-width: 700px) {
+.skill-level--advanced {
+    background: var(--card-bg-dark);
+    color: var(--card-text-white);
+    border-color: rgba(0, 0, 0, 0.25);
+}
+
+@media (min-width: 43.75em) {
     .about-page {
         padding: var(--space-xl) var(--space-md) var(--space-xxl);
     }
@@ -180,9 +232,26 @@
         flex-direction: row;
         justify-content: space-between;
     }
+
+    .skills-grid {
+        flex-direction: row;
+    }
+
+    .skills-group {
+        flex: 1;
+        padding: var(--space-lg);
+    }
+
+    .skills-group-title {
+        font-size: var(--fs-lg);
+    }
+
+    .skill-item {
+        font-size: var(--fs-base);
+    }
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 68.75em) {
     .about-page {
         margin: 3rem 3rem 0 2rem;
     }
@@ -198,10 +267,6 @@
         align-items: flex-start;
         position: sticky;
         top: 6rem;
-    }
-
-    .about-portrait {
-        height: auto;
     }
 
     .about-right {
@@ -226,12 +291,15 @@
         gap: var(--space-xxl);
     }
 
-    .about-details li {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
     .page-heading {
         font-size: var(--fs-heading-desktop);
+    }
+
+    .skills-group-title {
+        font-size: var(--fs-xxl);
+    }
+
+    .skill-item {
+        font-size: var(--fs-md);
     }
 }

@@ -247,7 +247,7 @@ p {
 }
 
 /* DESKTOP (min-width: 1000px) */
-@media (min-width: 1000px) {
+@media (min-width: 1100px) {
     .section-title {
         font-size: 3.5rem;
     }

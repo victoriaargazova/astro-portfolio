@@ -74,14 +74,13 @@
 
 .tag-pill {
     padding: 0.3rem 0.75rem;
-    border-radius: 999px;
+    border-radius: 30rem;
     font-size: var(--fs-xs);
     font-family: var(--font-display);
     text-transform: uppercase;
     letter-spacing: 0.12em;
     font-weight: 600;
     border: 1px solid rgba(255, 255, 255, 0.18);
-    backdrop-filter: blur(6px);
 }
 
 .tag-pill:nth-child(odd) {
@@ -185,7 +184,7 @@
     transform: translateY(-50%);
     width: 0.6rem;
     height: 0.6rem;
-    border-radius: 999px;
+    border-radius: 30rem;
     background: var(--card-bg-red);
     box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.08);
 }
