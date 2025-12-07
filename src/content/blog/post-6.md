@@ -1,11 +1,22 @@
 ---
-title: "Working with Astro MD Collections"
+title: "Finishing the First Version of My Portfolio: A Small but Meaningful Milestone"
 author: "Victoria Argazova"
-description: "Exploring the complexities and appeal of Astro's Markdown collections."
-pubDate: 2025-11-10
-tags: ["Astro", "Markdown", "Learning Experience"]
+description: "Wrapping up the main features of my Astro portfolio and reflecting on what I learned along the way."
+pubDate: 2025-11-27
+tags: ["Portfolio", "Reflection", "Learning Journey"]
 ---
 
-# My Experience
+# Finishing the First Version of My Portfolio: A Small but Meaningful Milestone
 
-Right now, I am trying to work with Astro’s md collections, and it’s proving to be quite complicated. There are many steps to set up schemas and query content, and I find managing and displaying the Markdown data a bit tricky. Still, the challenge makes it all feel very interesting, and I enjoy learning how collections tie content and components together in Astro.
+It’s easy to underestimate how much work goes into building a personal site. You think you’re just putting together some pages, but it becomes much more: decisions, revisions, bugs, new ideas, and the occasional mini breakdown.
+
+But now that the core pieces are in place—animations, collections, layout system, and overall structure—I feel a real sense of progress.
+
+## What I’m Proud Of
+
+- I built everything from scratch  
+- I learned a new framework  
+- I created a workflow that actually makes sense to me  
+- I pushed myself beyond just designing and into full implementation  
+
+There’s still so much to learn, but this project became proof that I *can* combine code and design in a way that feels like me.  
