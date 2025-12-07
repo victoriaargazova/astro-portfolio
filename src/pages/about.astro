@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import "../style/about.css";
+import { getCollection } from "astro:content";
 
 const pageTitle = "About";
 
@@ -13,14 +14,15 @@ const identity = {
     hobbies: ["video editing", "dancing", "pop culture"],
 };
 
-const skills = [
-    "Figma",
-    "Adobe Creative Suite",
-    "HTML",
-    "CSS",
-    "Astro",
-    "JavaScript",
-];
+// Load skills from the content collection
+let skills = await getCollection("skills");
+
+// Optional: sort by "order" frontmatter
+skills = skills.sort((a, b) => {
+    const aOrder = a.data.order ?? 999;
+    const bOrder = b.data.order ?? 999;
+    return aOrder - bOrder;
+});
 ---
 
 <BaseLayout pageTitle={pageTitle}>
@@ -62,8 +64,10 @@ const skills = [
                     <h2 class="about-block-title">My skills</h2>
                     <ul class="about-skills">
                         {
-                            skills.map((skill) => (
-                                <li class="about-skill-pill">{skill}</li>
+                            skills.map((entry) => (
+                                <li class="about-skill-pill">
+                                    {entry.data.name}
+                                </li>
                             ))
                         }
                     </ul>
