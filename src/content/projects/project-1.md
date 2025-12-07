@@ -5,6 +5,7 @@ description: "A playful Gen-Z styled storytelling website debunking the myths su
 thumbnail: "images/marieantoinette.png"
 pubDate: 2025-04-22
 tags: ["Storytelling", "Visual Design", "Collage Art", "Gen Z Aesthetic"]
+url: "https://www.figma.com/proto/f7MULq7mpPGm8epAZnWimK/Marie-Antoinette?page-id=5%3A5&node-id=89-166&viewport=87%2C335%2C0.05&t=p5xuLyFDz8kLvx6N-1&scaling=contain&content-scaling=fixed"
 ---
 
 # Storytelling Website

@@ -5,6 +5,7 @@ description: "A warm, fairytale-inspired storytelling website built using Larave
 thumbnail: "images/bulbthumbnail.png"
 pubDate: 2025-04-10
 tags: ["Laravel", "PHP", "Storytelling", "Interactive Design", "JavaScript"]
+url: "https://victoriaargazova.be/rootedBulb/"
 ---
 
 # Storytelling Website

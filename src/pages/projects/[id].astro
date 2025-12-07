@@ -16,48 +16,65 @@ const { Content } = await render(entry);
 ---
 
 <ProjectDetailLayout pageTitle={entry.data.title}>
-    <!-- META SLOT -->
-    <Fragment slot="meta">
-        <div class="meta-item">
-            <span class="meta-key">By</span>
-            <span class="meta-value">{entry.data.author}</span>
-        </div>
-        <div class="meta-item">
-            <span class="meta-key">Published</span>
-            <span class="meta-value">{entry.data.pubDate.toDateString()}</span>
-        </div>
-        {
-            entry.data.tags && (
-                <div class="meta-item">
-                    <span class="meta-key">Tags</span>
-                    <div class="tags-container">
-                        {entry.data.tags.map((tag) => (
-                            <span class="tag-pill">{tag}</span>
-                        ))}
-                    </div>
+<!-- META SLOT -->
+<Fragment slot="meta">
+    <div class="meta-item">
+        <span class="meta-key">By</span>
+        <span class="meta-value">{entry.data.author}</span>
+    </div>
+    <div class="meta-item">
+        <span class="meta-key">Published</span>
+        <span class="meta-value">{entry.data.pubDate.toDateString()}</span>
+    </div>
+    {
+        entry.data.tags && (
+            <div class="meta-item">
+                <span class="meta-key">Tags</span>
+                <div class="tags-container">
+                    {entry.data.tags.map((tag) => (
+                        <span class="tag-pill">{tag}</span>
+                    ))}
                 </div>
-            )
-        }
-    </Fragment>
+            </div>
+        )
+    }
+</Fragment>
 
-    <!-- DESCRIPTION SLOT -->
-    <Fragment slot="description">
-        {
-            entry.data.description && (
-                <p class="project-detail-description">
-                    {entry.data.description}
-                </p>
-            )
-        }
-    </Fragment>
-    <Fragment slot="thumbnail">
-        {
-            entry.data.thumbnail && (
-                <div class="project-detail-thumbnail">
-                    <img src={entry.data.thumbnail} alt={entry.data.title} />
-                </div>
-            )
-        }
-    </Fragment>
-    <Content />
+<!-- DESCRIPTION SLOT -->
+<Fragment slot="description">
+    {
+        entry.data.description && (
+            <p class="project-detail-description">{entry.data.description}</p>
+        )
+    }
+</Fragment>
+
+<!-- THUMBNAIL SLOT -->
+<Fragment slot="thumbnail">
+    {
+        entry.data.thumbnail && (
+            <div class="project-detail-thumbnail">
+                <img src={entry.data.thumbnail} alt={entry.data.title} />
+            </div>
+        )
+    }
+</Fragment>
+
+<!-- URL SLOT (BUTTON UNDER TEXT) -->
+<Fragment slot="url">
+    {
+        entry.data.url && (
+            <a
+                class="project-detail-link"
+                href={entry.data.url}
+                target="_blank"
+                rel="noreferrer"
+            >
+                View project
+            </a>
+        )
+    }
+</Fragment>
+
+<Content />
 </ProjectDetailLayout>

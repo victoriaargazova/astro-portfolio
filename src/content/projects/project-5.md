@@ -5,6 +5,7 @@ description: "A bold, 2000s-inspired podcast identity with neon colors, collage 
 thumbnail: "images/podcastbranding.png"
 pubDate: 2025-03-14
 tags: ["Branding", "Collage Style", "Interaction Design", "Visual Identity"]
+url: "https://www.figma.com/proto/IDwmPxX10xEpmPyzY792RR/Workshop-booking?page-id=2051%3A39&team_id=1424862497166445236&node-id=2421-25029&t=9e8GlQO8EIMe0fPk-1"
 ---
 
 # Podcast Branding

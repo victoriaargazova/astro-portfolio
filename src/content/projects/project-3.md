@@ -5,6 +5,7 @@ description: "A humorous JavaScript clicker game using arrow functions and event
 thumbnail: "images/shotsgame.png"
 pubDate: 2025-01-22
 tags: ["JavaScript", "Game Development", "DOM Manipulation", "Front-End"]
+url: "https://victoriaargazova.be/shotsgame/"
 ---
 
 # JavaScript Game

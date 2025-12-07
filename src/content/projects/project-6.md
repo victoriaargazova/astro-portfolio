@@ -5,6 +5,7 @@ description: "A beginner-friendly HTML/CSS website with a collage-inspired aesth
 thumbnail: "images/offthegrid.png"
 pubDate: 2024-10-05
 tags: ["HTML", "CSS", "Collage Style", "Web Design"]
+url: "https://www.victoriaargazova.be/Integration1/tips.html"
 ---
 
 # Lifestyle Guide Website
