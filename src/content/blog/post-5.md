@@ -1,20 +1,22 @@
 ---
-title: "Finishing the First Version of My Portfolio: A Small but Meaningful Milestone"
+title: "Adding Interactivity With GSAP and p5.js"
 author: "Victoria Argazova"
-description: "Wrapping up the main features of my Astro portfolio and reflecting on what I learned along the way."
-pubDate: 2025-11-27
-tags: ["Portfolio", "Reflection", "Learning Journey"]
+description: "A reflection on implementing animations in Astro and how debugging taught me more than success did."
+pubDate: 2025-11-23
+tags: ["GSAP", "p5.js", "Astro", "Animation"]
 ---
 
-It’s easy to underestimate how much work goes into building a personal site. What starts as a simple idea becomes decisions, revisions, bugs, restarts, and the occasional mini breakdown.
+Animating my site sounded fun in theory. In reality, it became one of the most detail-oriented parts of the project.
 
-Now that the core pieces are finished — animations, content collections, layouts, and structure — I finally feel a real sense of progress.
+GSAP worked smoothly until I changed one line and suddenly everything shifted by thirty pixels.  
+p5.js was even more particular — canvas sizing, offsets, and responsiveness took a lot of trial and error.
 
-## What I’m Proud Of
+## What I Learned Along the Way
 
-- I built everything from scratch  
-- I learned a new framework  
-- I created a workflow that actually makes sense to me  
-- I pushed myself beyond design and into full implementation  
+- Good animations require precise, well-structured code  
+- Debugging positioning is basically studying the DOM  
+- Small layout offsets matter more than expected  
+- Sometimes stepping away is the only way forward
 
-There is still so much I want to learn, but this project already feels like proof that I *can* merge design and code in a way that matches who I am.
+But seeing the bow finally draw itself above the heading made the whole process feel worth it.  
+These details make an interface feel personal — and that's why I keep pushing through the frustration.

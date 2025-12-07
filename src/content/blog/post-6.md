@@ -1,5 +1,5 @@
 ---
-title: "Finishing the First Version of My Portfolio: A Small but Meaningful Milestone"
+title: "Finishing My Portfolio"
 author: "Victoria Argazova"
 description: "Wrapping up the main features of my Astro portfolio and reflecting on what I learned along the way."
 pubDate: 2025-11-27
@@ -18,3 +18,4 @@ Now that the core pieces are finished — animations, content collections, layou
 - I pushed myself beyond design and into full implementation  
 
 There is still so much I want to learn, but this project already feels like proof that I *can* merge design and code in a way that matches who I am.
+

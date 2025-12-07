@@ -1,22 +1,22 @@
 ---
-title: "Adding Interactivity With GSAP and p5.js (and Testing My Patience)"
+title: "Designing as I Code"
 author: "Victoria Argazova"
-description: "A reflection on implementing animations in Astro and how debugging taught me more than success did."
-pubDate: 2025-11-23
-tags: ["GSAP", "p5.js", "Astro", "Animation"]
+description: "Reflecting on how coding my portfolio has influenced the way I approach digital design."
+pubDate: 2025-11-20
+tags: ["Design", "Frontend", "Process"]
 ---
 
-Animating my site sounded fun in theory. In reality, it became one of the most detail-oriented parts of the project.
+I’ve always approached digital projects from a design-first mindset. Visuals come naturally to me. Code… a bit less. But building my portfolio with Astro changed that dynamic.
 
-GSAP worked smoothly until I changed one line and suddenly everything shifted by thirty pixels.  
-p5.js was even more particular — canvas sizing, offsets, and responsiveness took a lot of trial and error.
+For the first time, design and development feel like one continuous process instead of two separate stages.
 
-## What I Learned Along the Way
+## What Coding Has Taught Me About Design
 
-- Good animations require precise, well-structured code  
-- Debugging positioning is basically studying the DOM  
-- Small layout offsets matter more than expected  
-- Sometimes stepping away is the only way forward
+- Constraints make decisions clearer  
+- Components encourage consistency  
+- Accessibility can't be an afterthought  
+- Animation should have purpose, not just style
 
-But seeing the bow finally draw itself above the heading made the whole process feel worth it.  
-These details make an interface feel personal — and that's why I keep pushing through the frustration.
+When I animate something now—like the V in my heading—I think about structure, readability, and performance alongside aesthetics.
+
+Frontend development is starting to feel like design expressed through logic instead of color palettes.

@@ -1,30 +1,26 @@
 ---
-title: "Branches, Mistakes, and Figuring Out How Git Actually Works"
+title: "Learning Markdown Collections"
 author: "Victoria Argazova"
-description: "A recap of my experience learning Git branching—and realizing I had done it wrong for a while."
-pubDate: 2025-11-17
-tags: ["Git", "Workflow", "Learning Process"]
+description: "My process of creating content collections in Astro, what confused me, and how I eventually got through it."
+pubDate: 2025-11-14
+tags: ["Astro", "Content Collections", "Learning"]
 ---
 
-Git has always felt slightly intimidating. I like the idea of branches keeping work organized, but using them correctly was a different story.
+Setting up Astro’s content collections looked simple in the documentation.  
+In practice, it felt like assembling IKEA furniture without the little cartoon guy.
 
-I created a feature branch.  
-Then accidentally created another one with a nearly identical name.  
-Then pushed the wrong branch entirely.  
-Then realized I wasn’t using GitHub Flow properly at all.
+I understood the idea—define a collection, set a schema, place Markdown files correctly—but wiring everything together took longer than I expected.
 
-## What Went Wrong
+## Where I Got Stuck
 
-- I committed to the wrong branch  
-- I forgot to delete branches after merging  
-- I pushed with incorrect refspecs  
-- I relied too much on the UI and not enough on understanding commands
+- Type validation kept yelling at me  
+- I placed frontmatter in the wrong order  
+- My schema didn’t match my files  
+- I forgot to export the collection (several times)
 
-## What I Learned
+What helped most was slowing down and actually reading the errors instead of skimming them in panic. And once everything connected, the whole system suddenly felt powerful and organized.
 
-- Always check `git branch` before committing  
-- Clean branches make a clean mind  
-- Naming conventions matter more than expected  
-- Mistakes are part of learning version control
+## The Takeaway
 
-I used to think Git was just a technical requirement — now I see it as a way to think more clearly about my work.
+I’m learning that frustration isn’t failure — it’s part of building real things.  
+And the moment my first collection rendered properly, everything felt worth it.

@@ -1,22 +1,30 @@
 ---
-title: "Designing as I Code"
+title: "Branches, Mistakes and Figuring Out Git"
 author: "Victoria Argazova"
-description: "Reflecting on how coding my portfolio has influenced the way I approach digital design."
-pubDate: 2025-11-20
-tags: ["Design", "Frontend", "Process"]
+description: "A recap of my experience learning Git branching—and realizing I had done it wrong for a while."
+pubDate: 2025-11-17
+tags: ["Git", "Workflow", "Learning Process"]
 ---
 
-I’ve always approached digital projects from a design-first mindset. Visuals come naturally to me. Code… a bit less. But building my portfolio with Astro changed that dynamic.
+Git has always felt slightly intimidating. I like the idea of branches keeping work organized, but using them correctly was a different story.
 
-For the first time, design and development feel like one continuous process instead of two separate stages.
+I created a feature branch.  
+Then accidentally created another one with a nearly identical name.  
+Then pushed the wrong branch entirely.  
+Then realized I wasn’t using GitHub Flow properly at all.
 
-## What Coding Has Taught Me About Design
+## What Went Wrong
 
-- Constraints make decisions clearer  
-- Components encourage consistency  
-- Accessibility can't be an afterthought  
-- Animation should have purpose, not just style
+- I committed to the wrong branch  
+- I forgot to delete branches after merging  
+- I pushed with incorrect refspecs  
+- I relied too much on the UI and not enough on understanding commands
 
-When I animate something now—like the V in my heading—I think about structure, readability, and performance alongside aesthetics.
+## What I Learned
 
-Frontend development is starting to feel like design expressed through logic instead of color palettes.
+- Always check `git branch` before committing  
+- Clean branches make a clean mind  
+- Naming conventions matter more than expected  
+- Mistakes are part of learning version control
+
+I used to think Git was just a technical requirement — now I see it as a way to think more clearly about my work.
