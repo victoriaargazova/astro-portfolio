@@ -1,11 +1,26 @@
 ---
-title: "Working with Astro MD Collections"
+title: "Learning Markdown Collections"
 author: "Victoria Argazova"
-description: "Exploring the complexities and appeal of Astro's Markdown collections."
-pubDate: 2025-11-10
-tags: ["Astro", "Markdown", "Learning Experience"]
+description: "My process of creating content collections in Astro, what confused me, and how I eventually got through it."
+pubDate: 2025-11-14
+tags: ["Astro", "Content Collections", "Learning"]
 ---
 
-# My Experience
+Setting up Astro’s content collections looked simple in the documentation.  
+In practice, it felt like assembling IKEA furniture without the little cartoon guy.
 
-Right now, I am trying to work with Astro’s md collections, and it’s proving to be quite complicated. There are many steps to set up schemas and query content, and I find managing and displaying the Markdown data a bit tricky. Still, the challenge makes it all feel very interesting, and I enjoy learning how collections tie content and components together in Astro.
+I understood the idea—define a collection, set a schema, place Markdown files correctly—but wiring everything together took longer than I expected.
+
+## Where I Got Stuck
+
+- Type validation kept yelling at me  
+- I placed frontmatter in the wrong order  
+- My schema didn’t match my files  
+- I forgot to export the collection (several times)
+
+What helped most was slowing down and actually reading the errors instead of skimming them in panic. And once everything connected, the whole system suddenly felt powerful and organized.
+
+## The Takeaway
+
+I’m learning that frustration isn’t failure — it’s part of building real things.  
+And the moment my first collection rendered properly, everything felt worth it.

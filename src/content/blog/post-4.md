@@ -1,11 +1,22 @@
 ---
-title: "Working with Astro MD Collections"
+title: "Designing as I Code"
 author: "Victoria Argazova"
-description: "Exploring the complexities and appeal of Astro's Markdown collections."
-pubDate: 2025-11-10
-tags: ["Astro", "Markdown", "Learning Experience"]
+description: "Reflecting on how coding my portfolio has influenced the way I approach digital design."
+pubDate: 2025-11-20
+tags: ["Design", "Frontend", "Process"]
 ---
 
-# My Experience
+I’ve always approached digital projects from a design-first mindset. Visuals come naturally to me. Code… a bit less. But building my portfolio with Astro changed that dynamic.
 
-Right now, I am trying to work with Astro’s md collections, and it’s proving to be quite complicated. There are many steps to set up schemas and query content, and I find managing and displaying the Markdown data a bit tricky. Still, the challenge makes it all feel very interesting, and I enjoy learning how collections tie content and components together in Astro.
+For the first time, design and development feel like one continuous process instead of two separate stages.
+
+## What Coding Has Taught Me About Design
+
+- Constraints make decisions clearer  
+- Components encourage consistency  
+- Accessibility can't be an afterthought  
+- Animation should have purpose, not just style
+
+When I animate something now—like the V in my heading—I think about structure, readability, and performance alongside aesthetics.
+
+Frontend development is starting to feel like design expressed through logic instead of color palettes.
