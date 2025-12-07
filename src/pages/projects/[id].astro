@@ -66,9 +66,8 @@ const { Content } = await render(entry);
                     <Image
                         src={entry.data.thumbnail}
                         alt={entry.data.thumbnailAlt ?? entry.data.title}
-                        widths={[400, 700, 1000]}
-                        sizes="(max-width: 700px) 100vw, (max-width: 1200px) 80vw, 700px"
-                        loading="lazy"
+                        widths={[600, 700, 1100]}
+                        sizes="(max-width: 800px) 80vw,80vh, 800px"
                     />
                 </div>
             )

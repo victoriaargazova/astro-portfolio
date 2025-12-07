@@ -1,8 +1,6 @@
 /* PAGE */
 .project-detail-page {
-    width: 100%;
-    min-height: 100vh;
-    margin: 0 auto;
+    margin: 0 2rem 2rem 0;
     padding: var(--space-lg) var(--space-sm);
     color: var(--card-text-light);
     font-family: var(--font-body);
@@ -36,19 +34,19 @@
     font-weight: 800;
 }
 
-/* META */
+/* META – always stacked vertically */
 .project-detail-meta {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-sm);
-    justify-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
 }
 
 .meta-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-xs);
+    gap: var(--space-sm);
 }
 
 .meta-key {
@@ -67,7 +65,7 @@
 .tags-container {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-xs);
+    gap: var(--space-sm);
     justify-content: center;
 }
 
@@ -77,6 +75,7 @@
     font-size: var(--fs-xs);
     text-transform: uppercase;
     font-weight: 700;
+    gap: var(--space-sm);
 }
 
 .tag-pill:nth-child(3n+1) {
@@ -94,43 +93,47 @@
     color: var(--card-text-dark);
 }
 
-/* DESCRIPTION */
+/* DESCRIPTION – text width limited */
 .project-detail-description {
     font-size: var(--fs-sm);
     line-height: 1.7;
     text-align: center;
+    margin-top: var(--space-lg);
     margin-bottom: var(--space-md);
     padding: 0 var(--space-sm);
+    max-width: 60rem;
+    /* wider text */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* THUMBNAIL */
 .project-detail-thumbnail {
-    width: 100%;
+    margin: 0 auto var(--space-md);
     border-radius: var(--space-md);
     overflow: hidden;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-    /* limit height so it doesn't dominate */
-    max-height: 50vh;
 }
 
 .project-detail-thumbnail img {
     width: 100%;
-    height: 100%;
+    height: auto;
     display: block;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
 
-.project-detail-thumbnail:hover img {
-    transform: scale(1.02);
-}
 
-/* BODY WRAPPER */
+
+/* BODY WRAPPER – text width limited */
 .project-detail-body {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
+    margin: 0 auto;
+    max-width: 60rem;
+    /* bigger max width for all content after thumbnail */
 }
 
 /* HEADINGS IN BODY */
@@ -150,11 +153,10 @@
 
 .project-detail-body h2 {
     font-size: var(--fs-xl);
-    border-bottom: 3px solid rgba(200, 0, 0, 0.4);
-    padding-bottom: var(--space-xs);
+    /* removed red underline: no border-bottom, no padding-bottom */
 }
 
-/* This is for section subtitles (if you use h3) */
+/* h3 subtitles */
 .project-detail-body h3 {
     font-family: var(--font-display);
     font-size: var(--fs-lg);
@@ -164,11 +166,11 @@
     margin: var(--space-lg) 0 var(--space-xs);
 }
 
-/* TEXT */
+/* TEXT – slightly tighter spacing */
 .project-detail-body p {
     font-size: var(--fs-sm);
-    line-height: 1.85;
-    margin-bottom: var(--space-sm);
+    line-height: 1.75;
+    margin-bottom: 0.75rem;
 }
 
 .project-detail-body strong {
@@ -186,7 +188,7 @@
     font-weight: 500;
 }
 
-/* LISTS – GENERAL */
+/* LISTS */
 .project-detail-body ul {
     list-style: none;
     padding-left: 0;
@@ -195,8 +197,8 @@
 
 .project-detail-body li {
     font-size: var(--fs-sm);
-    margin-bottom: var(--space-sm);
-    padding: var(--space-sm) var(--space-md);
+    margin-bottom: 0.6rem;
+    padding: var(--space-xs) var(--space-md);
     background: rgba(255, 255, 255, 0.03);
     border-left: 4px solid var(--card-bg-red);
     border-radius: var(--space-xs);
@@ -216,7 +218,7 @@
     transform: translateY(-50%);
 }
 
-/* KEY FEATURES SECTION – h2 + ul */
+/* KEY FEATURES: h2 + ul block */
 .project-detail-body h2+ul {
     margin-top: var(--space-md);
     padding: var(--space-md) var(--space-sm);
@@ -228,7 +230,6 @@
     gap: var(--space-sm);
 }
 
-/* soften items inside key features section */
 .project-detail-body h2+ul li {
     background: transparent;
     border-left-width: 3px;
@@ -254,30 +255,24 @@
     transition: 0.2s ease;
 }
 
-/* override default link styling for CTA */
+/* override for CTA inside body */
 .project-detail-body a.project-detail-link {
     color: var(--card-text-white);
     text-decoration: none;
 }
 
 .project-detail-link:hover {
-    background: var(--card-text-white);
+    background: rgba(0, 0, 0, 0.6);
     color: var(--card-text-dark);
-    /* black text on hover */
     transform: translateY(-2px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
 }
 
-/* RESPONSIVE TYPOGRAPHY + LAYOUT */
-
+/* RESPONSIVE */
 @media (min-width: 700px) {
     .project-detail-page {
         padding: var(--space-xl) var(--space-md);
-        gap: var(--space-xxl);
-    }
-
-    .project-detail-meta {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: var(--space-xl);
     }
 
     .meta-value {
