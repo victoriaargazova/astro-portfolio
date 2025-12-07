@@ -1,17 +1,24 @@
 ---
-title: "Relit the Bulb Interactive Website"
+title: "Relit the Bulb Storytelling Website"
 author: "Victoria Argazova"
-description: "A creative interactive website focusing on user engagement through animations and dynamic design elements."
-thumbnail: "images/bulbthumbnail.png"
+description: "A warm, fairytale-inspired storytelling website built using Laravel, exploring memory and identity through interactive bulb metaphors."
+thumbnail: "../assets/bulbthumbnail.png"
+thumbnailAlt: "Pink and black collage-style web layout for a Marie Antoinette storytelling website"
 pubDate: 2025-04-10
-tags: ["JavaScript", "Interactive Design", "Animation"]
+tags: ["Laravel", "PHP", "Storytelling", "Interactive Design", "JavaScript"]
+url: "https://victoriaargazova.be/rootedBulb/"
 ---
-# Interactive Website
 
-This project is an engaging and visually dynamic website designed to captivate users with **interactive animations and seamless user experience**. It serves as a study in dynamic design and optimizing performance while layering rich interactive features.
+# Storytelling Website
 
-Key features and accomplishments include:
+The Bulb website was inspired by the idea that memories behave like light — they glow, they guide us, and they stay with us no matter how far from home we travel. For this project, I wanted to combine technical backend structure with a poetic, emotional narrative experience. Using Laravel, I built a modular story where each “memory bulb” acts as a small, glowing time capsule waiting to be opened. The design embraces a fairytale-like collage style with warm tones of yellow, orange, and brown to evoke nostalgia and softness. JavaScript animations add gentle movement, turning each memory into a living moment. This project became a way to explore how backend frameworks can support storytelling, transforming logic and routes into chapters of a deeply personal journey.
 
--   **Animated Components:** Components are built to react dynamically based on user inputs (scroll, hover, click).
--   **Enhanced Storytelling:** Creative use of motion graphics to enhance storytelling and guide the user through the narrative flow of the site.
--   **Optimized Performance:** Aggressive performance tuning ensures all high-fidelity animations run smoothly across devices, maintaining fast load times.
+## Key features and accomplishments include:
+
+- **Laravel Architecture:** Organized story chapters using routes, Blade templates, and modular structure.
+- **Interactive Memory Bulbs:** Users reveal memories through animated, glowing bulb interactions.
+- **Warm Fairytale Aesthetic:** Collage textures and warm tones evoke comfort and nostalgia.
+- **Narrative Flow:** Smooth transitions create an immersive storytelling rhythm.
+- **JavaScript Enhancements:** Light pulses and floating particles add emotional atmosphere.
+
+

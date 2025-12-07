@@ -1,17 +1,23 @@
 ---
-title: "Relit the Bulb Interactive Website"
+title: "F'reef Underwater City Website"
 author: "Victoria Argazova"
-description: "A creative interactive website focusing on user engagement through animations and dynamic design elements."
-thumbnail: "images/bulbthumbnail.png"
-pubDate: 2025-04-10
-tags: ["JavaScript", "Interactive Design", "Animation"]
+description: "A neon, expressive brand identity and website concept for an underwater city created during the Hack the Future competition."
+thumbnail: "../assets/freef.png"
+thumbnailAlt: "Pink and black collage-style web layout for a Marie Antoinette storytelling website"
+pubDate: 2025-02-18
+tags: ["Branding", "Competition", "Neon Design", "Collaboration", "Interactive Design"]
+url: "https://www.figma.com/proto/DmsnRLd8pBckeVnG7Hh3u1/hack-the-future?page-id=16%3A1638&node-id=16-1848&t=FsOgl4Mjt4hFv8V0-1"
 ---
-# Interactive Website
 
-This project is an engaging and visually dynamic website designed to captivate users with **interactive animations and seamless user experience**. It serves as a study in dynamic design and optimizing performance while layering rich interactive features.
+# Branding & Website
 
-Key features and accomplishments include:
+F’reef was born from the idea of imagining an underwater city built entirely on freedom, individuality, and endless celebration. Instead of designing a futuristic metropolis with cold sci-fi aesthetics, we envisioned a warm, neon-lit ecosystem where every element — from the color palette to the typography — expresses joy and self-expression. The name “F’reef” merges the words free and reef, symbolizing a community that grows, glows, and celebrates diversity like coral. Neon gradients, inflated balloon-like lettering, and bubble-inspired shapes reflect the city’s vibrant, ever-changing energy. The project was a collaborative exploration of how branding can function as worldbuilding, creating not just a logo but an entire culture.
 
--   **Animated Components:** Components are built to react dynamically based on user inputs (scroll, hover, click).
--   **Enhanced Storytelling:** Creative use of motion graphics to enhance storytelling and guide the user through the narrative flow of the site.
--   **Optimized Performance:** Aggressive performance tuning ensures all high-fidelity animations run smoothly across devices, maintaining fast load times.
+## Key features and accomplishments include:
+
+- **Neon Color System:** Animated gradients communicate energy, diversity, and motion.
+- **Inflated Typography:** Balloon-like visual forms add personality and buoyancy.
+- **Organic Motifs:** Bubble and sea-creature elements evoke a fluid underwater atmosphere.
+- **Motion-Driven Design:** Floating, rising, and glowing animations make the brand feel alive.
+- **Collaborative Worldbuilding:** Co-created identity and narrative direction with designer Mila Slavcheva.
+

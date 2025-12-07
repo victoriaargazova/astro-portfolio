@@ -1,11 +1,14 @@
 ---
 import { getEntry, getCollection, render } from "astro:content";
+import { Image } from "astro:assets";
 import ProjectDetailLayout from "../../layouts/ProjectDetailLayout.astro";
 import "../../style/project-detail.css";
 
 export async function getStaticPaths() {
     const projects = await getCollection("projects");
-    return projects.map((post) => ({ params: { id: post.id } }));
+    return projects.map((project) => ({
+        params: { id: project.id },
+    }));
 }
 
 const { id } = Astro.params;
@@ -22,12 +25,16 @@ const { Content } = await render(entry);
             <span class="meta-key">By</span>
             <span class="meta-value">{entry.data.author}</span>
         </div>
+
         <div class="meta-item">
             <span class="meta-key">Published</span>
-            <span class="meta-value">{entry.data.pubDate.toDateString()}</span>
+            <span class="meta-value">
+                {entry.data.pubDate.toDateString()}
+            </span>
         </div>
+
         {
-            entry.data.tags && (
+            entry.data.tags && entry.data.tags.length > 0 && (
                 <div class="meta-item">
                     <span class="meta-key">Tags</span>
                     <div class="tags-container">
@@ -50,14 +57,39 @@ const { Content } = await render(entry);
             )
         }
     </Fragment>
+
+    <!-- THUMBNAIL SLOT -->
     <Fragment slot="thumbnail">
         {
             entry.data.thumbnail && (
                 <div class="project-detail-thumbnail">
-                    <img src={entry.data.thumbnail} alt={entry.data.title} />
+                    <Image
+                        src={entry.data.thumbnail}
+                        alt={entry.data.thumbnailAlt ?? entry.data.title}
+                        widths={[600, 700, 1100]}
+                        sizes="(max-width: 800px) 80vw,80vh, 800px"
+                    />
                 </div>
             )
         }
     </Fragment>
+
+    <!-- URL SLOT -->
+    <Fragment slot="url">
+        {
+            entry.data.url && (
+                <a
+                    class="project-detail-link"
+                    href={entry.data.url}
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                    View project
+                </a>
+            )
+        }
+    </Fragment>
+
+    <!-- MAIN CONTENT -->
     <Content />
 </ProjectDetailLayout>
