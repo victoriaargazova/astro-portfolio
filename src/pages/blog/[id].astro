@@ -30,7 +30,11 @@ const { Content } = await render(entry);
             entry.data.tags && (
                 <span class="meta-item">
                     <span class="meta-key">Tags</span>
-                    <span class="meta-value">{entry.data.tags.join(", ")}</span>
+                    <span class="tags-container">
+                        {entry.data.tags.map((tag) => (
+                            <span class="tag-pill">{tag}</span>
+                        ))}
+                    </span>
                 </span>
             )
         }

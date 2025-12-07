@@ -1,5 +1,5 @@
 ---
-title: "Finishing My Portfolio"
+title: "Finishing My Astro Portfolio"
 author: "Victoria Argazova"
 description: "Wrapping up the main features of my Astro portfolio and reflecting on what I learned along the way."
 pubDate: 2025-11-27

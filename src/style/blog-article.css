@@ -1,6 +1,5 @@
 .blog-article-page {
     width: 100%;
-    margin: 0 auto;
     padding: var(--space-lg) 2rem;
     min-height: 100vh;
     display: flex;
@@ -12,16 +11,15 @@
 
 .article-header {
     text-align: center;
-    width: 100%;
 }
 
 .article-title {
-    font-family: var(--font-display);
-    font-size: var(--fs-xl);
+    font-family: var(--font-titles);
+    font-size: var(--fs-heading-mobile);
     text-transform: uppercase;
     letter-spacing: -0.03em;
     line-height: 1.05;
-    margin: 0 0 var(--space-lg) 0;
+    margin-bottom: var(--space-lg);
     color: var(--card-bg-red);
 }
 
@@ -36,10 +34,10 @@
 .meta-item {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: var(--space-xs);
     position: relative;
     padding: 0 1rem;
+    text-align: center;
 }
 
 .meta-item:not(:last-child)::after {
@@ -54,31 +52,59 @@
 }
 
 .meta-key {
-    font-size: var(--fs-base);
+    font-family: var(--font-display);
+    font-size: var(--fs-xs);
     text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: var(--card-text-light);
+    letter-spacing: 0.18em;
     opacity: 0.6;
 }
 
 .meta-value {
-    font-size: var(--fs-lg);
+    font-family: var(--font-display);
+    font-size: var(--fs-sm);
     color: var(--card-text-white);
-    font-weight: 500;
+    font-weight: 600;
+}
+
+.tags-container {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.tag-pill {
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    font-size: var(--fs-xs);
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(6px);
+}
+
+.tag-pill:nth-child(odd) {
+    background: rgba(255, 70, 70, 0.2);
+    color: var(--card-text-white);
+}
+
+.tag-pill:nth-child(even) {
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--card-text-light);
 }
 
 .article-excerpt {
+    font-family: var(--font-body);
     font-size: var(--fs-xl);
     line-height: 1.75;
     text-align: center;
-    width: 100%;
 }
 
 .article-content {
+    font-family: var(--font-body);
     font-size: var(--fs-s);
     line-height: 1.85;
-    color: var(--card-text-light);
-    width: 100%;
 }
 
 .article-content p {
@@ -90,18 +116,14 @@
 .article-content h1,
 .article-content h2,
 .article-content h3 {
-    font-family: var(--font-display);
+    font-family: var(--font-titles);
     color: var(--card-bg-red);
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    margin: var(--space-xl) 0 var(--space-md) 0;
-    text-align: left;
+    margin: var(--space-xl) 0 var(--space-md);
 }
 
-.article-content h1 {
-    font-size: var(--fs-lg);
-}
-
+.article-content h1,
 .article-content h2 {
     font-size: var(--fs-lg);
 }
@@ -130,11 +152,11 @@
 }
 
 .article-content code {
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
     background: rgba(255, 255, 255, 0.1);
     padding: 0.2rem 0.4rem;
     border-radius: var(--space-xs);
-    font-family: monospace;
-    font-size: var(--fs-sm);
 }
 
 .article-content ul,
@@ -189,18 +211,30 @@
     .article-content p {
         font-size: var(--fs-base);
     }
+
+    .meta-key {
+        font-size: var(--fs-sm);
+    }
+
+    .meta-value {
+        font-size: var(--fs-base);
+    }
+
+    .tag-pill {
+        font-size: var(--fs-sm);
+        padding: 0.35rem 0.85rem;
+    }
 }
+
 @media (min-width: 1100px) {
     .blog-article-page {
         padding: var(--space-xxl) 7rem;
-        max-width: 1400px;
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: var(--space-xxl);
         align-items: start;
     }
 
-    /* Left column becomes sticky */
     .article-header {
         grid-column: 1;
         position: sticky;
@@ -211,7 +245,6 @@
 
     .article-title {
         font-size: var(--fs-heading-desktop);
-        text-align: left;
     }
 
     .article-meta {
@@ -228,13 +261,20 @@
         margin-top: var(--space-lg);
     }
 
-    /* Right column: main article body */
     .article-content {
         grid-column: 2;
-        font-size: var(--fs-xxl);
     }
 
-    .article-content p {
+    .article-content p,
+    .article-content li {
         font-size: var(--fs-md);
+    }
+
+    .meta-key {
+        font-size: var(--fs-base);
+    }
+
+    .meta-value {
+        font-size: var(--fs-lg);
     }
 }

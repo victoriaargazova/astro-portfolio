@@ -1,5 +1,5 @@
 ---
-title: "Adding Interactivity With GSAP and p5.js"
+title: "Interactivity With GSAP and p5.js"
 author: "Victoria Argazova"
 description: "A reflection on implementing animations in Astro and how debugging taught me more than success did."
 pubDate: 2025-11-23
