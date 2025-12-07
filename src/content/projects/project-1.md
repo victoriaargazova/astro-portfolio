@@ -1,19 +1,24 @@
 ---
-title: "Marie Antoinette "
+title: "Marie Antoinette Myth-Debunking Storytelling Website"
 author: "Victoria Argazova"
-description: "An immersive digital storytelling experience exploring the life of Marie Antoinette through interactive design and animation."
+description: "A playful Gen-Z styled storytelling website debunking the myths surrounding Marie Antoinette through collage aesthetics and interactive narrative."
 thumbnail: "images/marieantoinette.png"
 pubDate: 2025-04-22
-tags: ["Figma", "Storytelling", "Interactive Design"]
+tags: ["Storytelling", "Visual Design", "Collage Art", "Gen Z Aesthetic"]
 ---
 
-# Storytelling website 
+# Storytelling Website
 
-This project is a visually rich storytelling website that brings to life the story of Marie Antoinette. Using a Figma design, the site features:
+The idea behind this project was to take one of the most widely misunderstood historical figures and reinterpret her story in a way that feels modern, bold, and culturally relevant. Instead of retelling Marie Antoinette’s life through traditional, serious design, I chose to debunk the “let them eat cake” myth using a humorous Gen-Z voice and an aesthetic inspired by chaotic digital scrapbooks. I wanted the experience to feel loud, expressive, and unapologetic — a reclaiming of history through satire. The collage style, paired with a vibrant pink-and-black palette, helped create an atmosphere that defies historical romanticization and instead embraces a witty, fast-paced storytelling rhythm that mirrors how young audiences actually communicate today.
 
-- Immersive visual narratives with smooth animations
-- Interactive storytelling
-- Historical facts and multimedia content
+Key features and accomplishments include:
+
+- **Gen-Z Narrative Voice:** Used humor and internet slang to transform historical content into something relatable and entertaining.
+- **Collage Aesthetic:** Layered cut-outs, textures, and bold type create a scrapbook-like digital experience.
+- **Rebellious Color Palette:** Pink and black disrupt the expected royal aesthetic and convey the project's attitude.
+- **Scroll-Based Storytelling:** Smooth transitions guide readers through chapters like a digital graphic novel.
+- **Cohesive Tone:** Maintains a playful balance between historical accuracy and narrative humor.
+
 
 
 

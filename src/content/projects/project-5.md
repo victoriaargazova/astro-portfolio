@@ -1,17 +1,22 @@
 ---
-title: "Relit the Bulb Interactive Website"
+title: "unBothered Confessions Podcast Branding"
 author: "Victoria Argazova"
-description: "A creative interactive website focusing on user engagement through animations and dynamic design elements."
-thumbnail: "images/shotsgame.png"
-pubDate: 2025-04-10
-tags: ["JavaScript", "Interactive Design", "Animation"]
+description: "A bold, 2000s-inspired podcast identity with neon colors, collage visuals, and playful interactive elements."
+thumbnail: "images/podcastbranding.png"
+pubDate: 2025-03-14
+tags: ["Branding", "Collage Style", "Interaction Design", "Visual Identity"]
 ---
-# Interactive Website
 
-This project is an engaging and visually dynamic website designed to captivate users with **interactive animations and seamless user experience**. It serves as a study in dynamic design and optimizing performance while layering rich interactive features.
+# Podcast Branding
+
+The idea for unBothered Confessions was to create a podcast brand that feels loud, expressive, and unfiltered — a visual world built around honest storytelling and chaotic humor. Inspired by early-2000s aesthetics, the brand embraces nostalgia through retro devices, bright saturated colors, and collage compositions that feel handmade and imperfect in the best way. The interactions mimic real-life physical gestures, like placing headphones on an iPod, to create a playful sense of tactility. The project became an exploration of how branding can extend beyond static visuals into a full sensory experience, where personality lives not only in the graphics but also in how users move through the interface.
 
 Key features and accomplishments include:
 
--   **Animated Components:** Components are built to react dynamically based on user inputs (scroll, hover, click).
--   **Enhanced Storytelling:** Creative use of motion graphics to enhance storytelling and guide the user through the narrative flow of the site.
--   **Optimized Performance:** Aggressive performance tuning ensures all high-fidelity animations run smoothly across devices, maintaining fast load times.
+- **2000s Visual Language:** Retro iPod motifs, stickers, and magazine-style textures bring nostalgic personality.
+- **Collage Identity:** Layered cut-outs reflect the podcast’s unfiltered and expressive tone.
+- **Interactive UI Concepts:** Real-life gestures (like picking up headphones) drive user actions.
+- **Bold Color Story:** High-energy orange and blue strengthen the brand’s memorable identity.
+- **Adaptable System:** Scales easily into episode covers, social graphics, and workshop pages.
+
+
