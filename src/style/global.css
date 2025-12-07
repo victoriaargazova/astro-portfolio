@@ -9,6 +9,9 @@
     --card-text-dark: #171717;
     --card-text-light: #dfdfdf;
     --card-text-white: #ffffff;
+    --intermediate-color:#ffb4bc;
+    --beginner-color: #f9d2d5;
+    --advanced-color: #d06972;
     --color-border-light: rgba(0, 0, 0, 0.14);
     --color-border-dark: rgba(255, 255, 255, 0.14);
     --font-display: "League Spartan", sans-serif;

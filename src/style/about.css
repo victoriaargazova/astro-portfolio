@@ -37,11 +37,10 @@
 .about-block {
     border-radius: var(--space-sm);
     padding: var(--space-md);
-    border: 0.1rem solid var(--color-border-light);
 }
 
 .about-block--overview {
-    background: var(--card-bg-light);
+    background: var(--card-bg-red);
     color: var(--card-bg-red);
 }
 
@@ -50,7 +49,7 @@
 }
 
 .about-block--details {
-    background: var(--card-bg-dark);
+    background: var(--card-bg-light);
     color: var(--card-text-white);
 }
 
@@ -66,6 +65,10 @@
     letter-spacing: 0.22em;
     margin-bottom: var(--space-sm);
     font-weight: 600;
+}
+
+.about-block--details .about-block-title {
+    color: var(--card-bg-red);
 }
 
 .about-block p {
@@ -109,8 +112,6 @@
     margin: 0;
 }
 
-/* skills by category */
-
 .skills-grid {
     display: flex;
     flex-direction: column;
@@ -120,21 +121,18 @@
 .skills-group {
     border-radius: var(--space-sm);
     padding: var(--space-md);
-    border: 0.1rem solid var(--color-border-light);
     display: flex;
     flex-direction: column;
     gap: var(--space-sm);
 }
 
-/* first box (e.g. Development) */
 .skills-group:first-child {
     background: var(--card-bg-dark);
-    color: var(--card-text-white);
+    color: var(--card-text-red);
 }
 
-/* second box (e.g. Design / Tools / Other) */
 .skills-group:last-child {
-    background: var(--card-bg-light);
+    background: var(--card-bg-red);
     color: var(--card-text-dark);
 }
 
@@ -175,29 +173,24 @@
     text-transform: uppercase;
     letter-spacing: 0.16em;
     font-weight: 700;
-    border: 0.1rem solid transparent;
 }
 
-/* level colors */
 .skill-level--beginner {
     background: var(--card-bg-light);
     color: var(--card-text-dark);
-    border-color: var(--color-border-light);
 }
 
 .skill-level--intermediate {
-    background: var(--card-bg-red);
+    background: var(--intermediate-color);
     color: var(--card-text-dark);
-    border-color: rgba(0, 0, 0, 0.35);
 }
 
 .skill-level--advanced {
-    background: var(--card-bg-dark);
+    background: var(--advanced-color);
     color: var(--card-text-white);
-    border-color: rgba(0, 0, 0, 0.25);
 }
 
-@media (min-width: 43.75em) {
+@media (min-width: 43.75rem) {
     .about-page {
         padding: var(--space-xl) var(--space-md) var(--space-xxl);
     }
@@ -251,7 +244,7 @@
     }
 }
 
-@media (min-width: 68.75em) {
+@media (min-width: 68.75rem) {
     .about-page {
         margin: 3rem 3rem 0 2rem;
     }
