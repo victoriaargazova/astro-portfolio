@@ -19,7 +19,6 @@ const { Content } = await render(entry);
 ---
 
 <ProjectDetailLayout pageTitle={entry.data.title}>
-    <!-- META SLOT -->
     <Fragment slot="meta">
         <div class="meta-item">
             <span class="meta-key">By</span>
@@ -47,7 +46,6 @@ const { Content } = await render(entry);
         }
     </Fragment>
 
-    <!-- DESCRIPTION SLOT -->
     <Fragment slot="description">
         {
             entry.data.description && (
@@ -58,7 +56,6 @@ const { Content } = await render(entry);
         }
     </Fragment>
 
-    <!-- THUMBNAIL SLOT -->
     <Fragment slot="thumbnail">
         {
             entry.data.thumbnail && (
@@ -74,7 +71,7 @@ const { Content } = await render(entry);
         }
     </Fragment>
 
-    <!-- URL SLOT -->
+
     <Fragment slot="url">
         {
             entry.data.url && (
@@ -90,6 +87,5 @@ const { Content } = await render(entry);
         }
     </Fragment>
 
-    <!-- MAIN CONTENT -->
     <Content />
 </ProjectDetailLayout>

@@ -1,3 +1,5 @@
+/* ========== GLOBAL ========== */
+
 :root {
     --color-bg: #050505;
     --color-title: #F8061F;
@@ -9,7 +11,7 @@
     --card-text-dark: #171717;
     --card-text-light: #dfdfdf;
     --card-text-white: #ffffff;
-    --intermediate-color:#ffb4bc;
+    --intermediate-color: #ffb4bc;
     --beginner-color: #f9d2d5;
     --advanced-color: #d06972;
     --color-border-light: rgba(0, 0, 0, 0.14);
@@ -18,6 +20,7 @@
     --font-titles: "Archivo Black", sans-serif;
     --font-body: "Plus Jakarta Sans", sans-serif;
     --font-cursive: "Imperial Script", serif;
+
     --fs-xs: 0.75rem;
     --fs-sm: 0.9rem;
     --fs-base: 1rem;
@@ -27,10 +30,12 @@
     --fs-xxl: 2.4rem;
     --fs-xxxl: 3rem;
     --fs-xxxxl: 4.5rem;
+
     --fs-hero: clamp(4rem, 15vw, 10rem);
     --fs-heading-mobile: 3rem;
     --fs-heading-tablet: 4rem;
     --fs-heading-desktop: 5.5rem;
+
     --space-xs: 0.5rem;
     --space-sm: 1rem;
     --space-md: 2rem;
@@ -41,6 +46,7 @@
 }
 
 /* RESET */
+
 * {
     margin: 0;
     padding: 0;
@@ -74,16 +80,17 @@ a {
 }
 
 /* TYPOGRAPHY UTILITIES */
+
 .page-heading {
     font-family: var(--font-display);
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: -0.02em;
     color: var(--color-text-main);
-    font-size: 3rem;
+    font-size: var(--fs-heading-mobile);
     line-height: 0.9;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: var(--space-md);
 }
 
 h2,
@@ -106,6 +113,7 @@ p {
 }
 
 /* LAYOUT HELPERS */
+
 .section {
     padding: var(--space-xl) 0;
 }
@@ -129,10 +137,28 @@ p {
     gap: var(--space-md);
 }
 
+/* SHARED TAG PILL BASE */
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.tag-pill {
+    border-radius: 30rem;
+    font-size: var(--fs-xs);
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+}
+
 /* SOCIAL ICONS */
+
 .social-links {
     display: flex;
-    gap: 1rem;
+    gap: var(--space-sm);
     justify-content: center;
     align-items: center;
 }
@@ -144,7 +170,7 @@ p {
     width: 2.6rem;
     height: 2.6rem;
     border-radius: 50%;
-    border: 1px solid var(--card-bg-red);
+    border: 0.0625rem solid var(--card-bg-red);
     transition: 0.2s ease;
 }
 
@@ -160,7 +186,8 @@ p {
     transition: 0.2s ease;
 }
 
-/* CONTACT CTA – mobile first */
+/* CONTACT CTA */
+
 .contact-cta {
     margin: var(--space-lg) var(--space-md);
     padding: var(--space-lg) var(--space-md);
@@ -187,7 +214,6 @@ p {
     font-size: var(--fs-sm);
     color: var(--card-text-light);
     margin-bottom: var(--space-sm);
-    /* smaller gap to the button */
     line-height: 1.7;
 }
 
@@ -204,7 +230,7 @@ p {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.16em;
-    border: 1px solid var(--card-bg-red);
+    border: 0.0625rem solid var(--card-bg-red);
     text-decoration: none;
     transition: 0.2s ease;
 }
@@ -215,17 +241,18 @@ p {
 }
 
 /* FOOTER */
+
 .footer {
     width: 100%;
     background: var(--color-title);
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(0.25rem);
     padding: var(--space-sm);
     text-align: center;
     color: var(--card-text-dark);
     font-size: var(--fs-base);
     line-height: 1.5;
     margin-top: var(--space-xl);
-    border-top: 2px solid rgba(255, 105, 130, 0.25);
+    border-top: 0.125rem solid rgba(255, 105, 130, 0.25);
 }
 
 .footer a {
@@ -238,8 +265,9 @@ p {
     text-decoration: underline;
 }
 
-/* TABLET (min-width: 700px) */
-@media (min-width: 700px) {
+/* TABLET (≈700px) */
+
+@media (min-width: 43.75rem) {
     .section-title {
         font-size: var(--fs-xxl);
     }
@@ -247,50 +275,8 @@ p {
     .contact-cta-inner {
         max-width: 48rem;
     }
-}
 
-/* DESKTOP (min-width: 1000px) */
-@media (min-width: 1100px) {
-    .section-title {
-        font-size: 3.5rem;
-    }
-
-    .contact-cta-inner {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        align-items: start;
-        max-width: 60rem;
-        margin: 0 auto;
-        text-align: left;
-        row-gap: var(--space-sm);
-        /* tighter vertical spacing */
-        column-gap: var(--space-xl);
-    }
-
-    /* title in column 1 */
-    .contact-cta-title {
-        grid-column: 1;
-    }
-
-    /* text + button in column 2 */
-    .contact-cta-text,
-    .contact-cta-button {
-        grid-column: 2;
-    }
-
-    .contact-cta-text {
-        max-width: 45rem;
-        font-size: var(--fs-md);
-        margin-bottom: var(--space-xs);
-        /* small gap above button */
-    }
-
-    /* make button a bit smaller + tighter on desktop */
-    .contact-cta-button {
-        padding: 0.6rem 1.6rem;
-        font-size: var(--fs-xs);
-        letter-spacing: 0.12em;
-        max-width: 14rem;
-        justify-content: center;
+    .page-heading {
+        font-size: var(--fs-heading-tablet);
     }
 }

@@ -128,7 +128,7 @@
 
 .skills-group:first-child {
     background: var(--card-bg-dark);
-    color: var(--card-text-red);
+    color: var(--card-bg-red);
 }
 
 .skills-group:last-child {
@@ -193,10 +193,6 @@
 @media (min-width: 43.75rem) {
     .about-page {
         padding: var(--space-xl) var(--space-md) var(--space-xxl);
-    }
-
-    .page-heading {
-        font-size: var(--fs-heading-tablet);
     }
 
     .about-heading-block {
@@ -282,10 +278,6 @@
 
     .about-block-split {
         gap: var(--space-xxl);
-    }
-
-    .page-heading {
-        font-size: var(--fs-heading-desktop);
     }
 
     .skills-group-title {

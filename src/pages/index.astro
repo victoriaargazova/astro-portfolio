@@ -3,10 +3,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import "../style/home.css";
 ---
 
-<BaseLayout title="Home">
+<BaseLayout title="Home" showBow={true}>
     <section class="hero">
         <div id="bow-canvas"></div>
-        <!-- free floating! -->
         <div class="hero-inner">
             <h1 class="hero-heading">
                 <span class="first-letter">V</span>ictoria Argazova
@@ -33,8 +32,7 @@ import "../style/home.css";
             <h2 class="section-title">Selected Work</h2>
             <div class="section-content">
                 <a href="projects/project-2" class="work-card">
-                    <div class="work-card-thumb">
-                    </div>
+                    <div class="work-card-thumb"></div>
                     <h3 class="work-title">Rooted Bulb</h3>
                     <p class="work-subtitle">Interactive web experience</p>
                 </a>
@@ -42,7 +40,6 @@ import "../style/home.css";
         </div>
     </section>
 
-  
     <script>
         import { gsap } from "gsap";
 

@@ -1,19 +1,32 @@
 ---
 import "../style/nav.css";
+
+const base = import.meta.env.BASE_URL || "/";
 ---
 
 <nav class="nav">
-    <a href="home/" class="nav__logo_V">VA</a>
+
+    <a href={base} class="nav__logo_V">VA</a>
+
 
     <button class="nav__button" type="button" aria-label="Toggle navigation">
-        <img class="nav__icon nav__icon--open" src="icons/navicon.svg" alt="" />
-        <img class="nav__icon nav__icon--close" src="icons/close.svg" alt="" />
+        <img
+            class="nav__icon nav__icon--open"
+            src={`${base}icons/navicon.svg`}
+            alt=""
+        />
+        <img
+            class="nav__icon nav__icon--close"
+            src={`${base}icons/close.svg`}
+            alt=""
+        />
     </button>
 
+
     <ul class="nav__list">
-        <li><a href="home/">Home</a></li>
-        <li><a href="about/">About</a></li>
-        <li><a href="projects/">Projects</a></li>
-        <li><a href="blog/">Blog</a></li>
+        <li><a href={`${base}`}>Home</a></li>
+        <li><a href={`${base}about/`}>About</a></li>
+        <li><a href={`${base}projects/`}>Projects</a></li>
+        <li><a href={`${base}blog/`}>Blog</a></li>
     </ul>
 </nav>

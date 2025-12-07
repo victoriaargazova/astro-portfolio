@@ -1,37 +1,66 @@
 ---
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
-import "../style/global.css";
 import ContactCTA from "../components/ContactCTA.astro";
+import "../style/global.css";
+
 const base = import.meta.env.BASE_URL;
-const { title } = Astro.props;
+const {
+	title,
+	description = "Digital designer portfolio by Victoria Argazova.",
+	showBow = false,
+} = Astro.props;
+
+const siteUrl = "https://victoriaargazova/astro-portfolio.com";
+
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
+
 		<base href={import.meta.env.BASE_URL} />
+
 		<title>{title}</title>
+
+		<meta name="description" content={description} />
+		<link rel="canonical" href={`${siteUrl}${Astro.url.pathname}`} />
+
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={`${siteUrl}${Astro.url.pathname}`} />
+	
+
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Alumni+Sans:ital,wght@0,100..900;1,100..900&family=Archivo+Black&family=Imperial+Script&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
 			rel="stylesheet"
 		/>
-		<script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js" defer
-		></script>
+
+		{
+			showBow && (
+				<script
+					src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"
+					defer
+				/>
+			)
+		}
 	</head>
 
 	<body>
 		<Navigation />
-
 		<main class="page-wrap">
 			<slot />
 		</main>
-		<ContactCTA href="mailto:your@email.com" />
+		<ContactCTA />
+
 		<script src="js/navmenu.js" defer></script>
-		<script src="js/bow.js" defer></script>
+
+		{showBow && <script src="js/bow.js" defer />}
+
 		<Footer />
 	</body>
 </html>

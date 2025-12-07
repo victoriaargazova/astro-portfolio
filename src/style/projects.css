@@ -16,11 +16,11 @@
     align-items: center;
     text-align: center;
     gap: 1rem;
-        padding: 2rem;
+    padding: 2rem;
     border-radius: 2rem;
-    border: 1px solid rgba(0, 0, 0, 0.12);
+    border: 0.0625rem solid rgba(0, 0, 0, 0.12);
     text-decoration: none;
-    box-shadow: 0 20px 55px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1.25rem 3.4375rem rgba(0, 0, 0, 0.25);
     transition:
         transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
         box-shadow 0.28s ease,
@@ -28,8 +28,8 @@
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.35);
+    transform: translateY(-0.625rem);
+    box-shadow: 0 1.75rem 4.375rem rgba(0, 0, 0, 0.35);
     border-color: rgba(0, 0, 0, 0.4);
 }
 
@@ -42,7 +42,7 @@
 
 .project-thumb img {
     width: 100%;
-    height: 190px;
+    height: 11.875rem;
     object-fit: cover;
     display: block;
 }
@@ -74,7 +74,7 @@
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    border: 1px solid rgba(0, 0, 0, 0.16);
+    border: 0.0625rem solid rgba(0, 0, 0, 0.16);
 }
 
 .project-desc {
@@ -117,13 +117,7 @@
     border-color: rgba(0, 0, 0, 0.4);
 }
 
-@media (min-width: 700px) {
-    .page-heading {
-        font-size: var(--fs-heading-tablet);
-        margin: 0 auto var(--space-xl);
-        text-align: center;
-    }
-
+@media (min-width: 43.75rem) {
     .projects-page {
         padding: var(--space-xl) 0 var(--space-xxl);
     }
@@ -135,12 +129,12 @@
     }
 
     .project-card {
-        padding:2rem;
+        padding: 2rem;
         border-radius: 2.2rem;
     }
 
     .project-thumb img {
-        height: 210px;
+        height: 13.125rem;
     }
 
     .project-title {
@@ -148,12 +142,7 @@
     }
 }
 
-@media (min-width: 1100px) {
-    .page-heading {
-        font-size: var(--fs-heading-desktop);
-        margin-bottom: var(--space-xxl);
-    }
-
+@media (min-width: 68.75rem) {
     .projects-list {
         grid-template-columns: repeat(3, 1fr);
         margin: 0 3rem;
