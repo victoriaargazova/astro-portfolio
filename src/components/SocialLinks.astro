@@ -1,16 +1,22 @@
 ---
-type Social = {
-    label: string;
-    href: string;
-};
+import GithubIcon from "./icons/github.svg";
+import BehanceIcon from "./icons/behance.svg";
 
-const socials: Social[] = [
-    { label: "Behance", href: "https://www.behance.net/victoriargazov" },
-    { label: "GitHub", href: "https://github.com/victoriaargazova" },
+const socials = [
+    {
+        label: "GitHub",
+        href: "https://github.com/victoriaargazova",
+        icon: GithubIcon,
+    },
+    {
+        label: "Behance",
+        href: "https://www.behance.net/victoriargazov",
+        icon: BehanceIcon,
+    },
 ];
 ---
 
-<nav class="social-links" aria-label="Social media links">
+<nav class="social-links" aria-label="Social media">
     {
         socials.map((s) => (
             <a
@@ -18,8 +24,9 @@ const socials: Social[] = [
                 href={s.href}
                 target="_blank"
                 rel="noreferrer"
+                aria-label={s.label}
             >
-                {s.label}
+                <s.icon class="social-icon" />
             </a>
         ))
     }

@@ -132,32 +132,39 @@ p {
     display: flex;
     gap: var(--space-md);
 }
-
 .social-links {
     display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-sm);
+    gap: 1rem;
     justify-content: center;
+    align-items: center;
 }
 
 .social-link {
-    padding: 0.5rem 1.2rem;
-    border-radius: 999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 50%;
     border: 1px solid var(--card-bg-red);
-    color: var(--card-text-white);
-    font-family: var(--font-body);
-    font-size: var(--fs-xs);
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    text-decoration: none;
     transition: 0.2s ease;
 }
 
 .social-link:hover {
     background: var(--card-bg-red);
-    color: var(--card-text-dark);
+    border-color: var(--card-bg-red);
 }
 
+.social-icon {
+    width: 1.4rem;
+    height: 1.4rem;
+    fill: var(--card-text-white);
+    transition: 0.2s ease;
+}
+
+.social-link:hover .social-icon {
+    fill: var(--card-text-dark);
+}
 .footer {
     width: 100vw;
     background: var(--color-title);
