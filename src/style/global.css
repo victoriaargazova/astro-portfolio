@@ -165,6 +165,62 @@ p {
 .social-link:hover .social-icon {
     fill: var(--card-text-dark);
 }
+
+.contact-cta {
+    margin: var(--space-xxl) auto 0;
+    padding: var(--space-lg) var(--space-md);
+    border-radius: var(--space-md);
+    border: 1px solid var(--color-border-dark);
+    background: linear-gradient(135deg,
+            rgba(248, 6, 31, 0.15),
+            rgba(5, 5, 5, 0.95));
+}
+
+.contact-cta-inner {
+    max-width: 40rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-cta-title {
+    font-family: var(--font-display);
+    font-size: var(--fs-xl);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--card-text-white);
+    margin-bottom: var(--space-sm);
+}
+
+.contact-cta-text {
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    color: var(--card-text-light);
+    margin-bottom: var(--space-md);
+    line-height: 1.7;
+}
+
+.contact-cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 2.4rem;
+    border-radius: 999px;
+    background: var(--card-bg-red);
+    color: var(--card-text-dark);
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    border: 1px solid var(--card-bg-red);
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.contact-cta-button:hover {
+    background: var(--card-text-white);
+    color: var(--card-text-dark);
+}
 .footer {
     width: 100vw;
     background: var(--color-title);
