@@ -1,24 +1,20 @@
 ---
-title: "Adding Interactivity With GSAP and p5.js (and Testing My Patience)"
+title: "Finishing the First Version of My Portfolio: A Small but Meaningful Milestone"
 author: "Victoria Argazova"
-description: "A reflection on implementing animations in Astro and how debugging taught me more than success did."
-pubDate: 2025-11-23
-tags: ["GSAP", "p5.js", "Astro", "Animation"]
+description: "Wrapping up the main features of my Astro portfolio and reflecting on what I learned along the way."
+pubDate: 2025-11-27
+tags: ["Portfolio", "Reflection", "Learning Journey"]
 ---
 
-# Adding Interactivity With GSAP and p5.js (and Testing My Patience)
+It’s easy to underestimate how much work goes into building a personal site. What starts as a simple idea becomes decisions, revisions, bugs, restarts, and the occasional mini breakdown.
 
-Animating my site sounded fun in theory. In reality, it became one of the most detail-oriented parts of the project.
+Now that the core pieces are finished — animations, content collections, layouts, and structure — I finally feel a real sense of progress.
 
-GSAP behaved well until I changed one line and everything shifted by 30 pixels for no reason.  
-p5.js was even more particular — canvas sizing, positioning, and responsiveness were a whole challenge on their own.
+## What I’m Proud Of
 
-## What I Learned Along the Way
+- I built everything from scratch  
+- I learned a new framework  
+- I created a workflow that actually makes sense to me  
+- I pushed myself beyond design and into full implementation  
 
-- Animations only feel effortless if the code behind them is solid  
-- Debugging positioning relies heavily on understanding the DOM  
-- Small offsets matter more than I expected  
-- Sometimes you need to step away and return with a fresh perspective
-
-But when I finally saw the bow drawing itself above the heading, everything clicked.  
-This is the kind of detail that makes an interface feel personal, and that’s why I push through the frustrations.  
+There is still so much I want to learn, but this project already feels like proof that I *can* merge design and code in a way that matches who I am.

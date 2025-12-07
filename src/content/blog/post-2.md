@@ -1,27 +1,30 @@
 ---
-title: "Learning Markdown Collections and Accepting That Struggle Is Part of It"
+title: "Branches, Mistakes, and Figuring Out How Git Actually Works"
 author: "Victoria Argazova"
-description: "My process of creating content collections in Astro, what confused me, and how I eventually got through it."
-pubDate: 2025-11-14
-tags: ["Astro", "Content Collections", "Learning"]
+description: "A recap of my experience learning Git branching—and realizing I had done it wrong for a while."
+pubDate: 2025-11-17
+tags: ["Git", "Workflow", "Learning Process"]
 ---
 
-# Learning Markdown Collections and Accepting That Struggle Is Part of It
+Git has always felt slightly intimidating. I like the idea of branches keeping work organized, but using them correctly was a different story.
 
-Setting up Astro’s content collections looked simple in the documentation. In practice, it felt like assembling IKEA furniture without the little cartoon guy.
+I created a feature branch.  
+Then accidentally created another one with a nearly identical name.  
+Then pushed the wrong branch entirely.  
+Then realized I wasn’t using GitHub Flow properly at all.
 
-I understood the idea—define a collection, define a schema, put Markdown files in the right folder—but actually wiring it together took longer than I expected.
+## What Went Wrong
 
-## Where I Got Stuck
+- I committed to the wrong branch  
+- I forgot to delete branches after merging  
+- I pushed with incorrect refspecs  
+- I relied too much on the UI and not enough on understanding commands
 
-- Type validation kept yelling at me  
-- I placed frontmatter in the wrong order  
-- My schema didn’t match my files, and the errors were extremely dramatic  
-- I forgot to export the collection (more than once)
+## What I Learned
 
-What helped was slowing down and actually reading the errors instead of skimming them in panic. I also realized how powerful the system becomes when it finally works: predictable data, organized content, and a workflow that scales.
+- Always check `git branch` before committing  
+- Clean branches make a clean mind  
+- Naming conventions matter more than expected  
+- Mistakes are part of learning version control
 
-## The Takeaway
-
-I’m learning that frustration isn’t a sign I’m doing something wrong — it’s just part of learning to build real things.  
-And the moment the first collection rendered on the page, everything felt worth it.  
+I used to think Git was just a technical requirement — now I see it as a way to think more clearly about my work.
