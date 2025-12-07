@@ -14,15 +14,8 @@ const identity = {
     hobbies: ["video editing", "dancing", "pop culture"],
 };
 
-// Load skills from the content collection
-let skills = await getCollection("skills");
-
-// Optional: sort by "order" frontmatter
-skills = skills.sort((a, b) => {
-    const aOrder = a.data.order ?? 999;
-    const bOrder = b.data.order ?? 999;
-    return aOrder - bOrder;
-});
+// load skills from the "skills" content collection
+const skills = await getCollection("skills");
 ---
 
 <BaseLayout pageTitle={pageTitle}>
@@ -64,9 +57,23 @@ skills = skills.sort((a, b) => {
                     <h2 class="about-block-title">My skills</h2>
                     <ul class="about-skills">
                         {
-                            skills.map((entry) => (
+                            skills.map((skill) => (
                                 <li class="about-skill-pill">
-                                    {entry.data.name}
+                                    <span class="about-skill-name">
+                                        {skill.data.name}
+                                    </span>
+
+                                    {skill.data.level && (
+                                        <span class="about-skill-level">
+                                            {skill.data.level}
+                                        </span>
+                                    )}
+
+                                    {skill.data.category && (
+                                        <span class="about-skill-category">
+                                            {skill.data.category}
+                                        </span>
+                                    )}
                                 </li>
                             ))
                         }
