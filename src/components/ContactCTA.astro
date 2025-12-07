@@ -1,0 +1,25 @@
+---
+type Props = {
+    title?: string;
+    text?: string;
+    buttonLabel?: string;
+    href?: string;
+};
+
+const {
+    title = "Let’s get in touch",
+    text = "Open for internships, junior roles, collaborations and fun side projects.",
+    buttonLabel = "Contact me",
+    href = "mailto:v.argazova@gmail.com",
+} = Astro.props as Props;
+---
+
+<section class="contact-cta">
+    <div class="contact-cta-inner">
+        <h2 class="contact-cta-title">{title}</h2>
+        <p class="contact-cta-text">{text}</p>
+        <a class="contact-cta-button" href={href}>
+            {buttonLabel}
+        </a>
+    </div>
+</section>
