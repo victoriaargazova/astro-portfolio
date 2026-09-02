@@ -1,9 +1,9 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Trigger the workflow every time you push to the `milestone/3-deployment` branch
+  # Trigger the workflow every time you push to the `main` branch
   push:
-    branches: [ milestone/3-deployment ]
+    branches: [ main ]
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
